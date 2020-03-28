@@ -62,8 +62,15 @@
 		if(isset($_POST['country'])) {$country = $_POST['country'];}
 		if(isset($_POST['email'])) {$email = $_POST['email'];}
 		if(isset($_POST['password'])) {$password = $_POST['password'];}
+
+		$digest = null;
+
+		if($password != null)
+		{
+			$digest = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
+		}
 		
-		if($firstname != null && $lastname != null && $city != null && $country != null && $email != null && $password != null)
+		if($firstname != null && $lastname != null && $city != null && $country != null && $email != null && $digest != null)
 		{
 			$NewUser = new User();
 			
@@ -72,7 +79,7 @@
 			$NewUser->setCity($city);
 			$NewUser->setCountry($country);
 			$NewUser->setEmail($email);
-			$NewUser->setPassword(password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]));
+			$NewUser->setPassword($digest);
 			
 			insertUser($NewUser, $connection);
 		}
