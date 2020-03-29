@@ -96,7 +96,7 @@
 		function getId() {return $this->id;}
 		function getTmdbId() {return $this->tmdb_id;}
 		function getImdbId() {return $this->imdb_id;}
-		function getRelease_Date() {return $this->release_date
+		function getRelease_Date() {return $this->release_date;}
 		function getVoteAverage() {return $this->vote_average;}
 		function getVoteCount() {return $this->vote_count;}
 		function getRuntime() {return $this->runtime;}
@@ -110,7 +110,7 @@
 		function getGenres() {return $this->genres;}
 		function getKeywords() {return $this->keywords;}
 		function getCast() {return $this->cast;}
-		function getCrew() {return $this->crew;};}
+		function getCrew() {return $this->crew;}
 		function getTitle() {return $this->title;}
 	}
 
