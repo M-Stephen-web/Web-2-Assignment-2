@@ -49,7 +49,7 @@
 		
 		$movies = [];
 		
-		foreach($row = $sqlResult->fetch())
+		foreach($sqlResult as $row)
 		{
 			$movies[] = new Movie($row);
 		}
@@ -78,7 +78,7 @@
 		
 		$movie = null;
 		
-		foreach($row = $sqlResult->fetch())
+		foreach($sqlResult as $row)
 		{
 			$movie = new Movie($row);
 		}
@@ -107,7 +107,7 @@
 		
 		$user = null;
 		
-		foreach($row = $sqlResult->fetch())
+		foreach($sqlResult as $row)
 		{
 			$user = new User($row);
 		}
