@@ -32,8 +32,6 @@
 		{
 			$User = getUser($email);
 			
-			//$CryptedEnteredPassword = password_hash( $password, PASSWORD_BCRYPT, ['cost' => 12] );\
-			
 			if($User->getPassword() == password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]))
 			{
 				$_SESSION['User'] = $User;
