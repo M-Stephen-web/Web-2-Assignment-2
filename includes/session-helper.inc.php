@@ -36,16 +36,16 @@
 			{
 				$_SESSION['User'] = $User;
 				
-				$header("Location: " . $_SERVER["HTTP_REFERER"]);
+				header("Location: " . $_SERVER["HTTP_REFERER"]);
 			}
 		}
 		else
 		{
-			
+			//call error function in class helper
 		}
 	}
 	
-	function RegisterUser()
+	function RegisterUser($connection)
 	{
 		$firstname = null;
 		$lastname = null;
