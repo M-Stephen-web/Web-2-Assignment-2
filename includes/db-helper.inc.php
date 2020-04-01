@@ -64,7 +64,7 @@
 		$sql = 'SELECT * FROM movie';
 		$sql .= " WHERE id = :id";
 
-		return $sql
+		return $sql;
 		
 	}
 	
@@ -93,7 +93,7 @@
 		$sql = 'SELECT * FROM Users';
 		$sql .= " WHERE email = :email";
 
-		return $sql
+		return $sql;
 		
 	}
 	
@@ -122,7 +122,7 @@
 		$sql = 'INSERT INTO Users (firstname, lastname, city, country, email, password, salt, password_sha256)';
 		$sql .= 'VALUES (:firstname, :lastname, :city, :country, :email, :password, :salt, :password_sha256);';
 
-		return $sql
+		return $sql;
 		
 	}
 	
