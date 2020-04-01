@@ -70,14 +70,16 @@
 		
 		if($firstname != null && $lastname != null && $city != null && $country != null && $email != null && $digest != null)
 		{
-			$NewUser = new User();
+			$UserData = array();
+
+			$UserData['firstname'] = $firstname;
+			$UserData['lastname'] = $lastname;
+			$UserData['city'] = $city;
+			$UserData['country'] = $country;
+			$UserData['email'] = $email;
+			$UserData['digest'] = $digest;
 			
-			$NewUser->setFirstname($firstname);
-			$NewUser->setLastname($lastname);
-			$NewUser->setCity($city);
-			$NewUser->setCountry($country);
-			$NewUser->setEmail($email);
-			$NewUser->setPassword($digest);
+			$NewUser = new User($UserData);
 			
 			insertUser($NewUser, $connection);
 		}

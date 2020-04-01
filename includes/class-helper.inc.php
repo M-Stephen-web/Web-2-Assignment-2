@@ -2,19 +2,17 @@
 
 	class User
 	{
-		
-
-		function __construct($sqlResult)
+		function __construct($userData)
 		{
-			$this->id = $sqlResult['id'];
-			$this->firstname = $sqlResult['firstname'];
-			$this->lastname = $sqlResult['lastname'];
-			$this->city = $sqlResult['city'];
-			$this->country = $sqlResult['country'];
-			$this->email = $sqlResult['email'];
-			$this->password = $sqlResult['password'];
-			$this->salt = $sqlResult['salt'];
-			$this->password_sha256 = $sqlResult['password_sha256'];
+			$this->id = $userData['id'];
+			$this->firstname = $userData['firstname'];
+			$this->lastname = $userData['lastname'];
+			$this->city = $userData['city'];
+			$this->country = $userData['country'];
+			$this->email = $userData['email'];
+			$this->password = $userData['password'];
+			$this->salt = $userData['salt'];
+			$this->password_sha256 = $userData['password_sha256'];
 		}
 		
 		private $id;
@@ -114,6 +112,21 @@
 		function getCast() {return $this->cast;}
 		function getCrew() {return $this->crew;}
 		function getTitle() {return $this->title;}
+	}
+
+	class Payload
+	{
+		function __construct($isSuccessful, $data, $errorMessage)
+		{
+			$this->isSuccessful = $isSuccessful;
+			$this->data = $data;
+			$this->errorMessage = $errorMessage;
+		}
+
+		public $isSuccessful;
+		public $data;
+		public $errorMessage;
+
 	}
 
 ?>
