@@ -10,7 +10,7 @@
 		{
 			$statement = $connection->prepare($sql);
 			
-			foreach($row as $key => $value)
+			foreach($values as $key => $value)
 			{
 				$statement->bindValue($key,$value);
 			}
