@@ -45,14 +45,17 @@
 	
 	function getAllMovies($connection)
 	{
-		$sqlResult = runQuery($connection, getAllMoviesSQL(), null);
-		
 		$movies = [];
 		
-		foreach($sqlResult as $row)
-		{
-			$movies[] = new Movie($row);
+		try{
+			$sqlResult = runQuery($connection, getAllMoviesSQL(), null);
+	
+			foreach($sqlResult as $row)
+			{
+				$movies[] = new Movie($row);
+			}
 		}
+		catch(PDOException $e){}
 		
 		return $movies;
 	}
@@ -73,16 +76,21 @@
 		$values = array();
 		
 		$values[':id'] = $Id;
-		
-		$sqlResult = runQuery($connection, getMovieDetailSQL($Id), $values);
-		
+
 		$movie = null;
 		
-		foreach($sqlResult as $row)
-		{
-			$movie = new Movie($row);
-		}
+		try{
+
+			$sqlResult = runQuery($connection, getMovieDetailSQL($Id), $values);
 		
+			foreach($sqlResult as $row)
+			{
+				$movie = new Movie($row);
+			}
+			
+		}
+		catch(PDOException $e){}
+
 		return $movie;
 	}
 	
@@ -103,14 +111,20 @@
 		
 		$values[':email'] = $Email;
 		
-		$sqlResult = runQuery($connection, getUserSQL($Email), $values);
-		
 		$user = null;
 		
-		foreach($sqlResult as $row)
-		{
-			$user = new User($row);
+		try{
+			$sqlResult = runQuery($connection, getUserSQL($Email), $values);
+			
+			
+			foreach($sqlResult as $row)
+			{
+				$user = new User($row);
+			}
+			
 		}
+		catch(PDOException $e)
+		{}
 		
 		return $user;
 	}
@@ -139,7 +153,15 @@
 		$values[":salt"] = $User->getSalt();
 		$values[":password_sha256"] = $User->getPassword_Sha256();
 		
-		return runQuery($connection, insertUserSQL($User), $values);
+		try{
+			runQuery($connection, insertUserSQL($User), $values);
+
+			return true;
+		}
+		catch(PDOException $e){
+			return false;
+		}
+
 	}
 
 ?>
