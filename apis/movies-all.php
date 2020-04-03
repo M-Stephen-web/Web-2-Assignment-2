@@ -1,5 +1,5 @@
-<!--https://www.techiediaries.com/php-rest-api/-->
 <?php
+    //https://www.techiediaries.com/php-rest-api/
     header("Content-Type: application/json; charset=UTF-8");
 
     require_once('../includes/db-helper.inc.php');
