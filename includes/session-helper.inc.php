@@ -32,22 +32,20 @@
 		{
 			$User = getUser($email);
 			
-			//$CryptedEnteredPassword = password_hash( $password, PASSWORD_BCRYPT, ['cost' => 12] );\
-			
 			if($User->getPassword() == password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]))
 			{
 				$_SESSION['User'] = $User;
 				
-				$header("Location: " . $_SERVER["HTTP_REFERER"]);
+				header("Location: " . $_SERVER["HTTP_REFERER"]);
 			}
 		}
 		else
 		{
-			
+			//call error function in class helper
 		}
 	}
 	
-	function RegisterUser()
+	function RegisterUser($connection)
 	{
 		$firstname = null;
 		$lastname = null;

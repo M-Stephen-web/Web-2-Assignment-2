@@ -2,6 +2,8 @@
 
 	class User
 	{
+		
+
 		function __construct($sqlResult)
 		{
 			$this->id = $sqlResult['id'];
