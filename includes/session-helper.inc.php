@@ -2,6 +2,7 @@
 	session_start();
 
 	require_once('./class-helper.inc.php');
+	require_once('./config.inc.php');
 	
 	function IsLoggedIn(){
 		
@@ -19,7 +20,7 @@
 	{
 		if($email != null && $password != null)
 		{
-			$User = getUser($email);
+			$User = getUser($email, connection);
 			
 			if($User->getPassword() == password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]))
 			{
@@ -34,9 +35,9 @@
 		}
 	}
 	
-	function RegisterUser($newUser, $connection)
+	function RegisterUser($newUser)
 	{
-		if(insertUser($newUser, $connection))
+		if(insertUser($newUser, connection))
 		{
 			return true;
 		}

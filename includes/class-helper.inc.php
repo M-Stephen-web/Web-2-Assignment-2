@@ -15,15 +15,15 @@
 			$this->password_sha256 = $userData['password_sha256'];
 		}
 		
-		private $id;
-		private $firstname;
-		private $lastname;
-		private $city;
-		private $country;
-		private $email;
-		private $password;
-		private $salt;
-		private $password_sha256;
+		public $id;
+		public $firstname;
+		public $lastname;
+		public $city;
+		public $country;
+		public $email;
+		public $password;
+		public $salt;
+		public $password_sha256;
 		
 		function getId(){return $this->id;}
 		function getFirstname(){return $this->firstname;}
@@ -73,25 +73,25 @@
 			$this->crew = $sqlResult['crew'];
 		}
 		
-		private $id;
-		private $tmdb_id;
-		private $imdb_id;
-		private $release_date;
-		private $title;
-		private $vote_average;
-		private $vote_count;
-		private $runtime;
-		private $popularity;
-		private $revenue;
-		private $poster_path;
-		private $tagline;
-		private $overview;
-		private $production_companies;
-		private $production_countries;
-		private $genres;
-		private $keywords;
-		private $cast;
-		private $crew;
+		public $id;
+		public $tmdb_id;
+		public $imdb_id;
+		public $release_date;
+		public $title;
+		public $vote_average;
+		public $vote_count;
+		public $runtime;
+		public $popularity;
+		public $revenue;
+		public $poster_path;
+		public $tagline;
+		public $overview;
+		public $production_companies;
+		public $production_countries;
+		public $genres;
+		public $keywords;
+		public $cast;
+		public $crew;
 		
 		function getId() {return $this->id;}
 		function getTmdbId() {return $this->tmdb_id;}

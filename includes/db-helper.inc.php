@@ -1,5 +1,4 @@
 <?php
-	
 	require_once 'config.inc.php';
 	
 	function runQuery($connection, $sql, $values) {
@@ -37,7 +36,7 @@
 	
 	function getAllMoviesSQL() {
 		
-		$sql = 'SELECT id, title, vote_average, release_date, poster_path FROM movie';
+		$sql = 'SELECT * FROM movie';
 		$sql .= " ORDER BY title";
 
 		return $sql;

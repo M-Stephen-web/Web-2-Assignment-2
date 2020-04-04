@@ -10,7 +10,7 @@
     {
         $movie = getMovieDetail($_GET['id'], $connection);
     
-        if($movie != null && $movies > 0)
+        if($movie != null)
         {
             $payload = new Payload(true, $movie, null);
         }
