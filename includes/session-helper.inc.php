@@ -1,5 +1,8 @@
 <?php
 	session_start();
+
+	require_once('./class-helper.inc.php');
+	require_once('./config.inc.php');
 	
 	function IsLoggedIn(){
 		
@@ -13,73 +16,34 @@
 		}
 	}
 	
-	function LoginUser()
+	function LoginUser($email, $password)
 	{
-		$email = null;
-		$password = null;
-			
-		if(isset($_POST['email']))
-		{
-			$email = $_POST['email'];
-		}
-			
-		if(isset($_POST['password']))
-		{
-			$password = $_POST['password'];
-		}
-		
 		if($email != null && $password != null)
 		{
-			$User = getUser($email);
+			$User = getUser($email, connection);
 			
 			if($User->getPassword() == password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]))
 			{
 				$_SESSION['User'] = $User;
 				
-				header("Location: " . $_SERVER["HTTP_REFERER"]);
+				return true;
 			}
 		}
 		else
 		{
-			//call error function in class helper
+			return false;
 		}
 	}
 	
-	function RegisterUser($connection)
+	function RegisterUser($newUser)
 	{
-		$firstname = null;
-		$lastname = null;
-		$city = null;
-		$country = null;
-		$email = null;
-		$password = null;
-		
-		if(isset($_POST['firstname'])) {$firstname = $_POST['firstname'];}
-		if(isset($_POST['lastname'])) {$lastname = $_POST['lastname'];}
-		if(isset($_POST['city'])) {$city = $_POST['city'];}
-		if(isset($_POST['country'])) {$country = $_POST['country'];}
-		if(isset($_POST['email'])) {$email = $_POST['email'];}
-		if(isset($_POST['password'])) {$password = $_POST['password'];}
-
-		$digest = null;
-
-		if($password != null)
+		if(insertUser($newUser, connection))
 		{
-			$digest = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
+			return true;
 		}
-		
-		if($firstname != null && $lastname != null && $city != null && $country != null && $email != null && $digest != null)
+		else
 		{
-			$NewUser = new User();
-			
-			$NewUser->setFirstname($firstname);
-			$NewUser->setLastname($lastname);
-			$NewUser->setCity($city);
-			$NewUser->setCountry($country);
-			$NewUser->setEmail($email);
-			$NewUser->setPassword($digest);
-			
-			insertUser($NewUser, $connection);
+			return false;
 		}
 	}
 	
