@@ -4,26 +4,24 @@
 	{
 		function __construct($userData)
 		{
-			$this->id = $userData['id'];
+			//$this->id = $userData['id'];
 			$this->firstname = $userData['firstname'];
 			$this->lastname = $userData['lastname'];
 			$this->city = $userData['city'];
 			$this->country = $userData['country'];
 			$this->email = $userData['email'];
 			$this->password = $userData['password'];
-			$this->salt = $userData['salt'];
-			$this->password_sha256 = $userData['password_sha256'];
 		}
 		
-		public $id;
+		//public $id;
 		public $firstname;
 		public $lastname;
 		public $city;
 		public $country;
 		public $email;
 		public $password;
-		public $salt;
-		public $password_sha256;
+		//public $salt;
+		//public $password_sha256;
 		
 		function getId(){return $this->id;}
 		function getFirstname(){return $this->firstname;}

@@ -94,10 +94,10 @@
 	}
 	
 	
-	function getUserSQL($Email)
+	function getUserSQL()
 	{
 	
-		$sql = 'SELECT * FROM Users';
+		$sql = 'SELECT * FROM users';
 		$sql .= " WHERE email = :email";
 
 		return $sql;
@@ -113,7 +113,7 @@
 		$user = null;
 		
 		try{
-			$sqlResult = runQuery($connection, getUserSQL($Email), $values);
+			$sqlResult = runQuery($connection, getUserSQL(), $values);
 			
 			
 			foreach($sqlResult as $row)
@@ -123,7 +123,9 @@
 			
 		}
 		catch(PDOException $e)
-		{}
+		{
+			echo "Exception occured";
+		}
 		
 		return $user;
 	}
@@ -132,8 +134,8 @@
 	function insertUserSQL($User)
 	{
 		
-		$sql = 'INSERT INTO Users (firstname, lastname, city, country, email, password, salt, password_sha256)';
-		$sql .= 'VALUES (:firstname, :lastname, :city, :country, :email, :password, :salt, :password_sha256);';
+		$sql = 'INSERT INTO Users (firstname, lastname, city, country, email, password)';
+		$sql .= 'VALUES (:firstname, :lastname, :city, :country, :email, :password);';
 
 		return $sql;
 		
@@ -144,13 +146,11 @@
 		$values = array();
 		
 		$values[":firstname"] = $User->getFirstname();
-		$values["lastname:"] = $User->getLastname();
+		$values[":lastname"] = $User->getLastname();
 		$values[":city"] = $User->getCity();
 		$values[":country"] = $User->getCountry();
 		$values[":email"] = $User->getEmail();
 		$values[":password"] = $User->getPassword();
-		$values[":salt"] = $User->getSalt();
-		$values[":password_sha256"] = $User->getPassword_Sha256();
 		
 		try{
 			runQuery($connection, insertUserSQL($User), $values);
