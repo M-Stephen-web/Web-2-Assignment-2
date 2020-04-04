@@ -1,7 +1,9 @@
 //All URLS needed
-const movieListURL = "http://www.randyconnolly.com/funwebdev/3rd/api/movie/movies-brief.php?id=ALL";
+const movieListURL = "https://mtsserver.ddns.net:80/apis/movies-all.php";
 const posterURL = "https://image.tmdb.org/t/p/";
-const movieDetailURL = "http://www.randyconnolly.com/funwebdev/3rd/api/movie/movies.php?id=";
+const movieDetailURL = "https://mtsserver.ddns.net:80/apis/movies-brief.php";
+const loginURL = "https://mtsserver.ddns.net:80/apis/login-user.php";
+const registerURL = "https://mtsserver.ddns.net:80/apis/register-user.php";
 const imdbURL = "https://www.imdb.com/title/";
 const tmdbURL = "https://www.themoviedb.org/movie/";
 const loadingSymbolURL = "./images/loadingSymbol.gif";
@@ -88,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //Click listener for when the user wants to log in
     loginButton.addEventListener('click', e => {
-        
+
     })
 
     //To fetch all the movies
