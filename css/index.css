@@ -1,0 +1,683 @@
+html {
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+body {
+  margin: 0;
+}
+
+/*CSS code url: https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_background_hero*/
+.hero-image {
+  /*Image url: https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80*/
+  background-image: url("../images/background.jpg");
+  background-color: #cccccc;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+/*End imported css code*/
+
+#heroImageCredit {
+  color: white;
+}
+
+#heroImageCredit a {
+  color: white;
+  text-decoration: none;
+}
+
+#heroImageCredit a:hover {
+  opacity: 0.7;
+}
+
+.row {
+  display: flex;
+}
+
+#movieBrowserGrid {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: 1fr 1.5fr;
+}
+
+#movieBrowserGrid title {
+  grid-column-start: 1;
+  grid-column-end: 2;
+
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+#movieBrowserGrid label {
+  font-weight: 700;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#movieBrowserGrid .row {
+  grid-column-start: 2;
+  grid-column-end: 3;
+
+  grid-row-start: 2;
+  grid-row-end: 3;
+
+  padding-top: 1.5em;
+
+  justify-content: space-between;
+}
+
+button {
+  background-color: #c2c2c2;
+  border: 1px solid #4a98ff;
+  border-radius: 6px;
+  font-weight: 700;
+  padding: 0.5em;
+  outline: none;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #b3b3b3;
+}
+
+input {
+  border: 2px solid #4a98ff;
+  font-size: 20px;
+  padding: 5px;
+}
+
+#movieBrowerBox {
+  background-color: #ebebeb;
+  width: 35%;
+  margin: auto auto;
+  padding: 1em 2em 4em;
+
+  /*CSS code url: https://www.w3schools.com/css/css_align.asp*/
+  margin: 0;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /*End imported css code*/
+}
+
+#matchingMoviesButton {
+  width: 50%;
+}
+
+#allMoviesButton {
+  width: 40%;
+}
+
+@media only screen and (max-width: 1120px) {
+  #movieBrowerBox {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  #movieBrowerBox {
+    width: 65%;
+  }
+}
+
+#movieBrowserTitle {
+  margin: 0 0 2em;
+}
+
+header {
+  margin: 0.5em;
+}
+
+#defaultSection {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 1fr auto auto;
+  grid-gap: 10px;
+
+  transition: 2s;
+}
+
+#defaultSection header,
+aside,
+#movieListBlock {
+  background-color: #ebebeb;
+}
+
+#defaultSection header {
+  grid-column-start: 1;
+  grid-column-end: 3;
+
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+#defaultSection aside {
+  grid-column-start: 1;
+  grid-column-end: 2;
+
+  grid-row-start: 2;
+  grid-row-end: 3;
+
+  transition: 2s;
+
+  padding: 0 0 0 1em;
+}
+
+#defaultSection.asideClose {
+  grid-template-columns: 4em 4fr;
+  transition: 2s;
+}
+
+#defaultSection aside.closeBox #filterBox {
+  display: none;
+}
+
+aside .row {
+  margin: 10px 0;
+}
+
+aside .row.filterBlock {
+  margin: 0;
+  height: 100%;
+}
+
+#filterCloseButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4em;
+  background-color: #c2c2c2;
+  opacity: 0.7;
+}
+
+#filterCloseButton:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+aside label {
+  font-size: 17px;
+}
+
+#titleFilterInput {
+  margin-top: 5px;
+  width: 93%;
+}
+
+.filterRow {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 1640px) {
+  #defaultSection {
+    grid-template-columns: 2fr 6fr;
+  }
+
+  #titleFilterInput {
+    width: 85%;
+  }
+}
+
+@media only screen and (max-width: 1320px) {
+  #defaultSection {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  #defaultSection {
+    grid-template-columns: 4fr 6fr;
+  }
+}
+
+@media only screen and (max-width: 825px) {
+  #defaultSection {
+    grid-template-columns: 4fr 4em;
+  }
+
+  #defaultSection.asideClose {
+    grid-template-columns: 4em 4fr;
+  }
+
+  #movieListBlock {
+    grid-column-start: 2;
+    grid-column-end: 3;
+  }
+}
+
+.filterRow label {
+  display: flex;
+  align-items: center;
+}
+
+.filterRow .multiRow {
+  display: initial;
+}
+
+.filterRow label input {
+  margin-right: 1em;
+}
+
+.filterRow input[type="number"],
+input[type="range"] {
+  width: 80%;
+}
+
+.filterTitle {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.filterBlock {
+  margin-bottom: 15px;
+}
+
+.filterButtonRow {
+  display: flex;
+  justify-content: space-around;
+}
+
+.filterButtonRow button {
+  width: 40%;
+}
+
+/*CSS code url: https://www.w3schools.com/howto/howto_js_rangeslider.asp*/
+.filterRow input[type="range"] {
+  border: 0;
+  padding: 0;
+  margin: 0;
+
+  -webkit-appearance: none;
+  width: 100%;
+  height: 3px;
+  border-radius: 1px;
+  background: #4a98ff;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+.filterRow input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 25px;
+  background: #4a98ff;
+  cursor: pointer;
+}
+/*End imported css code*/
+
+/*CSS code url: https://www.w3schools.com/howto/howto_css_custom_checkbox.asp*/
+/* The container */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 17px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  background-color: white;
+  border: 2px solid #4a98ff;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: white;
+}
+
+/*Transition code taken from: https://stackoverflow.com/questions/3331353/transitions-on-the-css-display-property*/
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  visibility: hidden;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+  top: 2px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #4a98ff;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
+}
+/*End imported css code*/
+
+.sliderBlock {
+  border-left: 3px solid #4a98ff;
+  border-right: 3px solid #4a98ff;
+  padding-bottom: 0.5em;
+  margin-bottom: 5px;
+  width: 85%;
+}
+
+.rangeDescription {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
+#defaultSection section {
+  grid-column-start: 2;
+  grid-column-end: 3;
+
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+.matchesRow {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1.5fr 1fr 1.5fr;
+  grid-gap: 10px;
+
+  font-size: 16px;
+  margin-bottom: 20px;
+  padding: 0 2em;
+}
+
+.multiRowInput input[type="number"] {
+  margin-bottom: 5px;
+}
+
+.matchesRow .title:hover,
+.matchesRow img:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.matchesRow span {
+  color: #8a8a8a;
+}
+
+.matchesRow.legend {
+  font-size: 18px;
+  font-weight: 600;
+  padding: 0 3.5em 0 2em;
+}
+
+.matchesRow.legend label:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.matchesRow #titleLabel {
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+.matchesRow #yearLabel {
+  grid-column-start: 3;
+  grid-column-end: 4;
+}
+
+.matchesRow #ratingLabel {
+  grid-column-start: 4;
+  grid-column-end: 5;
+}
+
+.matchesRow button {
+  max-height: 2.5em;
+}
+
+#matchesRowsBlock {
+  height: 75vh;
+  overflow-y: scroll;
+}
+
+#errorMovieSearch {
+  display: none;
+  color: red;
+  font-size: 36px;
+  font-weight: 600;
+}
+
+#detailSection header,
+main {
+  background-color: #ebebeb;
+}
+
+main section {
+  padding: 1em 2em 3em;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  overflow: auto;
+  height: 86vh;
+  margin-top: 10px;
+}
+
+@media only screen and (max-width: 1550px) {
+  main {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  #rightBlock {
+    grid-column-start: 1;
+    grid-column-end: 3;
+
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+
+  .tabContentBlock {
+    height: 50vh !important;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  main {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+
+  #middleBlock {
+    grid-column-start: 1;
+    grid-column-end: 2;
+
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+
+  #rightBlock {
+    grid-column-start: 1;
+    grid-column-end: 2;
+
+    grid-row-start: 3;
+    grid-row-end: 4;
+  }
+
+  .tabContentBlock {
+    height: 50vh !important;
+  }
+}
+
+.movieInfoBlock {
+  padding: 1em 2em;
+  border: 2px solid grey;
+  margin-top: 1em;
+  height: 8vh;
+  overflow-y: auto;
+}
+
+#movieDetailPosterBlock {
+  padding: 5em;
+}
+
+#movieDetailPoster:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+#tabButtonBlock {
+  display: flex;
+}
+
+#tabButtonBlock .tab {
+  padding: 0.5em 4em 0em 1em;
+  background-color: #c2c2c2;
+  border: 1px solid #4a98ff;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  margin-right: 0.5em;
+  height: 2em;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+#tabButtonBlock .tab:hover {
+  cursor: pointer;
+  background-color: #b3b3b3;
+}
+
+#tabButtonBlock .tab.selected {
+  background-color: white;
+}
+
+#tabButtonBlock .tab.selected:hover {
+  background-color: white;
+  cursor: pointer;
+}
+
+.tabContentBlock {
+  height: 68vh;
+  overflow-y: scroll;
+  overflow-y: scroll;
+  border: 1px solid #4a98ff;
+  background-color: white;
+  padding: 2em 0em 2em 2em;
+}
+
+.tabContentBlock .contentRow {
+  display: grid;
+  grid-template-columns: 0.7fr 1fr 1fr;
+  grid-gap: 10px;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.tabContentBlock.cast .contentRow {
+  grid-template-columns: 0.7fr 0.4fr 1fr;
+}
+
+#crewList {
+  display: none;
+}
+
+#speakButton {
+  height: 2.5em;
+  padding: 0.5em 1em;
+  margin-left: 2em;
+}
+
+.row.speak {
+  align-items: center;
+}
+
+#detailSection {
+  display: none;
+}
+
+#defaultSection {
+  display: none;
+}
+
+.loadingSymbol {
+  width: 30%;
+  height: auto;
+}
+
+#loadingSymbolDefaultView img {
+  width: 10%;
+  height: auto;
+}
+
+#largerMovieDetailPoster {
+  display: absolute;
+}
+
+/*CSS code url: https://www.w3schools.com/howto/howto_css_modals.asp*/
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: none;
+  margin: 5% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: none;
+  width: 35%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: red;
+  float: right;
+  font-size: 128px;
+  font-weight: 700;
+}
+
+.close:hover,
+.close:focus {
+  color: darkred;
+  text-decoration: none;
+  cursor: pointer;
+}
+/*End imported css code*/
