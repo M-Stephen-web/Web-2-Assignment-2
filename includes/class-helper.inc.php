@@ -126,5 +126,17 @@
 		public $errorMessage;
 
 	}
+	
+	class Favorite
+	{
+		function __construct($userId, $movieId)
+		{
+			$this->userId = $userId;
+			$this->movieId = $movieId;
+		}
+		
+		public $userId;
+		public $movieId;
+	}
 
 ?>
