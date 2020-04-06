@@ -49,7 +49,7 @@ function checkLoggedIn($userName)
 		<section id="defaultSection">
 			<header>
 				<center>
-					<h2>COMP 3512 Assign1</h2>
+					<h2>COMP 3512 Assign2</h2>
 					<h4>Albert Morozov</h4>
 				</center>
 			</header>
