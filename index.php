@@ -286,6 +286,8 @@ function checkLoggedIn($userName)
 			</main>
 		</section>
 	</div>
+
+	<footer>Photo by JR Korpa on Unsplash</footer>
 	<script src="js/index.js"></script>
 </body>
 
