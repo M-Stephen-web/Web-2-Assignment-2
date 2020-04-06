@@ -16,7 +16,7 @@ body {
   background-color: rgb(34,57,72);
   background-position: center center;
   background-attachment: fixed;
-  position: relative;
+  /* position: relative; */
   font-family: sans-serif; /* default font */
   height: 100vh;
 }
