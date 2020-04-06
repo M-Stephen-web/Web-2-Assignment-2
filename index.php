@@ -19,7 +19,7 @@ function checkLoggedIn($userName)
 
 <head>
 	<meta charset="utf-8" />
-	<title>COMP 3512 Assign1</title>
+	<title>Movie Browser</title>
 
 	<link rel="stylesheet" href="css/index.css">
 

@@ -1,24 +1,26 @@
 html {
   height: 100vh;
-  overflow-y: hidden;
 }
 
 body {
   margin: 0;
 }
 
-/*CSS code url: https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_background_hero*/
 .hero-image {
   /*Image url: https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80*/
-  background-image: url("../images/background.jpg");
-  background-color: #cccccc;
-  height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-image: url('../images/city-at-night.jpg');
+  background-color: rgba(8,40,43,0.7); /* the color to blend with background img */
+  background-blend-mode: exclusion;
   background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgb(34,57,72);
+  background-position: center center;
+  background-attachment: fixed;
   position: relative;
+  font-family: sans-serif; /* default font */
+  height: 100vh;
 }
-/*End imported css code*/
+
 
 #heroImageCredit {
   color: white;
