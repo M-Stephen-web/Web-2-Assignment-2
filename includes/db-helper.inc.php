@@ -191,7 +191,7 @@
 	}
 	
 	
-	function getFavoriteMoviesSQL($ids)
+	function getFavoriteMoviesSQL($ids) //Return SQL query of getting all the movies with the ids matching the ids passed in
 	{
 	
 		$sql = 'SELECT * FROM movie';
@@ -221,13 +221,13 @@
 		
 	}
 	
-	function getFavoriteMovies($User, $connection)
+	function getFavoriteMovies($User, $connection) //Returning all movies that are favorited by the user
 	{
 		$values = array();
 		
 		$favoriteMovies = [];
 		
-		$movieIds = getFavoriteMovieIds($User, $connection);
+		$movieIds = getFavoriteMovieIds($User, $connection); //Get all the movie ids the user has favorited
 		
 		$count = 0;
 		
@@ -243,7 +243,7 @@
 			
 			foreach($sqlResult as $row)
 			{
-				$favoriteMovies[] = new FavoriteMovie($row);
+				$favoriteMovies[] = new Movie($row);
 			}
 			
 		}
@@ -258,7 +258,7 @@
 	
 	
 	
-	function getFavoriteMovieIdsSQL()
+	function getFavoriteMovieIdsSQL() //SQL query of returning all the favorite objects for a user
 	{
 	
 		$sql = 'SELECT * FROM favorites';
@@ -268,7 +268,7 @@
 		
 	}
 	
-	function getFavoriteMovieIds($User, $connection)
+	function getFavoriteMovieIds($User, $connection) //Get all the movie ids where the user has favorited movies
 	{
 		$values = array();
 		
@@ -297,7 +297,7 @@
 	
 	
 	
-	function deleteAllFavoriteMovieSQL()
+	function deleteAllFavoriteMovieSQL() //SQL query to delete all favorites for a user by userId
 	{
 	
 		$sql = 'DELETE FROM favorites';
@@ -307,7 +307,7 @@
 		
 	}
 	
-	function deleteAllFavoriteMovie($User, $connection)
+	function deleteAllFavoriteMovie($User, $connection) //To delete all favorites for a user
 	{
 		$values = array();
 		
@@ -331,24 +331,25 @@
 	
 	
 	
-	function deleteFavoriteMovieIdSQL()
+	function deleteFavoriteMovieIdSQL() //SQL query to delete a favorite by favorite primary key: id
 	{
 	
 		$sql = 'DELETE FROM favorites';
-		$sql .= " WHERE id = :id";
+		$sql .= " WHERE userId = :userId AND movieId = :movieId";
 
 		return $sql;
 		
 	}
 	
-	function deleteFavoriteMovieId($id, $connection)
+	function deleteFavoriteMovieId($movieId, $userId, $connection) //To delete a favorite by movie id and user id
 	{
 		$values = array();
 		
-		$values[':id'] = $id;
+		$values[':userId'] = $userId;
+		$values[':movieId'] = $movieId;
 		
 		try{
-			$sqlResult = runQuery($connection, deleteFavoriteMovieIdSQL($movieIds), $values);
+			$sqlResult = runQuery($connection, deleteFavoriteMovieIdSQL(), $values);
 			
 			return true;
 		}

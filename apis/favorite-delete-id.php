@@ -5,10 +5,11 @@
     require_once('../includes/db-helper.inc.php');
     require_once('../includes/config.inc.php');
     require_once('../includes/class-helper.inc.php');
+    require_once('../includes/session-helper.inc.php');
     
-    if(isset($_GET['id'])) //favorite Id
+    if(isset($_GET['id']) && IsLoggedIn()) //favorite Id
     {
-        if(deleteFavoriteMovieId($_GET['id'], $connection))
+        if(deleteFavoriteMovieId($_GET['id'], GetSessionUser()->id,$connection))
         {
             $payload = new Payload(true, null, null);
         }

@@ -4,7 +4,10 @@
 	{
 		function __construct($userData)
 		{
-			//$this->id = $userData['id'];
+			if($userData['id'] != null)
+			{
+				$this->id = $userData['id'];
+			}
 			$this->firstname = $userData['firstname'];
 			$this->lastname = $userData['lastname'];
 			$this->city = $userData['city'];
@@ -13,15 +16,13 @@
 			$this->password = $userData['password'];
 		}
 		
-		//public $id;
+		public $id;
 		public $firstname;
 		public $lastname;
 		public $city;
 		public $country;
 		public $email;
 		public $password;
-		//public $salt;
-		//public $password_sha256;
 		
 		function getId(){return $this->id;}
 		function getFirstname(){return $this->firstname;}
