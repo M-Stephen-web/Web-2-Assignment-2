@@ -1,4 +1,4 @@
-body {
+somthing shfjkdskf body {
   /*Image url: https://unsplash.com/photos/2QUvkQTBh5s*/
   background-image: url(../images/dark-sky.jpg);
   background-size: cover;
@@ -8,7 +8,7 @@ body {
   height: 100%;
   position: relative;
   overflow: hidden;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #movieBrowserBox {
@@ -25,7 +25,8 @@ body {
   border-radius: 6px;
 }
 
-.row { /*Keeps buttons in center*/
+.row {
+  /*Keeps buttons in center*/
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,7 +41,7 @@ button {
   padding: 1em;
   width: 20rem;
   text-transform: uppercase;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 13px;
   font-weight: 900;
   letter-spacing: 3px;
@@ -67,12 +68,12 @@ input {
   padding: 1em;
 }
 
-#searchBox { /*text within input searchbar*/
+#searchBox {
+  /*text within input searchbar*/
   text-transform: uppercase;
   text-align: center;
   font-size: 13px;
   letter-spacing: 3px;
-  
 }
 
 @media only screen and (max-width: 1120px) {
@@ -313,12 +314,12 @@ input[type="range"] {
 }
 
 /* On mouse-over, add a grey background color */
-.container:hover input~.checkmark {
+.container:hover input ~ .checkmark {
   background-color: #ccc;
 }
 
 /* When the radio button is checked, add a blue background */
-.container input:checked~.checkmark {
+.container input:checked ~ .checkmark {
   background-color: white;
 }
 
@@ -331,7 +332,7 @@ input[type="range"] {
 }
 
 /* Show the indicator (dot/circle) when checked */
-.container input:checked~.checkmark:after {
+.container input:checked ~ .checkmark:after {
   visibility: visible;
   opacity: 1;
 }
@@ -666,4 +667,4 @@ footer {
   letter-spacing: 2px;
   font-style: italic;
   font-size: x-small;
-} 
+}
