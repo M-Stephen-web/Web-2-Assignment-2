@@ -106,11 +106,11 @@ input {
   /*End imported css code*/
 }
 
-#matchingMoviesButton {
+#newAcctButton {
   width: 50%;
 }
 
-#allMoviesButton {
+#signInButton {
   width: 40%;
 }
 

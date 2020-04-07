@@ -32,18 +32,23 @@ function checkLoggedIn($userName)
 				<center>
 					<h2 id="movieBrowserTitle">Movie Browser</h2>
 				</center>
-				<div id="movieBrowserGrid">
-					<label>Title</label>
-					<input type="text" id="movieSearchInput" />
+				<div id="">
+					<div>
+						<label for="userNameInput">user name</label>
+						<input type="text" id="userNameInput" />
+					</div>
+					<div>
+						<label for="passwordInput">password</label>
+						<input type="password" id="passwordInput">
+					</div>
 					<div class="row">
-						<button id="matchingMoviesButton">
-							Show Matching Movies
-						</button>
-						<button id="allMoviesButton">
-							Show All Movies
-						</button>
+						<button id="newAcctButton">
+							create a new account </button>
+						<button id="signInButton">
+							sign in </button>
 					</div>
 				</div>
+
 			</div>
 			<center id="heroImageCredit">
 				Hero Image Credit:
