@@ -72,7 +72,32 @@ input {
   text-align: center;
   font-size: 13px;
   letter-spacing: 3px;
-  
+  border: 2px solid #4a98ff;
+  font-size: 20px;
+  padding: 5px;
+}
+
+#movieBrowerBox {
+  background-color: #ebebeb;
+  width: 35%;
+  margin: auto auto;
+  padding: 1em 2em 4em;
+}
+  /*CSS code url: https://www.w3schools.com/css/css_align.asp*/
+  margin: 0;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /*End imported css code*/
+}
+
+#newAcctButton {
+  width: 50%;
+}
+
+#signInButton {
+  width: 40%;
 }
 
 @media only screen and (max-width: 1120px) {

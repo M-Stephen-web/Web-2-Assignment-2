@@ -22,14 +22,29 @@ $userId = '';
 	<link rel='stylesheet' href='css/index.css'>
 </head>
 <body>
-	<section id='homeSection'>
-		<div id='movieBrowserBox'>
-			<div class='row'>
-				<button id='login'>Login</button>
-				<button id='join'>Join</button>
+	<div class="hero-image">
+		<section id="homeSection">
+			<div id="movieBrowerBox">
+				<center>
+					<h2 id="movieBrowserTitle">Movie Browser</h2>
+				</center>
+				<div id="">
+					<div>
+						<label for="userNameInput">user name</label>
+						<input type="text" id="userNameInput" />
+					</div>
+					<div>
+						<label for="passwordInput">password</label>
+						<input type="password" id="passwordInput">
+					</div>
+					<div class="row">
+						<button id="newAcctButton">
+							create a new account </button>
+						<button id="signInButton">
+							sign in </button>
+					</div>
+				</div>
 			</div>
-			<input type='text' id='searchBox' placeholder='Search box for Movies'/>
-		</div>
 	</section>
 	<section id='defaultSection'>
 		<header>
