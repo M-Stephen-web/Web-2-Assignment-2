@@ -68,20 +68,19 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   //Elements in the home page
-  const allMoviesButton = document.querySelector("#allMoviesButton"); //Button to show all the movies
-  const matchingMoviesButton = document.querySelector("#matchingMoviesButton"); //Button to show movies with title matching partially matching the input
-  const movieSearchInput = document.querySelector("#movieSearchInput"); //The input where the user can search by title
-  const loginButton = document.querySelector("#loginButton"); // button which takes the user to the login page
+  const userNameInput = document.querySelector("#userNameInput"); //The input where the user can search by title
+  const passwordInput = document.querySelector("#passwordInput"); // the input where the user types their password
+  const signInButton = document.querySelector("#signInButton"); // button which logs the user in
+  const newAcctButton = document.querySelector("#newAcctButton");
 
-  //Click listener for when the user wants all the movies displayed
+  //Click listener for when the user wants to sign in
   signInButton.addEventListener("click", function () {
     showDefaultPage();
   });
 
-  //Click listener for when the user wants to see movies that partially match an input
-  createAccountButton.addEventListener("click", function (e) {
-    titleFilterInput.value = movieSearchInput.value; //Changes the filter input title to have the value inputted at home page
-    showDefaultPage();
+  //Click listener for when the user wants to create a new account
+  newAcctButton.addEventListener("click", function (e) {
+    //opens a form which allows a new user to input their information
   });
 
   //To fetch all the movies
