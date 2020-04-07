@@ -4,15 +4,16 @@
 	{
 		function __construct($userData)
 		{
-			$this->id = $userData['id'];
+			if($userData['id'] != null)
+			{
+				$this->id = $userData['id'];
+			}
 			$this->firstname = $userData['firstname'];
 			$this->lastname = $userData['lastname'];
 			$this->city = $userData['city'];
 			$this->country = $userData['country'];
 			$this->email = $userData['email'];
 			$this->password = $userData['password'];
-			$this->salt = $userData['salt'];
-			$this->password_sha256 = $userData['password_sha256'];
 		}
 		
 		public $id;
@@ -22,8 +23,6 @@
 		public $country;
 		public $email;
 		public $password;
-		public $salt;
-		public $password_sha256;
 		
 		function getId(){return $this->id;}
 		function getFirstname(){return $this->firstname;}
@@ -127,6 +126,18 @@
 		public $data;
 		public $errorMessage;
 
+	}
+	
+	class Favorite
+	{
+		function __construct($userId, $movieId)
+		{
+			$this->userId = $userId;
+			$this->movieId = $movieId;
+		}
+		
+		public $userId;
+		public $movieId;
 	}
 
 ?>

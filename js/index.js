@@ -100,6 +100,30 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((data) => {
         updateStorage(data); //Place movies into local storage
 
+    //Elements in the home page
+    const allMoviesButton = document.querySelector("#allMoviesButton"); //Button to show all the movies
+    const matchingMoviesButton = document.querySelector("#matchingMoviesButton"); //Button to show movies with title matching partially matching the input
+    const movieSearchInput = document.querySelector("#movieSearchInput"); //The input where the user can search by title
+    const loginButton = document.querySelector("#loginButton"); // button which takes the user to the login page
+
+    //Click listener for when the user wants all the movies displayed
+    allMoviesButton.addEventListener('click', function () {
+        showDefaultPage();
+    });
+
+    //Click listener for when the user wants to see movies that partially match an input
+    matchingMoviesButton.addEventListener('click', function (e) {
+        titleFilterInput.value = movieSearchInput.value; //Changes the filter input title to have the value inputted at home page
+        showDefaultPage();
+    });
+
+    //Click listener for when the user wants to log in
+    loginButton.addEventListener('click', e => {
+
+    })
+
+    //To fetch all the movies
+    function fetchMovies() {
         movies = data; //Set global variable
 
         movies = sortMovies(movies); //Reset global variable with sorted movies

@@ -1,8 +1,8 @@
 <?php
 	session_start();
 
-	require_once('./class-helper.inc.php');
-	require_once('./config.inc.php');
+	require_once('../includes/class-helper.inc.php');
+    require_once('../includes/config.inc.php');
 	
 	function IsLoggedIn(){
 		
@@ -16,28 +16,27 @@
 		}
 	}
 	
-	function LoginUser($email, $password)
+	function LoginUser($email, $password, $connection)
 	{
 		if($email != null && $password != null)
 		{
-			$User = getUser($email, connection);
+			$User = getUser($email, $connection);
 			
-			if($User->getPassword() == password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]))
+			//https://stackoverflow.com/questions/4795385/how-do-you-use-bcrypt-for-hashing-passwords-in-php
+			if($User != null && password_verify($password, $User->getPassword()))
 			{
 				$_SESSION['User'] = $User;
 				
 				return true;
 			}
 		}
-		else
-		{
-			return false;
-		}
+		
+		return false;
 	}
 	
-	function RegisterUser($newUser)
+	function RegisterUser($newUser, $connection)
 	{
-		if(insertUser($newUser, connection))
+		if(insertUser($newUser, $connection))
 		{
 			return true;
 		}
@@ -47,7 +46,7 @@
 		}
 	}
 	
-	function GetUser ()
+	function GetSessionUser ()
 	{
 		if(isset($_SESSION['User']))
 		{

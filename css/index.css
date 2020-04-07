@@ -1,91 +1,77 @@
-html {
-  height: 100vh;
-  overflow-y: hidden;
-}
-
 body {
-  margin: 0;
-}
-
-/*CSS code url: https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_background_hero*/
-.hero-image {
-  /*Image url: https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80*/
-  background-image: url("../images/background.jpg");
-  background-color: #cccccc;
-  height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
+  /*Image url: https://unsplash.com/photos/2QUvkQTBh5s*/
+  background-image: url(../images/dark-sky.jpg);
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  height: 100%;
   position: relative;
-}
-/*End imported css code*/
-
-#heroImageCredit {
-  color: white;
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#heroImageCredit a {
-  color: white;
-  text-decoration: none;
+#movieBrowserBox {
+  background-color: rgba(44, 41, 49, 0.25);
+  border-color: rgb(44, 41, 49);
+  border: 5em;
+  box-shadow: 6px 5px 20px 3px rgba(0, 0, 0, 0.95);
+  width: 36%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 21%;
+  padding: 4em;
+  padding-bottom: 4.5em;
+  border-radius: 6px;
 }
 
-#heroImageCredit a:hover {
-  opacity: 0.7;
-}
-
-.row {
+.row { /*Keeps buttons in center*/
   display: flex;
-}
-
-#movieBrowserGrid {
-  display: grid;
-  grid-template-columns: 1fr 5fr;
-  grid-template-rows: 1fr 1.5fr;
-}
-
-#movieBrowserGrid title {
-  grid-column-start: 1;
-  grid-column-end: 2;
-
-  grid-row-start: 1;
-  grid-row-end: 2;
-}
-
-#movieBrowserGrid label {
-  font-weight: 700;
-  font-size: 18px;
-  display: flex;
-  justify-content: center;
   align-items: center;
-}
-
-#movieBrowserGrid .row {
-  grid-column-start: 2;
-  grid-column-end: 3;
-
-  grid-row-start: 2;
-  grid-row-end: 3;
-
-  padding-top: 1.5em;
-
-  justify-content: space-between;
+  justify-content: center;
 }
 
 button {
-  background-color: #c2c2c2;
-  border: 1px solid #4a98ff;
-  border-radius: 6px;
-  font-weight: 700;
-  padding: 0.5em;
-  outline: none;
+  box-shadow: 6px 5px 20px 3px rgba(0, 0, 0, 0.65);
+  background-color: rgba(149, 61, 50, 0.6);
+  border: rgba(149, 61, 50, 0.7);
+  border-radius: 4px;
+  margin: 15px;
+  padding: 1em;
+  width: 20rem;
+  text-transform: uppercase;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 3px;
 }
 
 button:hover {
-  cursor: pointer;
-  background-color: #b3b3b3;
+  box-shadow: 6px 5px 20px 3px rgba(0, 0, 0, 1);
+  background-color: rgba(17, 23, 30, 0.77);
+  color: rgb(86, 89, 112);
+  cursor: alias;
+  letter-spacing: 4px;
 }
 
 input {
+  box-shadow: 6px 5px 20px 3px rgba(0, 0, 0, 0.85);
+  background-color: rgba(111, 68, 70, 0.3);
+  border: rgba(111, 68, 70, 0.5);
+  border-radius: 4px;
+  display: flex;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  padding: 1em;
+}
+
+#searchBox { /*text within input searchbar*/
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 13px;
+  letter-spacing: 3px;
   border: 2px solid #4a98ff;
   font-size: 20px;
   padding: 5px;
@@ -96,7 +82,7 @@ input {
   width: 35%;
   margin: auto auto;
   padding: 1em 2em 4em;
-
+}
   /*CSS code url: https://www.w3schools.com/css/css_align.asp*/
   margin: 0;
   position: absolute;
@@ -305,6 +291,7 @@ input[type="range"] {
   -webkit-transition: 0.2s;
   transition: opacity 0.2s;
 }
+
 .filterRow input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -313,6 +300,7 @@ input[type="range"] {
   background: #4a98ff;
   cursor: pointer;
 }
+
 /*End imported css code*/
 
 /*CSS code url: https://www.w3schools.com/howto/howto_css_custom_checkbox.asp*/
@@ -350,12 +338,12 @@ input[type="range"] {
 }
 
 /* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
+.container:hover input~.checkmark {
   background-color: #ccc;
 }
 
 /* When the radio button is checked, add a blue background */
-.container input:checked ~ .checkmark {
+.container input:checked~.checkmark {
   background-color: white;
 }
 
@@ -368,7 +356,7 @@ input[type="range"] {
 }
 
 /* Show the indicator (dot/circle) when checked */
-.container input:checked ~ .checkmark:after {
+.container input:checked~.checkmark:after {
   visibility: visible;
   opacity: 1;
 }
@@ -384,6 +372,7 @@ input[type="range"] {
   opacity: 0;
   transition: visibility 0s, opacity 0.5s linear;
 }
+
 /*End imported css code*/
 
 .sliderBlock {
@@ -645,25 +634,35 @@ main {
 /*CSS code url: https://www.w3schools.com/howto/howto_css_modals.asp*/
 /* The Modal (background) */
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
 }
 
 /* Modal Content/Box */
 .modal-content {
   background-color: none;
-  margin: 5% auto; /* 15% from the top and centered */
+  margin: 5% auto;
+  /* 15% from the top and centered */
   padding: 20px;
   border: none;
-  width: 35%; /* Could be more or less, depending on screen size */
+  width: 35%;
+  /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button */
@@ -681,3 +680,15 @@ main {
   cursor: pointer;
 }
 /*End imported css code*/
+
+/* background image credit design */
+footer {
+  position: fixed;
+  bottom: 0;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  color: rgb(222, 162, 145);
+  letter-spacing: 2px;
+  font-style: italic;
+  font-size: small;
+} 
