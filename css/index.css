@@ -21,6 +21,7 @@ body {
   margin-right: auto;
   margin-top: 21%;
   padding: 4em;
+  padding-bottom: 4.5em;
   border-radius: 6px;
 }
 
@@ -68,6 +69,7 @@ input {
 
 #searchBox { /*text within input searchbar*/
   text-transform: uppercase;
+  text-align: center;
   font-size: 13px;
   letter-spacing: 3px;
   
