@@ -28,7 +28,7 @@ $userId = '';
 				<button id='login'>Login</button>
 				<button id='join'>Join</button>
 			</div>
-			<input type='text' id='searchBox' placeholder='Search box for Movies'/>
+			<input type='text' id='searchBox' placeholder='Search for Movies'/>
 		</div>
 	</section>
 	<section id='defaultSection'>

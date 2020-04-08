@@ -22,7 +22,7 @@ body {
   margin-top: 21%;
   padding: 4em;
   padding-bottom: 4.5em;
-  border-radius: 6px;
+  border-radius: 7px;
 }
 
 .row { /*Keeps buttons in center*/
@@ -32,47 +32,47 @@ body {
 }
 
 button {
-  box-shadow: 6px 5px 20px 3px rgba(0, 0, 0, 0.65);
+  box-shadow: 6px 5px 20px 3px rgba(145, 104, 93, 0.75);
   background-color: rgba(149, 61, 50, 0.6);
-  border: rgba(149, 61, 50, 0.7);
-  border-radius: 4px;
+  border-color: rgba(149, 61, 50, 0.5);
+  border-radius: 5px;
   margin: 15px;
-  padding: 1em;
+  padding: 0.9em;
   width: 20rem;
   text-transform: uppercase;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 900;
-  letter-spacing: 3px;
+  letter-spacing: 3.5px;
 }
 
 button:hover {
-  box-shadow: 6px 5px 20px 3px rgba(0, 0, 0, 1);
+  box-shadow: 6px 5px 20px 3px rgba(0, 0, 0, 0.65);
   background-color: rgba(17, 23, 30, 0.77);
-  color: rgb(86, 89, 112);
+  border-color: rgba(155, 143, 179, 0.2);
+  color: rgb(155, 143, 179);
   cursor: alias;
-  letter-spacing: 4px;
+  letter-spacing: 4.5px;
 }
 
 input {
-  box-shadow: 6px 5px 20px 3px rgba(0, 0, 0, 0.85);
-  background-color: rgba(111, 68, 70, 0.3);
-  border: rgba(111, 68, 70, 0.5);
-  border-radius: 4px;
+  box-shadow: 6px 5px 20px 3px rgba(0, 0, 0, 0.7);
+  background-color: rgba(112, 72, 79, 0.3);
+  border-color: rgba(112, 72, 79, 0.4);
+  border-radius: 5px;
   display: flex;
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
   width: 90%;
-  padding: 1em;
+  padding: 0.9em;
 }
 
 #searchBox { /*text within input searchbar*/
   text-transform: uppercase;
   text-align: center;
-  font-size: 13px;
-  letter-spacing: 3px;
-  
+  font-size: 14px;
+  letter-spacing: 3.5px;
 }
 
 @media only screen and (max-width: 1120px) {
@@ -663,7 +663,7 @@ footer {
   padding-bottom: 20px;
   padding-left: 20px;
   color: rgb(222, 162, 145);
-  letter-spacing: 2px;
+  letter-spacing: 4px;
   font-style: italic;
-  font-size: small;
+  font-size: x-small;
 } 
