@@ -11,18 +11,26 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#movieBrowserBox {
+#movieBrowserBox, 
+#defaultSection header,
+aside,
+#movieListBlock {
   background-color: rgba(44, 41, 49, 0.25);
   border-color: rgb(44, 41, 49);
   border: 5em;
   box-shadow: 6px 5px 20px 3px rgba(0, 0, 0, 0.95);
+  border-radius: 7px;
+  margin: 1%;
+  color: rgb(222, 162, 145);
+}
+
+#movieBrowserBox {
   width: 36%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 21%;
   padding: 4em;
   padding-bottom: 4.5em;
-  border-radius: 7px;
 }
 
 .row { /*Keeps buttons in center*/
@@ -87,14 +95,6 @@ input {
   }
 }
 
-#movieBrowserTitle {
-  margin: 0 0 2em;
-}
-
-header {
-  margin: 0.5em;
-}
-
 #defaultSection {
   display: grid;
   grid-template-columns: 1fr 4fr;
@@ -102,12 +102,6 @@ header {
   grid-gap: 10px;
 
   transition: 2s;
-}
-
-#defaultSection header,
-aside,
-#movieListBlock {
-  background-color: #ebebeb;
 }
 
 #defaultSection header {
