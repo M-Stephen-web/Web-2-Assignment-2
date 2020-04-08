@@ -6,7 +6,7 @@ const loginURL = "https://mtsserver.ddns.net:80/apis/login-user.php";
 const registerURL = "https://mtsserver.ddns.net:80/apis/register-user.php";
 const imdbURL = "https://www.imdb.com/title/";
 const tmdbURL = "https://www.themoviedb.org/movie/";
-const loadingSymbolURL = "./images/loadingSymbol.gif";
+const loadingSymbolURL = "../images/loadingSymbol.gif";
 
 //Global variables to hold data
 let movies = []; //To hold all movies that are sorted by title
