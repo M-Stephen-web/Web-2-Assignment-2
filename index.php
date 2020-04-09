@@ -27,8 +27,8 @@ $userId = '';
 	<section id='homeSection'>
 		<div id='movieBrowserBox'>
 			<div class='row'>
-				<button id='login'>Login</button>
-				<button id='join'>Join</button>
+				<a href="login.php" id="login" class="button">Login</a>
+				<a href="registration.php" id="join" class="button">Join</a>
 			</div>
 			<input type='text' id='searchBox' placeholder='Search box for Movies' />
 		</div>
