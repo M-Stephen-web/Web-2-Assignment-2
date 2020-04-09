@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let storage = retieveStorage();
 
     //Checks if movies were saved to storage
-    if (storage.length > 0) {
+    if (localStorage.getItem("movies")) {
       movies = storage;
 
       movies = sortMovies(movies); //Sort the stored movies
@@ -85,8 +85,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //To fetch all the movies
   function fetchMovies() {
+    console.log("fetching");
     fetch(movieListURL)
       .then(function (response) {
+        console.log("fetch halfway");
         if (response.ok) {
           return response.json();
         } else {
@@ -97,6 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       })
       .then((data) => {
+        console.log("fetch complete");
         updateStorage(data); //Place movies into local storage
 
         movies = data; //Set global variable
@@ -119,6 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //To update the movie data to local storage
   function updateStorage(data) {
+    console.log("doin it");
     localStorage.setItem("movies", JSON.stringify(data));
   }
 
