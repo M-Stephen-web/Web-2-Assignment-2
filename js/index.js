@@ -70,17 +70,25 @@ document.addEventListener("DOMContentLoaded", function () {
   //Elements in the home page
   const signInButton = document.querySelector("#login"); //Button to show all the movies
   const newAcctButton = document.querySelector("#join"); //Button to show movies with title matching partially matching the input
-  const movieSearchInput = document.querySelector("#movieSearchInput"); //The input where the user can search by title
+  const movieSearchInput = document.querySelector("#searchBox"); //The input where the user can search by title
 
-  //Click listener for when the user wants all the movies displayed
-  signInButton.addEventListener("click", function () {
-    showDefaultPage();
+  //Event listener for when the user wants to search for a movie without signing in
+  movieSearchInput.addEventListener("keypress", (e) => {
+    console.log(e.key);
+    if (e.key == "Enter") {
+      titleFilterInput.value = movieSearchInput.value; //changes the filter input title to have the value inputted at home page
+      showDefaultPage();
+    }
   });
 
-  //Click listener for when the user wants to see movies that partially match an input
+  //Click listener for when the user wants to sign in
+  signInButton.addEventListener("click", function () {
+    //this will do something eventually
+  });
+
+  //Click listener for when the user wants to create a new ac
   newAcctButton.addEventListener("click", function (e) {
-    titleFilterInput.value = movieSearchInput.value; //Changes the filter input title to have the value inputted at home page
-    showDefaultPage();
+    //this will do something eventually
   });
 
   //To fetch all the movies
