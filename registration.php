@@ -1,8 +1,8 @@
 <?php
 
-    //require_once('../includes/db-helper.inc.php');
-    //require_once('../includes/session-helper.inc.php');
-    //require_once('../includes/config.inc.php');
+    //require_once('includes/db-helper.inc.php');
+    //require_once('includes/session-helper.inc.php');
+    //require_once('includes/config.inc.php');
 	
 	$incompleteForm = false;
 	$passwordMatch = true;
@@ -45,7 +45,7 @@
     <meta charset = "UTF-8">
     <meta name = "description" content = "Registration page for assignment">
     <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
-    <link rel = "stylesheet" type = "text/css" href = "style/login.css"> 
+    <link rel = "stylesheet" type = "text/css" href = "css/login.css"> 
 </head>
 <body>
     <div class = "box">
