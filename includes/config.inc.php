@@ -5,5 +5,5 @@
 	define('DBPASS', 'admin');
 	define('DBCONNSTRING',"mysql:host=" . DBHOST . ";dbname=" . DBNAME . ";charset=utf8mb4;");
 	
-	$connection = new PDO($DBCONNSTRING, $DBUSER, $DBPASS);
+	$connection = new PDO(DBCONNSTRING, DBUSER, DBPASS);
 ?>
