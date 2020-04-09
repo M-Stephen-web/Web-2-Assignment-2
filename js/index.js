@@ -1,9 +1,9 @@
 //All URLS needed
-const movieListURL = "https://mtsserver.ddns.net:80/apis/movies-all.php";
+const movieListURL = "http://phseguin.ca/apis/movies-all.php";
 const posterURL = "https://image.tmdb.org/t/p/";
-const movieDetailURL = "https://mtsserver.ddns.net:80/apis/movies-brief.php";
-const loginURL = "https://mtsserver.ddns.net:80/apis/login-user.php";
-const registerURL = "https://mtsserver.ddns.net:80/apis/register-user.php";
+const movieDetailURL = "http://phseguin.ca/apis/movies-brief.php";
+const loginURL = "http://phseguin.ca/apis/login-user.php";
+const registerURL = "http://phseguin.ca/apis/register-user.php";
 const imdbURL = "https://www.imdb.com/title/";
 const tmdbURL = "https://www.themoviedb.org/movie/";
 const loadingSymbolURL = "./images/loadingSymbol.gif";

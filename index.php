@@ -15,12 +15,14 @@ $userId = '';
 
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset='utf-8' />
 	<title>Movie Browser</title>
 
 	<link rel='stylesheet' href='css/index.css'>
 </head>
+
 <body>
 	<section id='homeSection'>
 		<div id='movieBrowserBox'>
@@ -28,12 +30,12 @@ $userId = '';
 				<button id='login'>Login</button>
 				<button id='join'>Join</button>
 			</div>
-			<input type='text' id='searchBox' placeholder='Search box for Movies'/>
+			<input type='text' id='searchBox' placeholder='Search box for Movies' />
 		</div>
 	</section>
 	<section id='defaultSection'>
 		<header>
-				<h2>COMP 3512 Assign2</h2>
+			<h2>COMP 3512 Assign2</h2>
 		</header>
 		<aside id='asideFilterBlock'>
 			<div class='row filterBlock'>
@@ -142,7 +144,7 @@ $userId = '';
 				</div>
 				<div id='filterCloseButton'>
 					<h1>
-						<< /h1> </div> </div> </aside> <div id='movieListBlock'>
+						/< </h1> </div> </div> </aside> <div id='movieListBlock'>
 							<center>
 								<h2>List/Matches</h2>
 							</center>
@@ -261,8 +263,9 @@ $userId = '';
 			</section>
 		</main>
 	</section>
-	
+
 	<footer>Photo by Johannes Plenio on Unsplash</footer>
 	<script src='js/index.js'></script>
 </body>
+
 </html>
