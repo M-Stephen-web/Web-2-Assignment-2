@@ -109,6 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       })
       .then((data) => {
+        console.log(data)
         updateStorage(data); //Place movies into local storage
 
         movies = data; //Set global variable
