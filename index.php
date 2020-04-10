@@ -36,6 +36,7 @@ $userId = '';
 	<section id='defaultSection'>
 		<header>
 			<h2>COMP 3512 Assign2</h2>
+			<a href="favorites.php" id="favButton" class="button">Favorites</a>
 		</header>
 		<aside id='asideFilterBlock'>
 			<div class='row filterBlock'>
