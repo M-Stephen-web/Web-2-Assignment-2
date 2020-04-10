@@ -97,10 +97,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //To fetch all the movies
   function fetchMovies() {
-    console.log("fetching");
     fetch(movieListURL)
       .then(function (response) {
-        console.log("fetch halfway");
         if (response.ok) {
           return response.json();
         } else {
@@ -111,7 +109,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       })
       .then((data) => {
-        console.log("fetch complete");
         updateStorage(data); //Place movies into local storage
 
         movies = data; //Set global variable
