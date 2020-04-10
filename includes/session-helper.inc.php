@@ -25,7 +25,8 @@
 			//https://stackoverflow.com/questions/4795385/how-do-you-use-bcrypt-for-hashing-passwords-in-php
 			if($User != null && password_verify($password, $User->getPassword()))
 			{
-				$_SESSION['User'] = $User;
+				//https://stackoverflow.com/questions/44887880/store-object-in-php-session/44888019 For seralize user object
+				$_SESSION['User'] = serialize($User);
 				
 				return true;
 			}
@@ -46,11 +47,16 @@
 		}
 	}
 	
-	function GetSessionUser ()
+	function GetSessionUser()
 	{
 		if(isset($_SESSION['User']))
 		{
-			return $_SESSION['User'];
+			//https://stackoverflow.com/questions/44887880/store-object-in-php-session/44888019 For unseralize user object
+			return unserialize($_SESSION['User']);
+		}
+		else
+		{
+			return false;
 		}
 	}
 ?>

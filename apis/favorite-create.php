@@ -9,9 +9,9 @@
     
     if(IsLoggedIn() && isset($_GET['movieId']))
     {
-        $userId = GetSessionUser()->id;
+        $user = GetSessionUser();
 
-        $newFavorite = new Favorite($userId, $_GET['movieId']);
+        $newFavorite = new Favorite($user->id, $_GET['movieId']);
 
         if(insertFavorite($newFavorite, $connection))
         {
