@@ -179,6 +179,8 @@
 		
 		$values[":userId"] = $Favorite->userId;
 		$values[":movieId"] = $Favorite->movieId;
+
+
 		
 		try{
 			runQuery($connection, insertFavoriteSQL(), $values);
@@ -197,19 +199,20 @@
 		$sql = 'SELECT * FROM movie';
 		$sql .= " WHERE";
 		
-		$lastId = end($ids)['id'];
+		//https://www.geeksforgeeks.org/php-end-function/
+		$lastId = end($ids);
 		
 		$count = 0;
 		
 		foreach($ids as $id)
 		{
-			if($id['id'] != $lastId)
+			if($id != $lastId)
 			{
-				$sql .= " id" . $count . " = ? AND";
+				$sql .= " id = :id" . $count . "AND";
 			}
 			else
 			{
-				$sql .= " id" . $count . " = ?";
+				$sql .= " id = :id" . $count;
 			}
 			
 			$count++;
@@ -282,7 +285,7 @@
 			
 			foreach($sqlResult as $row)
 			{
-				$movieIds = $row['movieId'];
+				$movieIds[] = $row['movieId'];
 			}
 			
 		}
