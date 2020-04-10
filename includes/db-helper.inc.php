@@ -36,7 +36,7 @@
 	
 	function getAllMoviesSQL() {
 		
-		$sql = 'SELECT * FROM movie';
+		$sql = 'SELECT id, release_date, title, vote_average, poster_path FROM movie';
 		$sql .= " ORDER BY title";
 
 		return $sql;
@@ -196,7 +196,7 @@
 	function getFavoriteMoviesSQL($ids) //Return SQL query of getting all the movies with the ids matching the ids passed in
 	{
 	
-		$sql = 'SELECT * FROM movie';
+		$sql = 'SELECT id, title, poster_path FROM movie';
 		$sql .= " WHERE";
 		
 		//https://www.geeksforgeeks.org/php-end-function/
@@ -252,7 +252,7 @@
 		}
 		catch(PDOException $e)
 		{
-			echo "Exception occured";
+			echo "Exception occured at getFavoriteMovies";
 		}
 		
 		return $favoriteMovies;
