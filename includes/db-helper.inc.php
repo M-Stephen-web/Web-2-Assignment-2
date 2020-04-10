@@ -134,7 +134,7 @@
 	function insertUserSQL($User)
 	{
 		
-		$sql = 'INSERT INTO Users (firstname, lastname, city, country, email, password)';
+		$sql = 'INSERT INTO users (firstname, lastname, city, country, email, password)';
 		$sql .= 'VALUES (:firstname, :lastname, :city, :country, :email, :password);';
 
 		return $sql;
