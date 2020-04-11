@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const homeSection = document.querySelector("#homeSection");
   const defaultSection = document.querySelector("#defaultSection");
   const detailSection = document.querySelector("#detailSection");
+  const favButton = document.querySelector("#favButton");
 
   //To hide all the pages
   function hideAllPages() {
@@ -30,7 +31,10 @@ document.addEventListener("DOMContentLoaded", function () {
   //Shows default page
   function showDefaultPage() {
     hideAllPages();
-
+    //check if the user is logged in
+    if (true) {
+      favButton.style.display = "none";
+    }
     matchesRowsBlock.style.display = "none";
     loadingSymbolDefaultView.style.display = "block";
 

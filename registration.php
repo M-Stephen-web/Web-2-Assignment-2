@@ -42,15 +42,17 @@
 		{
 			$passwordMatch = false;
 		}
+	} else if (isset($_POST['password']) && isset($_POST['confirmpassword']) && $_POST['confirmpassword'] != $_POST['password']) {
+		$passwordMatch = false;
 	}
-	else
-	{
-		$incompleteForm = true;
-	}
+else {
+	$incompleteForm = true;
+}
 
 ?>
 <!DOCTYPE html>
-<html lang = en>
+<html lang=en>
+
 <head>
     <meta charset = "UTF-8">
     <meta name = "description" content = "Registration page for assignment">
@@ -58,6 +60,7 @@
     <link rel = "stylesheet" type = "text/css" href = "style/login.css"> 
 	<script src = "js/registration.js"></script>
 </head>
+
 <body>
     <div class = "box">
         <h2>Register</h2>
@@ -93,4 +96,5 @@
         </form>
     </div>
 </body>
+
 </html>

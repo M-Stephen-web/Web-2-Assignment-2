@@ -1,6 +1,6 @@
 <?php
 	require_once('config.inc.php');
-	
+
 	function runQuery($connection, $sql, $values) {
     
 		$statement = null;
@@ -409,21 +409,3 @@
 		
 		return false;
 	}
-
-?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
