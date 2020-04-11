@@ -11,7 +11,7 @@ body{
     width: 100%;
     height: 100vh;
     display: table;
-    background: url(sky.jpg) 50% 50% no-repeat;
+    background-color: blueviolet;
     background-size: cover;
 }
 
@@ -72,4 +72,25 @@ a:link{
 
 p{
     color: red;
+}
+
+form ul li label{
+    float: left;
+    margin-bottom: 10px;
+    width: 80px;
+    margin-right: 10px;
+    text-align: right;
+}
+
+li{
+    list-style: none;
+}
+
+li p{
+    display: none;
+    font-size: 20pt;
+}
+
+li p:hover{
+    cursor: pointer;
 }
