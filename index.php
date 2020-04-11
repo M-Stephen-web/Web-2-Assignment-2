@@ -168,8 +168,8 @@ $userId = '';
 			<section id='leftBlock'>
 				<div class='row speak'>
 					<h1 id='movieDetailTitle'>Movie Title</h1>
-					<button id='speakButton'>
-						Speak
+					<button id='addFavButton'>
+						:heart:
 					</button>
 				</div>
 				<p id='movieDetailReleaseDate'>Release Date: </p>
