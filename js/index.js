@@ -1,12 +1,14 @@
 //All URLS needed
 const movieListURL = "http://phseguin.ca/apis/movies-all.php";
 const posterURL = "https://image.tmdb.org/t/p/";
+const addFavUrl = "http://phseguin.ca/apis/favorite-create.php?movieId=";
 const movieDetailURL = "http://phseguin.ca/apis/movies-brief.php";
 const loginURL = "http://phseguin.ca/apis/login-user.php";
 const registerURL = "http://phseguin.ca/apis/register-user.php";
 const imdbURL = "https://www.imdb.com/title/";
 const tmdbURL = "https://www.themoviedb.org/movie/";
 const loadingSymbolURL = "./images/loadingSymbol.gif";
+let movieId = "";
 
 //Global variables to hold data
 let movies = []; //To hold all movies that are sorted by title
@@ -80,16 +82,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  //Click listener for when the user wants to sign in
-  signInButton.addEventListener("click", function () {
-    //this will do something eventually
-  });
-
-  //Click listener for when the user wants to create a new ac
-  newAcctButton.addEventListener("click", function (e) {
-    //this will do something eventually
-  });
-
   //To fetch all the movies
   function fetchMovies() {
     fetch(movieListURL)
@@ -115,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
           populateDefaultView();
         } else {
-          displayError(data.errorMessage);
+          alert(data.errorMessage);
         }
       })
       .catch(function (error) {
@@ -226,11 +218,27 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   //Element representing the speech button to speak the movie title
-  const speakButton = document.querySelector("#speakButton");
+  const favButton = document.querySelector("#addFavButton");
 
-  //When the speak button is clicked, speak the currently shwoing movie's title
-  speakButton.addEventListener("click", function () {
-    speakTitle(speakTitleText);
+  favButton.addEventListener("click", (e) => {
+    fetch(addFavUrl + movieId, {
+      method: "GET",
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          return Promise.reject({
+            status: response.status,
+            statusText: response.statusText,
+          });
+        }
+      })
+      .then((data) => {
+        if (data.errorMessage) {
+          alert(data.errorMessage);
+        }
+      });
   });
 
   //Event delgation for when an image, title or button is clicked for a movie, that movie is shown in the detail view
@@ -510,7 +518,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function showMovieDetail(id) {
     leftMovieDetailBlock.style.visibility = "hidden";
     rightMovieDetailBlock.style.visibility = "hidden";
-
+    movieId = id;
     posterElement.classList.add("loadingSymbol");
     posterElement.setAttribute("src", loadingSymbolURL);
 
@@ -558,8 +566,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const largerPosterElement = document.querySelector(
     "#largerMovieDetailPoster"
   );
-
-  let speakTitleText = "";
 
   function populateMovieDetail(movie) {
     console.log(movie);
@@ -647,8 +653,6 @@ document.addEventListener("DOMContentLoaded", function () {
         generateCastRow(cast);
       }
     }
-
-    speakTitleText = movie.title;
 
     posterElement.setAttribute("src", posterURL + "w342" + movie.poster_path);
     largerPosterElement.setAttribute(
@@ -785,12 +789,6 @@ document.addEventListener("DOMContentLoaded", function () {
       h1asideFilterBlock.innerHTML = ">";
     }
   });
-
-  //Function to speak the movie title
-  function speakTitle(title) {
-    const utterance = new SpeechSynthesisUtterance(title);
-    speechSynthesis.speak(utterance);
-  }
 
   //Function to close the detail page
   const closeDetailPageButton = document.querySelector(
