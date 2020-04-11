@@ -7,9 +7,9 @@
     require_once('../includes/class-helper.inc.php');
     require_once('../includes/session-helper.inc.php');
     
-    if(isset($_GET['id']) && IsLoggedIn()) //favorite Id
+    if(isset($_GET['movieId']) && IsLoggedIn()) //favorite Id
     {
-        if(deleteFavoriteMovieId($_GET['id'], GetSessionUser()->id,$connection))
+        if(deleteFavoriteMovieId($_GET['movieId'], GetSessionUser()->id,$connection))
         {
             $payload = new Payload(true, null, null);
         }

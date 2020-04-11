@@ -208,7 +208,7 @@
 		{
 			if($id != $lastId)
 			{
-				$sql .= " id = :id" . $count . "AND";
+				$sql .= " id = :id" . $count . " OR ";
 			}
 			else
 			{
@@ -242,13 +242,11 @@
 		
 		try{
 			$sqlResult = runQuery($connection, getFavoriteMoviesSQL($movieIds), $values);
-			
-			
+
 			foreach($sqlResult as $row)
 			{
 				$favoriteMovies[] = new Movie($row);
 			}
-			
 		}
 		catch(PDOException $e)
 		{
@@ -265,7 +263,7 @@
 	{
 	
 		$sql = 'SELECT * FROM favorites';
-		$sql .= " WHERE userId = :userId;";
+		$sql .= " WHERE userId = :userId ;";
 
 		return $sql;
 		
