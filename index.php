@@ -1,16 +1,6 @@
 <?php
 $userName = '';
 $userId = '';
-
-// function checkLoggedIn($userName)
-// {
-// 	if (isset($_POST['userName'])) {
-// 		$userName = $_POST['userName'];
-// 		echo $userName;
-// 	} else {
-// 		echo "<button id="loginButton">Log In</button>";
-// 	}
-// }
 ?>
 
 <!DOCTYPE html>
@@ -169,8 +159,8 @@ $userId = '';
 			<section id='leftBlock'>
 				<div class='row speak'>
 					<h1 id='movieDetailTitle'>Movie Title</h1>
-					<button id='addFavButton'>
-						:heart:
+					<button id='speakButton'>
+						Speak
 					</button>
 				</div>
 				<p id='movieDetailReleaseDate'>Release Date: </p>

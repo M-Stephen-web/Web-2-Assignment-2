@@ -1,101 +1,15 @@
 //All URLS needed
 const movieListURL = "http://phseguin.ca/apis/movies-all.php";
 const posterURL = "https://image.tmdb.org/t/p/";
-const addFavUrl = "http://phseguin.ca/apis/favorite-create.php?movieId=";
-const movieDetailURL = "http://phseguin.ca/apis/movies-brief.php";
 const loginURL = "http://phseguin.ca/apis/login-user.php";
 const registerURL = "http://phseguin.ca/apis/register-user.php";
-const imdbURL = "https://www.imdb.com/title/";
-const tmdbURL = "https://www.themoviedb.org/movie/";
 const loadingSymbolURL = "./images/loadingSymbol.gif";
-let movieId = "";
 
 //Global variables to hold data
 let movies = []; //To hold all movies that are sorted by title
 let showingMovies = []; //To hold all movies that are currently being displayed
 
-document.addEventListener("DOMContentLoaded", function () {
-  //Elements to represent the different pages
-  const homeSection = document.querySelector("#homeSection");
-  const defaultSection = document.querySelector("#defaultSection");
-  const detailSection = document.querySelector("#detailSection");
-  const favButton = document.querySelector("#favButton");
-
-  //To hide all the pages
-  function hideAllPages() {
-    homeSection.style.display = "none";
-    detailSection.style.display = "none";
-    defaultSection.style.display = "none";
-  }
-
-  //Shows default page
-  function showDefaultPage() {
-    hideAllPages();
-    //check if the user is logged in
-    if (true) {
-      favButton.style.display = "none";
-    }
-    matchesRowsBlock.style.display = "none";
-    loadingSymbolDefaultView.style.display = "block";
-
-    let storage = retieveStorage();
-
-    //Checks if movies were saved to storage
-    if (localStorage.getItem("movies")) {
-      movies = storage;
-
-      movies = sortMovies(movies); //Sort the stored movies
-
-      showingMovies = movies.slice();
-
-      populateDefaultView();
-    } //If movies are not saved to storage, then fetch them
-    else {
-      fetchMovies();
-    }
-
-    defaultSection.style.display = "grid";
-  }
-
-  function showDetailPage() {
-    hideAllPages();
-    detailSection.style.display = "grid";
-  }
-
-  //To be used when in detail view to go back to the default page
-  function closeDetailPage() {
-    detailSection.style.display = "none";
-    defaultSection.style.display = "grid";
-  }
-
-  function showHomePage() {
-    hideAllPages();
-    homeSection.style.display = "grid";
-  }
-
-  //Elements in the home page
-  const signInButton = document.querySelector("#login"); //Button to show all the movies
-  const newAcctButton = document.querySelector("#join"); //Button to show movies with title matching partially matching the input
-  const movieSearchInput = document.querySelector("#searchBox"); //The input where the user can search by title
-
-  //Event listener for when the user wants to search for a movie without signing in
-  movieSearchInput.addEventListener("keypress", (e) => {
-    if (e.key == "Enter") {
-      titleFilterInput.value = movieSearchInput.value; //changes the filter input title to have the value inputted at home page
-      showDefaultPage();
-    }
-  });
-
-  //Click listener for when the user wants to sign in
-  signInButton.addEventListener("click", function () {
-    //this will do something eventually
-  });
-
-  //Click listener for when the user wants to create a new ac
-  newAcctButton.addEventListener("click", function (e) {
-    //this will do something eventually
-  });
-
+document.addEventListener("DOMContentLoaded", (e) => {
   //To fetch all the movies
   function fetchMovies() {
     fetch(movieListURL)
@@ -113,14 +27,17 @@ document.addEventListener("DOMContentLoaded", function () {
         if (data.data) {
           updateStorage(data.data); //Place movies into local storage
 
-        movies = data; //Set global variable
+          movies = data.data; //Set global variable
 
-        movies = sortMovies(movies); //Reset global variable with sorted movies
+          movies = sortMovies(movies); //Reset global variable with sorted movies
 
-        showingMovies = movies.slice(); //Set global variable
+          showingMovies = movies.slice(); //Set global variable
 
-        populateDefaultView();
-      }}) 
+          populateDefaultView();
+        } else {
+          alert(data.errorMessage);
+        }
+      })
       .catch(function (error) {
         console.log(error);
       });
@@ -133,7 +50,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //To update the movie data to local storage
   function updateStorage(data) {
-    console.log("doin it");
     localStorage.setItem("movies", JSON.stringify(data));
   }
 
@@ -230,11 +146,27 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   //Element representing the speech button to speak the movie title
-  const speakButton = document.querySelector("#speakButton");
+  const favButton = document.querySelector("#addFavButton");
 
-  //When the speak button is clicked, speak the currently shwoing movie's title
-  speakButton.addEventListener("click", function () {
-    speakTitle(speakTitleText);
+  favButton.addEventListener("click", (e) => {
+    fetch(addFavUrl + movieId, {
+      method: "GET",
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          return Promise.reject({
+            status: response.status,
+            statusText: response.statusText,
+          });
+        }
+      })
+      .then((data) => {
+        if (data.errorMessage) {
+          alert(data.errorMessage);
+        }
+      });
   });
 
   //Event delgation for when an image, title or button is clicked for a movie, that movie is shown in the detail view
@@ -251,7 +183,7 @@ document.addEventListener("DOMContentLoaded", function () {
     div.setAttribute("movieId", movie.id);
 
     let img = document.createElement("img");
-    img.setAttribute("src", posterURL + "w92" + movie.poster);
+    img.setAttribute("src", posterURL + "w92" + movie.poster_path);
     div.appendChild(img);
 
     let title = document.createElement("label");
@@ -264,7 +196,7 @@ document.addEventListener("DOMContentLoaded", function () {
     div.appendChild(year);
 
     let rating = document.createElement("span");
-    rating.textContent = movie.ratings.average;
+    rating.textContent = movie.vote_average;
     div.appendChild(rating);
 
     let view = document.createElement("button");
@@ -360,7 +292,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (ratingTypeRadioBelow.checked) {
         if (
           sortedMovies[i] &&
-          sortedMovies[i].ratings.average > ratingTypeValueBelow.value
+          sortedMovies[i].vote_average > ratingTypeValueBelow.value
         ) {
           delete sortedMovies[i];
         }
@@ -370,7 +302,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (ratingTypeRadioAbove.checked) {
         if (
           sortedMovies[i] &&
-          sortedMovies[i].ratings.average < ratingTypeValueAbove.value
+          sortedMovies[i].vote_average < ratingTypeValueAbove.value
         ) {
           delete sortedMovies[i];
         }
@@ -387,9 +319,8 @@ document.addEventListener("DOMContentLoaded", function () {
         if (sortedMovies[i]) {
           if (
             !(
-              sortedMovies[i].ratings.average <=
-                ratingTypeValueBetweenMax.value &&
-              sortedMovies[i].ratings.average >= ratingTypeValueBetweenMin.value
+              sortedMovies[i].vote_average <= ratingTypeValueBetweenMax.value &&
+              sortedMovies[i].vote_average >= ratingTypeValueBetweenMin.value
             )
           ) {
             delete sortedMovies[i];
@@ -440,8 +371,6 @@ document.addEventListener("DOMContentLoaded", function () {
   let titleOrder = "asc";
 
   titleLabel.addEventListener("click", function () {
-    console.log(showingMovies);
-
     if (showingMovies.length > 2) {
       if (titleOrder == "asc") {
         showingMovies = showingMovies.sort(function (b, a) {
@@ -491,14 +420,14 @@ document.addEventListener("DOMContentLoaded", function () {
     if (showingMovies.length > 2) {
       if (ratingOrder == "asc") {
         showingMovies = showingMovies.sort(function (b, a) {
-          if (a.ratings.average >= b.ratings.average) return 1;
+          if (a.vote_average >= b.vote_average) return 1;
           else return -1;
         });
 
         ratingOrder = "desc";
       } else {
         showingMovies = showingMovies.sort(function (a, b) {
-          if (a.ratings.average >= b.ratings.average) return 1;
+          if (a.vote_average >= b.vote_average) return 1;
           else return -1;
         });
 
@@ -512,263 +441,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const leftMovieDetailBlock = document.querySelector("#leftBlock");
   const rightMovieDetailBlock = document.querySelector("#rightBlock");
-
-  //Shows the loading symbol and fetches for the movie detail
-  function showMovieDetail(id) {
-    leftMovieDetailBlock.style.visibility = "hidden";
-    rightMovieDetailBlock.style.visibility = "hidden";
-
-    posterElement.classList.add("loadingSymbol");
-    posterElement.setAttribute("src", loadingSymbolURL);
-
-    showDetailPage();
-
-    fetchMovieDetail(id);
-  }
-
-  //To fetch for the movie details, then populate the movie detail page
-  function fetchMovieDetail(id) {
-    fetch(movieDetailURL + id)
-      .then(function (response) {
-        if (response.ok) {
-          console.log(response);
-          return response.json();
-        } else {
-          return Promise.reject({
-            status: response.status,
-            statusText: response.statusText,
-          });
-        }
-      })
-      .then((data) => {
-        populateMovieDetail(data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
-
-  //Elements to populate movie detail page
-  const movieTitleElement = document.querySelector("#movieDetailTitle");
-  const releaseDateElement = document.querySelector("#movieDetailReleaseDate");
-  const revenueElement = document.querySelector("#movieDetailRevenue");
-  const runtimeElement = document.querySelector("#movieDetailRuntime");
-  const taglineElement = document.querySelector("#movieDetailTagline");
-  const imdbElement = document.querySelector("#movieDetailIMDBLink");
-  const tmdbElement = document.querySelector("#movieDetailTMDBLink");
-
-  const companiesListElement = document.querySelector("#companiesList");
-  const countriesListElement = document.querySelector("#countriesList");
-  const keywordsListElement = document.querySelector("#keywordsList");
-  const genresListElement = document.querySelector("#genresList");
-
-  const posterElement = document.querySelector("#movieDetailPoster");
-  const largerPosterElement = document.querySelector(
-    "#largerMovieDetailPoster"
-  );
-
-  let speakTitleText = "";
-
-  function populateMovieDetail(movie) {
-    movieTitleElement.innerHTML = movie.title;
-    releaseDateElement.innerHTML = "Release Date: " + movie.release_date;
-
-    revenueElement.innerHTML = "Revenue: " + revenueString(movie.revenue);
-
-    runtimeElement.innerHTML = "Runtime: " + runtimeString(movie.runtime);
-    taglineElement.innerHTML = "Tagline: " + movie.tagline;
-
-    imdbElement.setAttribute("href", imdbURL + movie.imdb_id);
-    imdbElement.textContent = imdbURL + movie.imdb_id;
-
-    tmdbElement.setAttribute("href", imdbURL + movie.tmdb_id);
-    tmdbElement.textContent = imdbURL + movie.tmdb_id;
-
-    companiesListElement.innerHTML = "";
-
-    if (movie.production.companies != null) {
-      for (let companies of movie.production.companies) {
-        let li = document.createElement("li");
-        li.textContent = companies.name;
-        companiesListElement.appendChild(li);
-      }
-    }
-
-    countriesListElement.innerHTML = "";
-
-    if (movie.production.countries != null) {
-      for (let country of movie.production.countries) {
-        let li = document.createElement("li");
-        li.textContent = country.name;
-        countriesListElement.appendChild(li);
-      }
-    }
-
-    keywordsListElement.innerHTML = "";
-
-    if (movie.details.keywords != null) {
-      for (let keyword of movie.details.keywords) {
-        let li = document.createElement("li");
-        li.textContent = keyword.name;
-        keywordsListElement.appendChild(li);
-      }
-    }
-
-    genresListElement.innerHTML = "";
-
-    if (movie.details.genres != null) {
-      for (let genre of movie.details.genres) {
-        let li = document.createElement("li");
-        li.textContent = genre.name;
-        genresListElement.appendChild(li);
-      }
-    }
-
-    crewListElement.innerHTML = "";
-
-    if (movie.production.crew != null) {
-      let sortedCrew = movie.production.crew.slice();
-
-      sortedCrew.sort(function (a, b) {
-        if (a.department == b.department) return a.name.localeCompare(b.name);
-        else return a.department.localeCompare(b.department);
-      });
-
-      for (let crew of sortedCrew) {
-        generateCrewRow(crew);
-      }
-    }
-
-    castListElement.innerHTML = "";
-
-    if (movie.production.cast != null) {
-      let sortedCast = movie.production.cast.slice();
-
-      sortedCast.sort(function (a, b) {
-        if (a.order >= b.order) return 1;
-        else return 0;
-      });
-
-      for (let cast of sortedCast) {
-        generateCastRow(cast);
-      }
-    }
-
-    speakTitleText = movie.title;
-
-    posterElement.setAttribute("src", posterURL + "w342" + movie.poster);
-    largerPosterElement.setAttribute("src", posterURL + "w500" + movie.poster);
-    posterElement.classList.remove("loadingSymbol");
-
-    leftMovieDetailBlock.style.visibility = "visible";
-    rightMovieDetailBlock.style.visibility = "visible";
-  }
-
-  //Functions to format html strings
-  function runtimeString(runtime) {
-    let runtimeHours = Math.floor(runtime / 60).toFixed(0);
-    let runtimeMinutes = runtime - runtimeHours * 60;
-
-    return runtimeHours + "h " + runtimeMinutes + "m";
-  }
-
-  function revenueString(revenue) {
-    return new Intl.NumberFormat("en-us", {
-      style: "currency",
-      currency: "USD",
-    }).format(revenue);
-  }
-
-  //To populate the crew rows
-  const crewListElement = document.querySelector("#crewListContent");
-
-  function generateCrewRow(crew) {
-    let div = document.createElement("div");
-    div.classList.add("contentRow");
-
-    let department = document.createElement("span");
-    department.textContent = crew.department;
-    div.appendChild(department);
-
-    let job = document.createElement("span");
-    job.textContent = crew.job;
-    div.appendChild(job);
-
-    let name = document.createElement("span");
-    name.textContent = crew.name;
-    div.appendChild(name);
-
-    crewListElement.appendChild(div);
-  }
-
-  //To populate the cast rows
-  const castListElement = document.querySelector("#castListContent");
-
-  function generateCastRow(cast) {
-    let div = document.createElement("div");
-    div.classList.add("contentRow");
-
-    let character = document.createElement("span");
-    character.textContent = cast.character;
-    div.appendChild(character);
-
-    let emptySpan = document.createElement("span");
-    div.appendChild(emptySpan);
-
-    let name = document.createElement("span");
-    name.textContent = cast.name;
-    div.appendChild(name);
-
-    castListElement.appendChild(div);
-  }
-
-  //Elements that represent the tabs and what happens when clicked
-  const crewTab = document.querySelector("#crewTab");
-  const castTab = document.querySelector("#castTab");
-
-  crewTab.addEventListener("click", function () {
-    crewList.style.display = "block";
-    castList.style.display = "none";
-
-    castTab.classList.remove("selected");
-    crewTab.classList.add("selected");
-  });
-
-  castTab.addEventListener("click", function () {
-    crewList.style.display = "none";
-    castList.style.display = "block";
-
-    crewTab.classList.remove("selected");
-    castTab.classList.add("selected");
-  });
-
-  //JS code URL: https://www.w3schools.com/howto/howto_css_modals.asp
-
-  // Get the modal
-  var modal = document.getElementById("largerPosterModel");
-
-  // Get the button that opens the modal
-  var poster = document.getElementById("movieDetailPoster");
-
-  // Get the <span> element that closes the modal
-  var close = document.getElementsByClassName("close")[0];
-
-  // When the user clicks on the button, open the modal
-  poster.addEventListener("click", function () {
-    modal.style.display = "block";
-  });
-
-  // When the user clicks on <span> (x), close the modal
-  close.addEventListener("click", function () {
-    modal.style.display = "none";
-  });
-
-  // When the user clicks anywhere outside of the modal, close it
-  window.addEventListener("click", function (event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  });
 
   /*End imported JS code*/
 
@@ -787,20 +459,5 @@ document.addEventListener("DOMContentLoaded", function () {
       defaultSection.classList.add("asideClose");
       h1asideFilterBlock.innerHTML = ">";
     }
-  });
-
-  //Function to speak the movie title
-  function speakTitle(title) {
-    const utterance = new SpeechSynthesisUtterance(title);
-    speechSynthesis.speak(utterance);
-  }
-
-  //Function to close the detail page
-  const closeDetailPageButton = document.querySelector(
-    "#closeDetailPageButton"
-  );
-
-  closeDetailPageButton.addEventListener("click", function () {
-    closeDetailPage();
   });
 });

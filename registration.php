@@ -1,8 +1,31 @@
 <?php
 
-    // require_once('includes/db-helper.inc.php');
-    // require_once('includes/session-helper.inc.php');
-    // require_once('includes/config.inc.php');
+// require_once('includes/db-helper.inc.php');
+// require_once('includes/session-helper.inc.php');
+// require_once('includes/config.inc.php');
+// require_once('includes/class-helper.inc.php');
+
+$incompleteForm = false;
+$passwordMatch = true;
+
+if (isset($_POST['firstname']) || isset($_POST['lastname']) || isset($_POST['city']) || isset($_POST['country']) || isset($_POST['email']) || isset($_POST['password'])) {
+	if (
+		isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['city']) && isset($_POST['country']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['confirmpassword']) &&
+		$_POST['confirmpassword'] == $_POST['password']
+	) {
+		$userData = array();
+
+		$userData['firstname'] = $_POST['firstname'];
+		$userData['lastname'] = $_POST['lastname'];
+		$userData['city'] = $_POST['city'];
+		$userData['country'] = $_POST['country'];
+		$userData['email'] = $_POST['email'];
+		$userData['password'] = password_hash($_POST['password'], PASSWORD_BCRYPT, ['cost' => 12]);
+
+		$user = new User($userData);
+
+		if (RegisterUser($user, $connection)) {
+			header("location:index.php");
 	
 	$incompleteForm = false;
 	$passwordMatch = true;
@@ -44,11 +67,12 @@
 		}
 	} else if (isset($_POST['password']) && isset($_POST['confirmpassword']) && $_POST['confirmpassword'] != $_POST['password']) {
 		$passwordMatch = false;
+	} else
+	{
+		$incompleteForm = true;
 	}
-else {
-	$incompleteForm = true;
 }
-
+	
 ?>
 <!DOCTYPE html>
 <html lang=en>
@@ -67,7 +91,7 @@ else {
 		<form method = "post" action = "registration.php">
             <ul>
 				<li><label for = "firstname">First Name:</label></li>
-				<li><input type = "text" name = "firstname" placeholder = "John (Required)"<?php if (isset($_POST['firstname'])){ echo 'value = "' . $_POST['firstname'] . '"';}?> id = "first" required></li> 
+				<li><input type = "text" name = "firstname" placeholder = "John (Required)"<?php if (isset($_POST['firstname'])){ echo 'value = "' . $_POST['firstname'] . '"';}}?> id = "first" required></li> 
 				<li><p id = "firsterror">!</p></li> 
 				<li><label for = "lastname">Last Name</label></li>
 				<li><input type = "text" name = "lastname" placeholder = "Doe (Required)" <?php if (isset($_POST['lastname'])){ echo 'value = "' . $_POST['lastname'] . '"';}?> id = "lname" required></li>
@@ -77,7 +101,7 @@ else {
 				<li><p id = "cityerror">!</p></li> 
 				<li><select name = "country" id = "country">
 						<option value = "default">Select Country</option>
-						<option value = "Canada" <?php if(isset($_POST['country']) && $_POST['country'] == "Canada"){ echo 'selected';}?>>Canada</option>
+						<option value = "Canada" <?php if(isset($_POST['country']) && $_POST['country'] == "Canada"){ echo 'selected';}}?>>Canada</option>
 						<option value = "USA">United States of America</option>
 						<option value = "Mexico">Mexico</option>
 				</select></li>
@@ -96,5 +120,4 @@ else {
         </form>
     </div>
 </body>
-
 </html>
