@@ -49,6 +49,7 @@ button,
   font-size: 13px;
   font-weight: 900;
   letter-spacing: 3px;
+  text-decoration: none;
   text-align: center;
 }
 
@@ -671,5 +672,5 @@ footer {
   color: rgb(222, 162, 145);
   letter-spacing: 2px;
   font-style: italic;
-  font-size: 15pt;
+  font-size: 9pt;
 }
