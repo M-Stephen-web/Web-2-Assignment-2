@@ -1,6 +1,6 @@
 <?php
 	require_once('config.inc.php');
-	
+
 	function runQuery($connection, $sql, $values) {
     
 		$statement = null;
@@ -36,7 +36,7 @@
 	
 	function getAllMoviesSQL() {
 		
-		$sql = 'SELECT * FROM movie';
+		$sql = 'SELECT id, release_date, title, vote_average, poster_path FROM movie';
 		$sql .= " ORDER BY title";
 
 		return $sql;
@@ -125,6 +125,7 @@
 		catch(PDOException $e)
 		{
 			echo "Exception occured";
+			return null;
 		}
 		
 		return $user;
@@ -134,7 +135,7 @@
 	function insertUserSQL($User)
 	{
 		
-		$sql = 'INSERT INTO Users (firstname, lastname, city, country, email, password)';
+		$sql = 'INSERT INTO users (firstname, lastname, city, country, email, password)';
 		$sql .= 'VALUES (:firstname, :lastname, :city, :country, :email, :password);';
 
 		return $sql;
@@ -143,24 +144,32 @@
 	
 	function insertUser($User, $connection)
 	{
-		$values = array();
-		
-		$values[":firstname"] = $User->getFirstname();
-		$values[":lastname"] = $User->getLastname();
-		$values[":city"] = $User->getCity();
-		$values[":country"] = $User->getCountry();
-		$values[":email"] = $User->getEmail();
-		$values[":password"] = $User->getPassword();
-		
-		try{
-			runQuery($connection, insertUserSQL($User), $values);
+		$ExistUser = getUser($User->email, $connection);
 
-			return true;
+		if($ExistUser == null)
+		{
+			$values = array();
+			
+			$values[":firstname"] = $User->firstname;
+			$values[":lastname"] = $User->lastname;
+			$values[":city"] = $User->city;
+			$values[":country"] = $User->country;
+			$values[":email"] = $User->email;
+			$values[":password"] = $User->password;
+			
+			try{
+				runQuery($connection, insertUserSQL($User), $values);
+	
+				return true;
+			}
+			catch(PDOException $e){
+				return false;
+			}
 		}
-		catch(PDOException $e){
+		else
+		{
 			return false;
 		}
-
 	}
 	
 	
@@ -179,6 +188,7 @@
 		
 		$values[":userId"] = $Favorite->userId;
 		$values[":movieId"] = $Favorite->movieId;
+
 		
 		try{
 			runQuery($connection, insertFavoriteSQL(), $values);
@@ -188,28 +198,71 @@
 		catch(PDOException $e){
 			return false;
 		}
+
+	}
+
+
+	function checkFavoriteExistSQL()
+	{
+		$sql = 'SELECT * FROM favorites';
+		$sql .= ' WHERE userId = :userId AND movieId = :movieId;';
+
+		return $sql;
+	}
+
+	function checkFavoriteExist($Favorite, $connection)
+	{
+		$values = array();
+		
+		$values[":userId"] = $Favorite->userId;
+		$values[":movieId"] = $Favorite->movieId;
+		
+		try{
+			$sqlResult = runQuery($connection, checkFavoriteExistSQL(), $values);
+
+			$favoriteSQL = null;
+
+			foreach($sqlResult as $row)
+			{
+				$favoriteSQL = $row;
+			}
+
+			if($favoriteSQL != null)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		catch(PDOException $e){
+			return true;
+		}
+
 	}
 	
 	
 	function getFavoriteMoviesSQL($ids) //Return SQL query of getting all the movies with the ids matching the ids passed in
 	{
 	
-		$sql = 'SELECT * FROM movie';
+		$sql = 'SELECT id, title, poster_path FROM movie';
 		$sql .= " WHERE";
 		
-		$lastId = end($ids)['id'];
+		//https://www.geeksforgeeks.org/php-end-function/
+		$lastId = end($ids);
 		
 		$count = 0;
 		
 		foreach($ids as $id)
 		{
-			if($id['id'] != $lastId)
+			if($id != $lastId)
 			{
-				$sql .= " id" . $count . " = ? AND";
+				$sql .= " id = :id" . $count . " OR ";
 			}
 			else
 			{
-				$sql .= " id" . $count . " = ?";
+				$sql .= " id = :id" . $count;
 			}
 			
 			$count++;
@@ -239,17 +292,15 @@
 		
 		try{
 			$sqlResult = runQuery($connection, getFavoriteMoviesSQL($movieIds), $values);
-			
-			
+
 			foreach($sqlResult as $row)
 			{
 				$favoriteMovies[] = new Movie($row);
 			}
-			
 		}
 		catch(PDOException $e)
 		{
-			echo "Exception occured";
+			echo "Exception occured at getFavoriteMovies";
 		}
 		
 		return $favoriteMovies;
@@ -262,7 +313,7 @@
 	{
 	
 		$sql = 'SELECT * FROM favorites';
-		$sql .= " WHERE userId = :userId;";
+		$sql .= " WHERE userId = :userId ;";
 
 		return $sql;
 		
@@ -282,7 +333,7 @@
 			
 			foreach($sqlResult as $row)
 			{
-				$movieIds = $row['movieId'];
+				$movieIds[] = $row['movieId'];
 			}
 			
 		}
@@ -293,8 +344,6 @@
 		
 		return $movieIds;
 	}
-	
-	
 	
 	
 	function deleteAllFavoriteMovieSQL() //SQL query to delete all favorites for a user by userId
@@ -329,8 +378,6 @@
 	}
 	
 	
-	
-	
 	function deleteFavoriteMovieIdSQL() //SQL query to delete a favorite by favorite primary key: id
 	{
 	
@@ -360,21 +407,3 @@
 		
 		return false;
 	}
-
-?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

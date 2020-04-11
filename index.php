@@ -1,16 +1,6 @@
 <?php
 $userName = '';
 $userId = '';
-
-// function checkLoggedIn($userName)
-// {
-// 	if (isset($_POST['userName'])) {
-// 		$userName = $_POST['userName'];
-// 		echo $userName;
-// 	} else {
-// 		echo "<button id="loginButton">Log In</button>";
-// 	}
-// }
 ?>
 
 <!DOCTYPE html>
@@ -33,9 +23,11 @@ $userId = '';
 			<input type='text' id='searchBox' placeholder='Search box for Movies' />
 		</div>
 	</section>
+<<<<<<< HEAD
 	<section id='defaultSection'>
 		<header>
 			<h2>COMP 3512 Assign2</h2>
+			<a href="favorites.php" id="favButton" class="button">Favorites</a>
 		</header>
 		<aside id='asideFilterBlock'>
 			<div class='row filterBlock'>
@@ -264,6 +256,8 @@ $userId = '';
 		</main>
 	</section>
 
+=======
+>>>>>>> 494a98d20d8915e6c03917d7ca632cd5a41e839f
 	<footer>Photo by Johannes Plenio on Unsplash</footer>
 	<script src='js/index.js'></script>
 </body>

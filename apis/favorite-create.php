@@ -3,20 +3,23 @@
     header("Content-Type: application/json; charset=UTF-8");
 
     require_once('../includes/db-helper.inc.php');
+    require_once('../includes/session-helper.inc.php');
     require_once('../includes/config.inc.php');
     require_once('../includes/class-helper.inc.php');
-    require_once('../includes/session-helper.inc.php');
     
-
-    if(isset($_GET['movieId']) && IsLoggedIn()) //favorite movieId
+    if(IsLoggedIn() && isset($_GET['movieId']))
     {
         $user = GetSessionUser();
 
-        $deleteFavorite = new Favorite($user->id, $_GET['movieId']);
+        $newFavorite = new Favorite($user->id, $_GET['movieId']);
 
-        if(checkFavoriteExist($deleteFavorite, $connection))
+        if(checkFavoriteExist($newFavorite, $connection))
         {
-            if(deleteFavoriteMovieId($_GET['movieId'], $user->id,$connection))
+            $payload = new Payload(false, null, "Error! Already favorited!");
+        }
+        else
+        {
+            if(insertFavorite($newFavorite, $connection))
             {
                 $payload = new Payload(true, null, null);
             }
@@ -25,11 +28,6 @@
                 $payload = new Payload(false, null, "Error! DB error!");
             }
         }
-        else
-        {
-            $payload = new Payload(false, null, "Error! Favorite does not exist!");
-        }
-
     }
     else
     {

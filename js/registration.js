@@ -1,5 +1,3 @@
-
-
 document.addEventListener("DOMContentLoaded", function() {
 
     let firstname = document.querySelector("#first");
