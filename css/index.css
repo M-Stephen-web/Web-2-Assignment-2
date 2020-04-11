@@ -51,7 +51,8 @@ button,
   text-decoration: none;
 }
 
-button:hover {
+button:hover,
+.button:hover {
   box-shadow: 6px 5px 20px 3px rgba(0, 0, 0, 1);
   background-color: rgba(17, 23, 30, 0.77);
   color: rgb(86, 89, 112);

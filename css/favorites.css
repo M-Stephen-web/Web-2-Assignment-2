@@ -1,0 +1,88 @@
+.header{
+    margin: 0 5em;
+    display: flex;
+
+    color:white;
+}
+
+#favoritesBlock{
+    margin: 0 5em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-row-gap: 1em;
+    justify-content: space-between;
+}
+
+#removeAllFavorites{
+    margin-left: auto;
+    margin-bottom: auto;
+    margin-top: 0.5em;
+}
+
+@media only screen and (max-width: 1750px) {
+    #favoritesBlock{
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width: 1560px) {
+    #favoritesBlock{
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width: 1350px) {
+    #favoritesBlock{
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width: 1130px) {
+    #favoritesBlock{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width: 915px) {
+    #favoritesBlock{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width: 710px) {
+    #favoritesBlock{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.favoriteMovieBlock{
+    width:fit-content;
+    margin-right: 1.5em;
+}
+
+.favoriteMovieBlock a{
+    text-decoration: none;
+}
+
+.favoriteMovieTitle{
+    color: white;
+    text-align: center;
+    font-size: 18px;
+}
+
+.removeFavoriteButton{
+    display: block;
+    width: fit-content;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 20px;
+    color:red;
+    margin-left: 0.5em;
+    margin-bottom: -1.5em;
+    z-index: 1;
+    position: relative;
+}
+
+.removeFavoriteButton:hover{
+    cursor: pointer;
+}
