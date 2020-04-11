@@ -9,6 +9,7 @@ const tmdbURL = "https://www.themoviedb.org/movie/";
 const loadingSymbolURL = "./images/loadingSymbol.gif";
 
 document.addEventListener("DOMContentLoaded", (e) => {
+  showMovieDetail(102);
   //Shows the loading symbol and fetches for the movie detail
   function showMovieDetail(id) {
     leftMovieDetailBlock.style.visibility = "hidden";
@@ -16,9 +17,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
     movieId = id;
     posterElement.classList.add("loadingSymbol");
     posterElement.setAttribute("src", loadingSymbolURL);
-
-    showDetailPage();
-
     fetchMovieDetail(id);
   }
   //Element representing the speech button to speak the movie title

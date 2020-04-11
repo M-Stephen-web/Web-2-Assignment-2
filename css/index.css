@@ -589,14 +589,6 @@ main {
   align-items: center;
 }
 
-#detailSection {
-  display: none;
-}
-
-#defaultSection {
-  display: none;
-}
-
 .loadingSymbol {
   width: 30%;
   height: auto;
