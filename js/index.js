@@ -529,7 +529,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //To fetch for the movie details, then populate the movie detail page
   function fetchMovieDetail(id) {
-    fetch(movieDetailURL + "?id=" + id)
+    fetch(movieDetailURL + "?movieId=" + id)
       .then(function (response) {
         if (response.ok) {
           return response.json();
