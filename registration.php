@@ -1,33 +1,4 @@
 <?php
-
-<<<<<<< HEAD
-require_once('includes/db-helper.inc.php');
-require_once('includes/session-helper.inc.php');
-require_once('includes/config.inc.php');
-require_once('includes/class-helper.inc.php');
-
-$incompleteForm = false;
-$passwordMatch = true;
-
-if (isset($_POST['firstname']) || isset($_POST['lastname']) || isset($_POST['city']) || isset($_POST['country']) || isset($_POST['email']) || isset($_POST['password'])) {
-	if (
-		isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['city']) && isset($_POST['country']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['confirmpassword']) &&
-		$_POST['confirmpassword'] == $_POST['password']
-	) {
-		$userData = array();
-
-		$userData['firstname'] = $_POST['firstname'];
-		$userData['lastname'] = $_POST['lastname'];
-		$userData['city'] = $_POST['city'];
-		$userData['country'] = $_POST['country'];
-		$userData['email'] = $_POST['email'];
-		$userData['password'] = password_hash($_POST['password'], PASSWORD_BCRYPT, ['cost' => 12]);
-
-		$user = new User($userData);
-
-		if (RegisterUser($user, $connection)) {
-			header("location:index.php");
-=======
     require_once('includes/db-helper.inc.php');
     require_once('includes/session-helper.inc.php');
     require_once('includes/config.inc.php');
@@ -69,23 +40,15 @@ if (isset($_POST['firstname']) || isset($_POST['lastname']) || isset($_POST['cit
 		else if(isset($_POST['password']) && isset($_POST['confirmpassword']) && $_POST['confirmpassword'] != $_POST['password'])
 		{
 			$passwordMatch = false;
->>>>>>> 494a98d20d8915e6c03917d7ca632cd5a41e839f
 		}
 	} else if (isset($_POST['password']) && isset($_POST['confirmpassword']) && $_POST['confirmpassword'] != $_POST['password']) {
 		$passwordMatch = false;
 	}
-<<<<<<< HEAD
-} else {
-	$incompleteForm = true;
-}
-
-=======
 	else
 	{
 		$incompleteForm = true;
 	}
 	
->>>>>>> 494a98d20d8915e6c03917d7ca632cd5a41e839f
 ?>
 <!DOCTYPE html>
 <html lang=en>
