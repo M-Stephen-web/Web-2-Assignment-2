@@ -13,9 +13,13 @@ const rightMovieDetailBlock = document.querySelector("#rightBlock");
 const posterElement = document.querySelector("#movieDetailPoster");
 
 document.addEventListener("DOMContentLoaded", (e) => {
-  showMovieDetail(102);
   //Shows the loading symbol and fetches for the movie detail
+  let movieId = document.querySelector('#movieId').value;
+
+  showMovieDetail(movieId);
+
   function showMovieDetail(id) {
+
     leftMovieDetailBlock.style.visibility = "hidden";
     rightMovieDetailBlock.style.visibility = "hidden";
     movieId = id;
