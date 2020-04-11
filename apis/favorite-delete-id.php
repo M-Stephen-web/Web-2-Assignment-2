@@ -7,6 +7,7 @@
     require_once('../includes/class-helper.inc.php');
     require_once('../includes/session-helper.inc.php');
     
+
     if(isset($_GET['movieId']) && IsLoggedIn()) //favorite movieId
     {
         $user = GetSessionUser();
