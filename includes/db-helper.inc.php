@@ -150,12 +150,12 @@
 		{
 			$values = array();
 			
-			$values[":firstname"] = $User->getFirstname();
-			$values[":lastname"] = $User->getLastname();
-			$values[":city"] = $User->getCity();
-			$values[":country"] = $User->getCountry();
-			$values[":email"] = $User->getEmail();
-			$values[":password"] = $User->getPassword();
+			$values[":firstname"] = $User->firstname();
+			$values[":lastname"] = $User->lastname();
+			$values[":city"] = $User->city();
+			$values[":country"] = $User->country();
+			$values[":email"] = $User->email();
+			$values[":password"] = $User->password();
 			
 			try{
 				runQuery($connection, insertUserSQL($User), $values);
