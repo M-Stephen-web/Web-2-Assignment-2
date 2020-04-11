@@ -6,9 +6,9 @@
     require_once('../includes/config.inc.php');
     require_once('../includes/class-helper.inc.php');
     
-    if(isset($_GET['id']))
+    if(isset($_GET['movieId']))
     {
-        $movie = getMovieDetail($_GET['id'], $connection);
+        $movie = getMovieDetail($_GET['movieId'], $connection);
     
         if($movie != null)
         {

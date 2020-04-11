@@ -125,6 +125,7 @@
 		catch(PDOException $e)
 		{
 			echo "Exception occured";
+			return null;
 		}
 		
 		return $user;
@@ -143,24 +144,32 @@
 	
 	function insertUser($User, $connection)
 	{
-		$values = array();
-		
-		$values[":firstname"] = $User->getFirstname();
-		$values[":lastname"] = $User->getLastname();
-		$values[":city"] = $User->getCity();
-		$values[":country"] = $User->getCountry();
-		$values[":email"] = $User->getEmail();
-		$values[":password"] = $User->getPassword();
-		
-		try{
-			runQuery($connection, insertUserSQL($User), $values);
+		$ExistUser = getUser($User->email, $connection);
 
-			return true;
+		if($ExistUser == null)
+		{
+			$values = array();
+			
+			$values[":firstname"] = $User->getFirstname();
+			$values[":lastname"] = $User->getLastname();
+			$values[":city"] = $User->getCity();
+			$values[":country"] = $User->getCountry();
+			$values[":email"] = $User->getEmail();
+			$values[":password"] = $User->getPassword();
+			
+			try{
+				runQuery($connection, insertUserSQL($User), $values);
+	
+				return true;
+			}
+			catch(PDOException $e){
+				return false;
+			}
 		}
-		catch(PDOException $e){
+		else
+		{
 			return false;
 		}
-
 	}
 	
 	
@@ -180,7 +189,6 @@
 		$values[":userId"] = $Favorite->userId;
 		$values[":movieId"] = $Favorite->movieId;
 
-
 		
 		try{
 			runQuery($connection, insertFavoriteSQL(), $values);
@@ -190,6 +198,48 @@
 		catch(PDOException $e){
 			return false;
 		}
+
+	}
+
+
+	function checkFavoriteExistSQL()
+	{
+		$sql = 'SELECT * FROM favorites';
+		$sql .= ' WHERE userId = :userId AND movieId = :movieId;';
+
+		return $sql;
+	}
+
+	function checkFavoriteExist($Favorite, $connection)
+	{
+		$values = array();
+		
+		$values[":userId"] = $Favorite->userId;
+		$values[":movieId"] = $Favorite->movieId;
+		
+		try{
+			$sqlResult = runQuery($connection, checkFavoriteExistSQL(), $values);
+
+			$favoriteSQL = null;
+
+			foreach($sqlResult as $row)
+			{
+				$favoriteSQL = $row;
+			}
+
+			if($favoriteSQL != null)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		catch(PDOException $e){
+			return true;
+		}
+
 	}
 	
 	
@@ -298,8 +348,6 @@
 	}
 	
 	
-	
-	
 	function deleteAllFavoriteMovieSQL() //SQL query to delete all favorites for a user by userId
 	{
 	
@@ -330,8 +378,6 @@
 		
 		return false;
 	}
-	
-	
 	
 	
 	function deleteFavoriteMovieIdSQL() //SQL query to delete a favorite by favorite primary key: id

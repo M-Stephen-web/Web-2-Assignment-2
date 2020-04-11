@@ -13,18 +13,25 @@
 
         $newFavorite = new Favorite($user->id, $_GET['movieId']);
 
-        if(insertFavorite($newFavorite, $connection))
+        if(checkFavoriteExist($newFavorite, $connection))
         {
-            $payload = new Payload(true, null, null);
+            $payload = new Payload(false, null, "Error! Already favorited!");
         }
         else
         {
-            $payload = new Payload(false, null, "Error!");
+            if(insertFavorite($newFavorite, $connection))
+            {
+                $payload = new Payload(true, null, null);
+            }
+            else
+            {
+                $payload = new Payload(false, null, "Error! DB error!");
+            }
         }
     }
     else
     {
-        $payload = new Payload(false, null, "Error!");
+        $payload = new Payload(false, null, "Error! Incomplete data!");
     }
 
     $json = json_encode($payload);
