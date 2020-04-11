@@ -1,3 +1,7 @@
+html {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
 body {
   /*Image url: https://unsplash.com/photos/2QUvkQTBh5s*/
   background-image: url(../images/dark-sky.jpg);
@@ -10,16 +14,15 @@ body {
   height: 100%;
   position: relative;
   overflow: hidden;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #movieBrowserBox {
-  background-color: rgba(44, 41, 49, 0.1);
-  border: rgba(44, 41, 49, 0.25);
-  border: 5em;
   box-shadow: 6px 5px 20px 3px rgba(0, 0, 0, 0.95);
+  background: rgba(44, 41, 49, 0.1);
+  border: 5em;
+  border: rgba(44, 41, 49, 0.25);
   margin-top: 20%;
-  margin-left: 28%;
+  margin-left: 29%;
   margin-right: 35%;
   padding: 4em;
   padding-bottom: 4.5em;
@@ -38,25 +41,26 @@ body {
 .button {
   box-shadow: 6px 5px 20px 3px rgba(255, 255, 255, 0.15);
   background-color: rgba(178, 86, 69, 0.65);
-  border: rgba(178, 86, 69, 0.7);
   border-radius: 4px;
+  /* border-color: rgba(178, 86, 69, 1); */
   margin: 15px;
   padding: 1em;
   width: 20rem;
   color: black;
   text-transform: uppercase;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 11pt;
   font-weight: 900;
   letter-spacing: 3px;
-  text-decoration: none;
   text-align: center;
+  text-decoration: none;
+  border-color: rgba(0, 0, 0, 0.95);
 }
 
 .button:hover {
   background-color: rgba(17, 23, 30, 0.77);
-  border-color: rgba(118, 140, 167, 0.3);
   color: rgb(118, 140, 167);
+  border-color: rgb(118, 140, 167, 0.3);
+  /* border-color: rgba(118, 140, 167, 0.3); */
   box-shadow: 6px 5px 20px 3px rgba(0, 0, 0, 0.7);
   cursor: pointer;
   letter-spacing: 4px;
@@ -72,7 +76,7 @@ input {
   margin-left: auto;
   margin-right: auto;
   width: 90%;
-  padding: 1em;
+  padding: 1.25em;
 }
 
 #searchBox {

@@ -532,6 +532,7 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch(movieDetailURL + "?movieId=" + id)
       .then(function (response) {
         if (response.ok) {
+          console.log(response);
           return response.json();
         } else {
           return Promise.reject({
@@ -542,6 +543,7 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       .then((data) => {
         populateMovieDetail(data.data);
+        console.log(data);
       })
       .catch(function (error) {
         console.log(error);
