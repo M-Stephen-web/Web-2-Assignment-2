@@ -1,5 +1,9 @@
 <?php
 
+if (isset($_GET['pls']) && $_GET['pls'] = "doit") {
+    header('location:default.php');
+}
+
 ?>
 
 <head>

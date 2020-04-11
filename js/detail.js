@@ -21,6 +21,29 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
     fetchMovieDetail(id);
   }
+  //Element representing the speech button to speak the movie title
+  const favButton = document.querySelector("#addFavButton");
+
+  favButton.addEventListener("click", (e) => {
+    fetch(addFavUrl + movieId, {
+      method: "GET",
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          return Promise.reject({
+            status: response.status,
+            statusText: response.statusText,
+          });
+        }
+      })
+      .then((data) => {
+        if (data.errorMessage) {
+          alert(data.errorMessage);
+        }
+      });
+  });
 
   //To fetch for the movie details, then populate the movie detail page
   function fetchMovieDetail(id) {

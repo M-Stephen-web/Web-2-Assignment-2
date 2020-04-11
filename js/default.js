@@ -11,6 +11,7 @@ let showingMovies = []; //To hold all movies that are currently being displayed
 
 document.addEventListener("DOMContentLoaded", (e) => {
   //To fetch all the movies
+  fetchMovies();
   function fetchMovies() {
     fetch(movieListURL)
       .then(function (response) {
@@ -143,30 +144,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
     ratingBetweenMaxValue.innerHTML = 5;
 
     showDefaultPage(movies);
-  });
-
-  //Element representing the speech button to speak the movie title
-  const favButton = document.querySelector("#addFavButton");
-
-  favButton.addEventListener("click", (e) => {
-    fetch(addFavUrl + movieId, {
-      method: "GET",
-    })
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          return Promise.reject({
-            status: response.status,
-            statusText: response.statusText,
-          });
-        }
-      })
-      .then((data) => {
-        if (data.errorMessage) {
-          alert(data.errorMessage);
-        }
-      });
   });
 
   //Event delgation for when an image, title or button is clicked for a movie, that movie is shown in the detail view
