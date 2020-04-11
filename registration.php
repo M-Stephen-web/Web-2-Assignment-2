@@ -6,26 +6,36 @@
 	
 	$incompleteForm = false;
 	$passwordMatch = true;
+	$userAlreadyExists = false;
 	
 	if(isset($_POST['firstname']) || isset($_POST['lastname']) || isset($_POST['city']) || isset($_POST['country']) || isset($_POST['email']) || isset($_POST['password']))
 	{
 		if(isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['city']) && isset($_POST['country']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['confirmpassword']) &&
 			$_POST['confirmpassword'] == $_POST['password'])
 		{
-			$userData = array();
-			
-			$userData['firstname'] = $_POST['firstname'];
-			$userData['lastname'] = $_POST['lastname'];
-			$userData['city'] = $_POST['city'];
-			$userData['country'] = $_POST['country'];
-			$userData['email'] = $_POST['email'];
-			$userData['password'] = password_hash($_POST['password'], PASSWORD_BCRYPT, ['cost' => 12]);
-			
-			$user = new User($userData);
-			
-			if(RegisterUser($user, $connection))
+			$existedUser = getUser($_POST['email'], $connection);
+
+			if($existedUser == null)
 			{
-				header("location:index.php");
+				$userData = array();
+				
+				$userData['firstname'] = $_POST['firstname'];
+				$userData['lastname'] = $_POST['lastname'];
+				$userData['city'] = $_POST['city'];
+				$userData['country'] = $_POST['country'];
+				$userData['email'] = $_POST['email'];
+				$userData['password'] = password_hash($_POST['password'], PASSWORD_BCRYPT, ['cost' => 12]);
+				
+				$user = new User($userData);
+				
+				if(RegisterUser($user, $connection))
+				{
+					header("location:index.php");
+				}
+			}
+			else
+			{
+				$userAlreadyExists = true;
 			}
 		}
 		else if(isset($_POST['password']) && isset($_POST['confirmpassword']) && $_POST['confirmpassword'] != $_POST['password'])
@@ -37,7 +47,7 @@
 	{
 		$incompleteForm = true;
 	}
-
+	
 ?>
 <!DOCTYPE html>
 <html lang = en>

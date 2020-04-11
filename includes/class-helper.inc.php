@@ -24,27 +24,6 @@
 		public $email;
 		public $password;
 		
-		function getId(){return $this->id;}
-		function getFirstname(){return $this->firstname;}
-		function getLastname(){return $this->lastname;}
-		function getCity(){return $this->city;}
-		function getCountry(){return $this->country;}
-		function getEmail(){return $this->email;}
-		function getPassword(){return $this->password;}
-		function getSalt(){return $this->salt;}
-		function getPassword_Sha256(){return $this->password_sha256;}
-		
-		
-		//function setId($id){$this->id=$id;}
-		function setFirstname($firstname){$this->firstname=$firstname;}
-		function setLastname($lastname){$this->lastname=$lastname;}
-		function setCity($city){$this->city=$city;}
-		function setCountry($country){$this->country=$country;}
-		function setEmail($email){$this->email=$email;}
-		function setPassword($password){$this->password=$password;}
-		function setSalt($salt){$this->salt=$salt;}
-		function setPassword_Sha256($password_sha256){$this->password_sha256=$password_sha256;}
-		
 	}
 	
 	class Movie
@@ -145,26 +124,6 @@
 		public $keywords;
 		public $cast;
 		public $crew;
-		
-		function getId() {return $this->id;}
-		function getTmdbId() {return $this->tmdb_id;}
-		function getImdbId() {return $this->imdb_id;}
-		function getRelease_Date() {return $this->release_date;}
-		function getVoteAverage() {return $this->vote_average;}
-		function getVoteCount() {return $this->vote_count;}
-		function getRuntime() {return $this->runtime;}
-		function getPopularity() {return $this->popularity;}
-		function getRevenue() {return $this->revenue;}
-		function getPosterPath() {return $this->poster_path;}
-		function getTagline() {return $this->tagline;}
-		function getOverview() {return $this->overview;}
-		function getProductionCompanies() {return $this->production_companies;}
-		function getProductionCountries() {return $this->production_countries;}
-		function getGenres() {return $this->genres;}
-		function getKeywords() {return $this->keywords;}
-		function getCast() {return $this->cast;}
-		function getCrew() {return $this->crew;}
-		function getTitle() {return $this->title;}
 	}
 
 	class Payload

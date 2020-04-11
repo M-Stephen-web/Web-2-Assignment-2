@@ -17,7 +17,7 @@
 	}
 	else
 	{
-		$payload = new Payload(false, null, "Error!");
+		$payload = new Payload(false, null, "Error! DB error!");
 	}
 
     $json = json_encode($payload);
