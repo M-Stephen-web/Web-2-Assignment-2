@@ -74,7 +74,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //Event listener for when the user wants to search for a movie without signing in
   movieSearchInput.addEventListener("keypress", (e) => {
-    console.log(e.key);
     if (e.key == "Enter") {
       titleFilterInput.value = movieSearchInput.value; //changes the filter input title to have the value inputted at home page
       showDefaultPage();
@@ -93,10 +92,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //To fetch all the movies
   function fetchMovies() {
-    console.log("fetching");
     fetch(movieListURL)
       .then(function (response) {
-        console.log("fetch halfway");
         if (response.ok) {
           return response.json();
         } else {
@@ -107,16 +104,19 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       })
       .then((data) => {
-        console.log("fetch complete");
-        updateStorage(data); //Place movies into local storage
+        if (data.data) {
+          updateStorage(data.data); //Place movies into local storage
 
-        movies = data; //Set global variable
+          movies = data.data; //Set global variable
 
-        movies = sortMovies(movies); //Reset global variable with sorted movies
+          movies = sortMovies(movies); //Reset global variable with sorted movies
 
-        showingMovies = movies.slice(); //Set global variable
+          showingMovies = movies.slice(); //Set global variable
 
-        populateDefaultView();
+          populateDefaultView();
+        } else {
+          displayError(data.errorMessage);
+        }
       })
       .catch(function (error) {
         console.log(error);
@@ -130,7 +130,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //To update the movie data to local storage
   function updateStorage(data) {
-    console.log("doin it");
     localStorage.setItem("movies", JSON.stringify(data));
   }
 
@@ -248,7 +247,7 @@ document.addEventListener("DOMContentLoaded", function () {
     div.setAttribute("movieId", movie.id);
 
     let img = document.createElement("img");
-    img.setAttribute("src", posterURL + "w92" + movie.poster);
+    img.setAttribute("src", posterURL + "w92" + movie.poster_path);
     div.appendChild(img);
 
     let title = document.createElement("label");
@@ -261,7 +260,7 @@ document.addEventListener("DOMContentLoaded", function () {
     div.appendChild(year);
 
     let rating = document.createElement("span");
-    rating.textContent = movie.ratings.average;
+    rating.textContent = movie.vote_average;
     div.appendChild(rating);
 
     let view = document.createElement("button");
@@ -357,7 +356,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (ratingTypeRadioBelow.checked) {
         if (
           sortedMovies[i] &&
-          sortedMovies[i].ratings.average > ratingTypeValueBelow.value
+          sortedMovies[i].vote_average > ratingTypeValueBelow.value
         ) {
           delete sortedMovies[i];
         }
@@ -367,7 +366,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (ratingTypeRadioAbove.checked) {
         if (
           sortedMovies[i] &&
-          sortedMovies[i].ratings.average < ratingTypeValueAbove.value
+          sortedMovies[i].vote_average < ratingTypeValueAbove.value
         ) {
           delete sortedMovies[i];
         }
@@ -384,9 +383,8 @@ document.addEventListener("DOMContentLoaded", function () {
         if (sortedMovies[i]) {
           if (
             !(
-              sortedMovies[i].ratings.average <=
-                ratingTypeValueBetweenMax.value &&
-              sortedMovies[i].ratings.average >= ratingTypeValueBetweenMin.value
+              sortedMovies[i].vote_average <= ratingTypeValueBetweenMax.value &&
+              sortedMovies[i].vote_average >= ratingTypeValueBetweenMin.value
             )
           ) {
             delete sortedMovies[i];
@@ -437,8 +435,6 @@ document.addEventListener("DOMContentLoaded", function () {
   let titleOrder = "asc";
 
   titleLabel.addEventListener("click", function () {
-    console.log(showingMovies);
-
     if (showingMovies.length > 2) {
       if (titleOrder == "asc") {
         showingMovies = showingMovies.sort(function (b, a) {
@@ -488,14 +484,14 @@ document.addEventListener("DOMContentLoaded", function () {
     if (showingMovies.length > 2) {
       if (ratingOrder == "asc") {
         showingMovies = showingMovies.sort(function (b, a) {
-          if (a.ratings.average >= b.ratings.average) return 1;
+          if (a.vote_average >= b.vote_average) return 1;
           else return -1;
         });
 
         ratingOrder = "desc";
       } else {
         showingMovies = showingMovies.sort(function (a, b) {
-          if (a.ratings.average >= b.ratings.average) return 1;
+          if (a.vote_average >= b.vote_average) return 1;
           else return -1;
         });
 
@@ -525,7 +521,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //To fetch for the movie details, then populate the movie detail page
   function fetchMovieDetail(id) {
-    fetch(movieDetailURL + id)
+    fetch(movieDetailURL + "?id=" + id)
       .then(function (response) {
         if (response.ok) {
           return response.json();
@@ -537,7 +533,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       })
       .then((data) => {
-        populateMovieDetail(data);
+        populateMovieDetail(data.data);
       })
       .catch(function (error) {
         console.log(error);
@@ -566,6 +562,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let speakTitleText = "";
 
   function populateMovieDetail(movie) {
+    console.log(movie);
     movieTitleElement.innerHTML = movie.title;
     releaseDateElement.innerHTML = "Release Date: " + movie.release_date;
 
@@ -582,8 +579,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     companiesListElement.innerHTML = "";
 
-    if (movie.production.companies != null) {
-      for (let companies of movie.production.companies) {
+    if (movie.production_companies != null) {
+      for (let companies of JSON.parse(movie.production_companies)) {
         let li = document.createElement("li");
         li.textContent = companies.name;
         companiesListElement.appendChild(li);
@@ -592,8 +589,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     countriesListElement.innerHTML = "";
 
-    if (movie.production.countries != null) {
-      for (let country of movie.production.countries) {
+    if (movie.production_countries != null) {
+      for (let country of JSON.parse(movie.production_countries)) {
         let li = document.createElement("li");
         li.textContent = country.name;
         countriesListElement.appendChild(li);
@@ -602,8 +599,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     keywordsListElement.innerHTML = "";
 
-    if (movie.details.keywords != null) {
-      for (let keyword of movie.details.keywords) {
+    if (movie.keywords != null) {
+      for (let keyword of JSON.parse(movie.keywords)) {
         let li = document.createElement("li");
         li.textContent = keyword.name;
         keywordsListElement.appendChild(li);
@@ -612,8 +609,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     genresListElement.innerHTML = "";
 
-    if (movie.details.genres != null) {
-      for (let genre of movie.details.genres) {
+    if (movie.genres != null) {
+      for (let genre of JSON.parse(movie.genres)) {
         let li = document.createElement("li");
         li.textContent = genre.name;
         genresListElement.appendChild(li);
@@ -622,8 +619,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     crewListElement.innerHTML = "";
 
-    if (movie.production.crew != null) {
-      let sortedCrew = movie.production.crew.slice();
+    if (movie.crew != null) {
+      let sortedCrew = JSON.parse(movie.crew.slice());
+      console.log(sortedCrew);
 
       sortedCrew.sort(function (a, b) {
         if (a.department == b.department) return a.name.localeCompare(b.name);
@@ -637,8 +635,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     castListElement.innerHTML = "";
 
-    if (movie.production.cast != null) {
-      let sortedCast = movie.production.cast.slice();
+    if (movie.cast != null) {
+      let sortedCast = JSON.parse(movie.cast.slice());
 
       sortedCast.sort(function (a, b) {
         if (a.order >= b.order) return 1;
@@ -652,8 +650,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     speakTitleText = movie.title;
 
-    posterElement.setAttribute("src", posterURL + "w342" + movie.poster);
-    largerPosterElement.setAttribute("src", posterURL + "w500" + movie.poster);
+    posterElement.setAttribute("src", posterURL + "w342" + movie.poster_path);
+    largerPosterElement.setAttribute(
+      "src",
+      posterURL + "w500" + movie.poster_path
+    );
     posterElement.classList.remove("loadingSymbol");
 
     leftMovieDetailBlock.style.visibility = "visible";
