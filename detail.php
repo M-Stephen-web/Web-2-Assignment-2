@@ -1,5 +1,8 @@
 <?php
-if (isset($_GET))
+if (isset($_GET['movieId']))
+{
+    
+}
 ?>
 
 

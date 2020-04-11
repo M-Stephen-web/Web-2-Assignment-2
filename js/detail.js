@@ -8,6 +8,10 @@ const imdbURL = "https://www.imdb.com/title/";
 const tmdbURL = "https://www.themoviedb.org/movie/";
 const loadingSymbolURL = "./images/loadingSymbol.gif";
 
+const leftMovieDetailBlock = document.querySelector("#leftBlock");
+const rightMovieDetailBlock = document.querySelector("#rightBlock");
+const posterElement = document.querySelector("#movieDetailPoster");
+
 document.addEventListener("DOMContentLoaded", (e) => {
   showMovieDetail(102);
   //Shows the loading symbol and fetches for the movie detail
@@ -78,7 +82,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
   const keywordsListElement = document.querySelector("#keywordsList");
   const genresListElement = document.querySelector("#genresList");
 
-  const posterElement = document.querySelector("#movieDetailPoster");
   const largerPosterElement = document.querySelector(
     "#largerMovieDetailPoster"
   );
@@ -286,4 +289,11 @@ document.addEventListener("DOMContentLoaded", (e) => {
       modal.style.display = "none";
     }
   });
+});
+
+//Function to close the detail page
+const closeDetailPageButton = document.querySelector("#closeDetailPageButton");
+
+closeDetailPageButton.addEventListener("click", function () {
+  document.location.href = 'default.php';
 });

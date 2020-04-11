@@ -44,6 +44,31 @@ document.addEventListener("DOMContentLoaded", (e) => {
       });
   }
 
+  //Shows default page
+  function showDefaultPage() {
+
+    matchesRowsBlock.style.display = "none";
+    loadingSymbolDefaultView.style.display = "block";
+
+    let storage = retieveStorage();
+
+    //Checks if movies were saved to storage
+    if (storage.length > 0) {
+      movies = storage;
+
+      movies = sortMovies(movies); //Sort the stored movies
+
+      showingMovies = movies.slice();
+
+      populateDefaultView();
+    } //If movies are not saved to storage, then fetch them
+    else {
+      fetchMovies();
+    }
+
+    defaultSection.style.display = "grid";
+  }
+
   //To retireve the movie data locally
   function retieveStorage() {
     return JSON.parse(localStorage.getItem("movies")) || [];
@@ -149,7 +174,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
   //Event delgation for when an image, title or button is clicked for a movie, that movie is shown in the detail view
   matchesRowsBlock.addEventListener("click", function (e) {
     if (e.target) {
-      showMovieDetail(e.target.parentNode.getAttribute("movieId"));
+      document.location.href = "detail.php?movieId="+e.target.parentNode.getAttribute("movieId");
     }
   });
 
