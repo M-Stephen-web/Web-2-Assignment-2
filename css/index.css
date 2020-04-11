@@ -1,8 +1,8 @@
 body {
   /*Image url: https://unsplash.com/photos/2QUvkQTBh5s*/
   background-image: url(../images/dark-sky.jpg);
-  /* background-color: rgba(44, 41, 49, 0.25); */
-  /* background-blend-mode: exclusion; */
+  background-color: rgba(44, 41, 49, 0.35);
+  background-blend-mode: exclusion;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -14,17 +14,18 @@ body {
 }
 
 #movieBrowserBox {
-  background-color: rgba(44, 41, 49, 0.25);
-  border-color: rgb(44, 41, 49);
+  background-color: rgba(44, 41, 49, 0.1);
+  border: rgba(44, 41, 49, 0.25);
   border: 5em;
   box-shadow: 6px 5px 20px 3px rgba(0, 0, 0, 0.95);
-  width: 36%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 21%;
+  margin-top: 20%;
+  margin-left: 28%;
+  margin-right: 35%;
   padding: 4em;
   padding-bottom: 4.5em;
   border-radius: 6px;
+  width: 34%;
+  position: flex;
 }
 
 .row {
@@ -34,36 +35,36 @@ body {
   justify-content: center;
 }
 
-button,
 .button {
-  box-shadow: 6px 5px 20px 3px rgba(0, 0, 0, 0.65);
-  background-color: rgba(149, 61, 50, 0.6);
-  border: rgba(149, 61, 50, 0.7);
+  box-shadow: 6px 5px 20px 3px rgba(255, 255, 255, 0.15);
+  background-color: rgba(178, 86, 69, 0.65);
+  border: rgba(178, 86, 69, 0.7);
   border-radius: 4px;
   margin: 15px;
   padding: 1em;
   width: 20rem;
-  color: #b3b3b3;
+  color: black;
   text-transform: uppercase;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 13px;
+  font-size: 11pt;
   font-weight: 900;
   letter-spacing: 3px;
   text-decoration: none;
   text-align: center;
 }
 
-button:hover {
-  box-shadow: 6px 5px 20px 3px rgba(0, 0, 0, 1);
+.button:hover {
   background-color: rgba(17, 23, 30, 0.77);
-  color: rgb(86, 89, 112);
-  cursor: alias;
+  border-color: rgba(118, 140, 167, 0.3);
+  color: rgb(118, 140, 167);
+  box-shadow: 6px 5px 20px 3px rgba(0, 0, 0, 0.7);
+  cursor: pointer;
   letter-spacing: 4px;
 }
 
 input {
   box-shadow: 6px 5px 20px 3px rgba(0, 0, 0, 0.85);
-  background-color: rgba(111, 68, 70, 0.3);
+  background-color: rgba(111, 68, 70, 0.4);
   border: rgba(111, 68, 70, 0.5);
   border-radius: 4px;
   display: flex;
@@ -672,5 +673,5 @@ footer {
   color: rgb(222, 162, 145);
   letter-spacing: 2px;
   font-style: italic;
-  font-size: 9pt;
+  font-size: 9.5pt;
 }

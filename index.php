@@ -30,7 +30,7 @@ $userId = '';
 				<a href="login.php" id="login" class="button">Login</a>
 				<a href="registration.php" id="join" class="button">Join</a>
 			</div>
-			<input type='text' id='searchBox' placeholder='Search box for Movies' />
+			<input type='text' id='searchBox' placeholder='Search for Movies' />
 		</div>
 	</section>
 	<section id='defaultSection'>
