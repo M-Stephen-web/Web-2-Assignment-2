@@ -1,6 +1,8 @@
 body {
   /*Image url: https://unsplash.com/photos/2QUvkQTBh5s*/
   background-image: url(../images/dark-sky.jpg);
+  /* background-color: rgba(44, 41, 49, 0.25); */
+  /* background-blend-mode: exclusion; */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -48,7 +50,6 @@ button,
   font-weight: 900;
   letter-spacing: 3px;
   text-align: center;
-  text-decoration: none;
 }
 
 button:hover {
@@ -670,5 +671,5 @@ footer {
   color: rgb(222, 162, 145);
   letter-spacing: 2px;
   font-style: italic;
-  font-size: x-small;
+  font-size: 15pt;
 }
