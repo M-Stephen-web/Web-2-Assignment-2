@@ -1,10 +1,3 @@
-<?php
-if (isset($_GET['movieId']))
-{
-    
-}
-?>
-
 
 <head>
     <meta charset='utf-8' />
@@ -14,6 +7,12 @@ if (isset($_GET['movieId']))
 </head>
 
 <body>
+    <?php
+    if (isset($_GET['movieId']))
+    {
+        echo '<input id="movieId" value="'. $_GET['movieId'] . '" />';
+    }
+    ?>
     <main>
         <section id='leftBlock'>
             <div class='row speak'>
