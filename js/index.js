@@ -1,12 +1,14 @@
 //All URLS needed
 const movieListURL = "http://phseguin.ca/apis/movies-all.php";
 const posterURL = "https://image.tmdb.org/t/p/";
+const addFavUrl = "http://phseguin.ca/apis/favorite-create.php?movieId=";
 const movieDetailURL = "http://phseguin.ca/apis/movies-brief.php";
 const loginURL = "http://phseguin.ca/apis/login-user.php";
 const registerURL = "http://phseguin.ca/apis/register-user.php";
 const imdbURL = "https://www.imdb.com/title/";
 const tmdbURL = "https://www.themoviedb.org/movie/";
 const loadingSymbolURL = "./images/loadingSymbol.gif";
+let movieId = "";
 
 //Global variables to hold data
 let movies = []; //To hold all movies that are sorted by title
@@ -78,7 +80,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //Event listener for when the user wants to search for a movie without signing in
   movieSearchInput.addEventListener("keypress", (e) => {
-    console.log(e.key);
     if (e.key == "Enter") {
       titleFilterInput.value = movieSearchInput.value; //changes the filter input title to have the value inputted at home page
       showDefaultPage();

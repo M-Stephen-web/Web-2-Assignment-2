@@ -7,20 +7,33 @@
     require_once('../includes/class-helper.inc.php');
     require_once('../includes/session-helper.inc.php');
     
-    if(isset($_GET['movieId']) && IsLoggedIn()) //favorite Id
+
+    if(isset($_GET['movieId']) && IsLoggedIn()) //favorite movieId
     {
-        if(deleteFavoriteMovieId($_GET['movieId'], GetSessionUser()->id,$connection))
+        $user = GetSessionUser();
+
+        $deleteFavorite = new Favorite($user->id, $_GET['movieId']);
+
+        if(checkFavoriteExist($deleteFavorite, $connection))
         {
-            $payload = new Payload(true, null, null);
+            if(deleteFavoriteMovieId($_GET['movieId'], $user->id,$connection))
+            {
+                $payload = new Payload(true, null, null);
+            }
+            else
+            {
+                $payload = new Payload(false, null, "Error! DB error!");
+            }
         }
         else
         {
-            $payload = new Payload(false, null, "Error!");
+            $payload = new Payload(false, null, "Error! Favorite does not exist!");
         }
+
     }
     else
     {
-        $payload = new Payload(false, null, "Error!");
+        $payload = new Payload(false, null, "Error! Incomplete data!");
     }
 
     $json = json_encode($payload);
