@@ -1,5 +1,5 @@
 <?php
-// require_once('includes/session-helper.inc.php');
+ require_once('includes/session-helper.inc.php');
 function printHeader()
 {
     echo "<header> 
