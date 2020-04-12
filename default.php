@@ -14,16 +14,8 @@ require_once('header.php');
 </head>
 
 <body>
-<<<<<<< HEAD
-    <?php
-    printHeader();
-    ?>
-
-    <section id="defaultSection">
-=======
     <header>TEMPORARY</header>
     <section id="defaultSection">    
->>>>>>> e11d85585364418d07ce53f57439f4fc6012848c
         <aside id='asideFilterBlock'>
             <div class='filterBlock'>
                 <div id='filterBox'>
