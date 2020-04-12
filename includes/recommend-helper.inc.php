@@ -13,7 +13,7 @@
 
         $allMovies = getAllMovies($connection);
 
-        if(count($recommendedMovies) < 15)
+        while(count($recommendedMovies) < 15)
         {
             $movieCompare = null;
 
@@ -52,7 +52,9 @@
             {
                 $topRecommendedMovies = getTopRecommendedMovies($connection);
 
-                for ($i = 0; $i <= (15 - count($recommendedMovies)); $i++)
+                $max = (15 - count($recommendedMovies) - 1);
+
+                for ($i = 0; $i <= $max; $i++)
                 {
                     $recommendedMovies[] = $topRecommendedMovies[$i];
                 }

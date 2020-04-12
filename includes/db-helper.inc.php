@@ -408,7 +408,7 @@
 
 	function getTopRecommendedMoviesSQL()
 	{
-		$sql = "";
+		$sql = "SELECT id, title, release_date, vote_average FROM movie ORDER BY  SUBSTRING(release_date,1,4) DESC, vote_average DESC LIMIT 15;";
 
 		return $sql;
 	}
