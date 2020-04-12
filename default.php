@@ -1,5 +1,5 @@
 <?php
-require_once('header.php');
+// require_once('header.php');
 
 ?>
 
@@ -16,11 +16,8 @@ require_once('header.php');
 <body>
     <section id="defaultSection">    
     <?php
-    printHeader();
+    //printHeader();
     ?>
-
-    <section id="defaultSection">
-
         <aside id='asideFilterBlock'>
             <div class='filterBlock'>
                 <div id='filterBox'>
