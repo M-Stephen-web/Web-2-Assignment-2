@@ -17,10 +17,13 @@ if (isset($_POST['password']) && isset($_POST['email'])) {
 <html lang=en>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Login page for assignment">
-    <meta name="viewport" content="width = device-width, initial-scale = 1.0">
-    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <meta charset = "UTF-8">
+    <meta name = "description" content = "Login Page">
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+
+    <title>Login</title>
+    <link rel = "stylesheet" type = "text/css" href = "css/login.css">
+
 </head>
 
 <body>
@@ -37,5 +40,7 @@ if (isset($_POST['password']) && isset($_POST['email'])) {
         <a href="registration.php">Don't have an account? Register Here!</a>
     </div>
 </body>
+
+<footer></footer>
 
 </html>

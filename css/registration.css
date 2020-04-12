@@ -3,15 +3,16 @@ html{
     padding: 0;
     width: 100%;
     height: 100vh;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body{
     background-image: url(../images/dark-sky.jpg);
-    background-color: rgba(44, 41, 49, 0.35);
+    background-color: rgba(44, 41, 49, 0.2);
     background-blend-mode: exclusion;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: center;
     background-attachment: fixed;
     margin: 0;
     padding: 0;
@@ -21,70 +22,79 @@ body{
 }
 
 .box{
+    background: rgba(29, 32, 41, 0.75);
+    border: 1px solid rgba(36, 39, 50, 0.25);
+    border-radius: 6px;
+    box-shadow: 5px 5px 50px 15px rgba(0, 0, 0, 0.85);
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
-    border: 1px solid #fff;
-    border-radius: 6px;
-    padding: 2em;
+    padding: 3%;
 }
 
 h2{
-    font-family: sans-serif;
-    font-weight: lighter;
+    display: fixed;
+    margin-top: 0;
+    text-transform: uppercase;
+    font-size: 2.75rem;
+    font-weight: bolder;
     text-align: center;
-    color: #fff;
+    color: black;
+    letter-spacing: 5px;
 }
 
-input[type=text], input[type=password], input[type=email] {
+input[type=text], 
+input[type=password], 
+input[type=email]{
+    background-color: rgba(111, 68, 70, 0.5);
+    border: 1px solid rgba(111, 68, 70, 0.7);
+    border-radius: 4px;
     display: block;
     width: 300px;
     height: 50px;
-    background-color: rgba(0,0,0,0.3);
-    outline: none;
-    border: 1px solid rgba(0,0,0,0.5);
-    font-family: sans-serif;
-    font-weight: lighter;
     font-size: 14px;
-    margin-bottom: 10px;
+    margin-bottom: 5%;
     padding-left: 10px;
-    color: white;
+    letter-spacing: 1.5px;
 }
 
 input[type=submit]{
-    width: 315px;
+    width: 60%;
     height: 50px;
-    font-size: 15px;
-    background-color: black;
-    border-color: black;
-    color: #fff;
-    border-radius: 6px;
+    font-size: 1.15rem;
+    font-weight: bold;
+    text-transform: lowercase;
+    box-shadow: 6px 5px 20px 15px rgba(255, 255, 255, 0.05);
+    background-color: rgba(178, 86, 69, 0.55);
+    border: 1px solid rgba(178, 86, 69, 1);
+    border-radius: 4px;
+    color: black;
+    margin-top: 5%;
+    letter-spacing: 2px;
+    margin-left: 15%;
 }
 
 input[type=submit]:hover{
+    box-shadow: 6px 5px 20px 3px rgba(0, 0, 0, 0.7);
+    background-color: rgba(17, 23, 30, 0.77);
+    border: 1px solid rgba(118, 140, 167, 0.1);
+    color: rgb(118, 140, 167);
     cursor: pointer;
 }
 
-a{
-    position: relative;
-    top: 10px;
-}
-
-a:link{
-    color: white;
-}
-
 p{
-    color: red;
+    color: rgb(190, 72, 58);
 }
 
 form ul li label{
+    margin-right: 15px;
+    margin-top: 15px;
+    width: 20%;
     float: left;
-    margin-bottom: 10px;
-    width: 80px;
-    margin-right: 10px;
     text-align: right;
+    color: rgb(154, 99, 96);
+    letter-spacing: 1px;
 }
 
 li{
@@ -93,9 +103,21 @@ li{
 
 li p{
     display: none;
-    font-size: 20pt;
+    font-size: 16pt;
 }
 
 li p:hover{
-    cursor: pointer;
+    cursor: help;
 }
+
+footer:after{
+    content: 'Photo by Johannes Plenio on Unsplash';
+    color: rgb(222, 162, 145);
+    position: fixed;
+    bottom: 0;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    letter-spacing: 2px;
+    font-style: italic;
+    font-size: 9.5pt;
+  }
