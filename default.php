@@ -14,10 +14,8 @@
 </head>
 
 <body>
+    <header>TEMPORARY</header>
     <section id="defaultSection">    
-    <?php
-    //printHeader();
-    ?>
         <aside id='asideFilterBlock'>
             <div class='filterBlock'>
                 <div id='filterBox'>

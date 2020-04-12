@@ -23,7 +23,6 @@ if (isset($_POST['password']) && isset($_POST['email'])) {
 
     <title>Login</title>
     <link rel = "stylesheet" type = "text/css" href = "css/login.css">
-
 </head>
 
 <body>

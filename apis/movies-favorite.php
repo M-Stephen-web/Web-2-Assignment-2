@@ -11,7 +11,11 @@
 	
 	if(IsLoggedIn())
 	{
-		$movies = getFavoriteMovies(GetSessionUser(), $connection);
+		$User = GetSessionUser();
+
+		$movieIds = getFavoriteMovieIds($User, $connection); //Get all the movie ids the user has favorited
+
+		$movies = getMoviesByIds($movieIds, $connection);
 		
 		$payload = new Payload(true, $movies, null);
 	}

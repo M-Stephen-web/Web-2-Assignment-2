@@ -1,11 +1,8 @@
 //urls
-const favMoviesURL = "http://phseguin.ca/apis/movies-favorite.php";
+const favMoviesURL = "apis/movies-favorite.php";
 const movieListURL = "http://phseguin.ca/apis/movies-all.php";
 const posterURL = "https://image.tmdb.org/t/p/";
-const recommendationsURL = "http://phseguin.ca/apis/get-recommended.php";
-
-let favorites = [];
-let recommendations = [];
+const recommendationsURL = "apis/get-recommended.php";
 
 document.addEventListener("DOMContentLoaded", (e) => {
   //declarations for page elements
@@ -22,76 +19,58 @@ document.addEventListener("DOMContentLoaded", (e) => {
     div.classList.add("favoriteMovieBlock");
     div.setAttribute("id", "favoriteBlock" + movie.id);
 
-    let removeButton = document.createElement("a");
-    removeButton.classList.add("removeFavoriteButton");
-    removeButton.textContent = "X";
-
-    removeButton.addEventListener("click", function (e) {
-      removeFavorite(movie.id);
-    });
-
-    div.appendChild(removeButton);
-
     let a = document.createElement("a");
+    a.classList.add("imageAnchor");
     a.setAttribute("href", "index.php");
 
     let img = document.createElement("img");
     img.classList.add("favoriteMovieImage");
-    img.setAttribute("src", posterURL + "w185" + movie.poster_path);
+    img.setAttribute("src", posterURL + "w92" + movie.poster_path);
     a.appendChild(img);
-
-    let title = document.createElement("div");
-    title.classList.add("favoriteMovieTitle");
-    title.textContent = movie.title;
-    a.appendChild(title);
-
+    
     div.appendChild(a);
+
+    let title = document.createElement("a");
+    title.classList.add("favoriteMovieTitle");
+    title.setAttribute("href", "index.php");
+    title.textContent = movie.title;
+    div.appendChild(title);
 
     recommendationsBox.appendChild(div);
   }
 
   function addFavoriteMovieBlock(movie) {
-    console.log(movie);
-
     let div = document.createElement("div");
     div.classList.add("favoriteMovieBlock");
     div.setAttribute("id", "favoriteBlock" + movie.id);
 
-    let removeButton = document.createElement("a");
-    removeButton.classList.add("removeFavoriteButton");
-    removeButton.textContent = "X";
-
-    removeButton.addEventListener("click", function (e) {
-      removeFavorite(movie.id);
-    });
-
-    div.appendChild(removeButton);
-
     let a = document.createElement("a");
+    a.classList.add("imageAnchor");
     a.setAttribute("href", "index.php");
 
     let img = document.createElement("img");
     img.classList.add("favoriteMovieImage");
-    img.setAttribute("src", posterURL + "w185" + movie.poster_path);
+    img.setAttribute("src", posterURL + "w92" + movie.poster_path);
     a.appendChild(img);
-
-    let title = document.createElement("div");
-    title.classList.add("favoriteMovieTitle");
-    title.textContent = movie.title;
-    a.appendChild(title);
-
+    
     div.appendChild(a);
+
+    let title = document.createElement("a");
+    title.classList.add("favoriteMovieTitle");
+    title.setAttribute("href", "index.php");
+    title.textContent = movie.title;
+    div.appendChild(title);
 
     favoritesBox.appendChild(div);
   }
 
-  function populateFavorites() {
-    for (let i = 0; i < favorites.length; i++) {
+  function populateFavorites(favorites) {
+    for (let i = 0; i < favorites.length && i < 10; i++) {
       addFavoriteMovieBlock(favorites[i]);
     }
   }
 
-  function populateRecommendations() {
+  function populateRecommendations(recommendations) {
     for (let i = 0; i < recommendations.length; i++) {
       addRecommendedMovieBlock(recommendations[i]);
     }
@@ -110,10 +89,10 @@ document.addEventListener("DOMContentLoaded", (e) => {
         }
       })
       .then((data) => {
-        recommendations = data.data;
-        populateRecommendations();
+        populateRecommendations(data.data);
       });
   }
+
   function getFavorites() {
     fetch(favMoviesURL)
       .then((response) => {
@@ -127,8 +106,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
         }
       })
       .then((data) => {
-        favorites = data.data;
-        populateFavorites();
+        populateFavorites(data.data);
       })
       .catch((e) => console.log(error));
   }
