@@ -1,12 +1,30 @@
 .card,
 .card a {
-  background-color: #ffffff;
-  color: black;
+  color: white;
   text-decoration: none;
-  border: 1px solid white;
   border-radius: 1rem;
 }
 
 .card a {
-  color: violet;
+  color: wheat;
+}
+
+.card a:hover {
+  color: whitesmoke;
+}
+
+.transparentBox{
+  box-shadow: 6px 5px 20px 3px rgba(0, 0, 0, 0.95);
+  background: rgba(44, 41, 49, 0.1);
+  border: 5em;
+  border-color: rgba(44, 41, 49, 0.25);
+  padding: 3em;
+  padding-top: 1em;
+  padding-bottom: 3em;
+  border-radius: 6px;
+}
+
+h1{
+  color:white;
+  margin-left: 1em;
 }
