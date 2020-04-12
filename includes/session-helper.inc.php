@@ -59,4 +59,17 @@
 			return false;
 		}
 	}
+
+	function LogoutUser()
+	{
+		if(isset($_SESSION['User']))
+		{
+			$_SESSION['User'] = null;
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 ?>

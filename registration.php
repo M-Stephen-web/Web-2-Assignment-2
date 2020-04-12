@@ -1,5 +1,4 @@
 <?php
-
     // require_once('includes/db-helper.inc.php');
     // require_once('includes/session-helper.inc.php');
     // require_once('includes/config.inc.php');
@@ -56,8 +55,10 @@
 
 <head>
     <meta charset = "UTF-8">
-    <meta name = "description" content = "Registration page for assignment">
-    <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+    <meta name = "description" content = "Registration Page">
+	<meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+	
+	<title>Registration</title>
     <link rel = "stylesheet" type = "text/css" href = "css/registration.css"> 
 	<script src = "js/registration.js"></script>
 </head>
@@ -102,7 +103,7 @@
 				<input type = "submit" name = "register" value = "register" id = "submit">  
 			</ul>
         </form>
-    </div>
+	</div>
 </body>
-
+<footer></footer>
 </html>
