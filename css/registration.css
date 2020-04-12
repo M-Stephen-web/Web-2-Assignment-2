@@ -71,8 +71,8 @@ input[type=submit]{
     border-radius: 4px;
     color: black;
     margin-top: 5%;
-    letter-spacing: 2px;
     margin-left: 15%;
+    letter-spacing: 2px;
 }
 
 input[type=submit]:hover{

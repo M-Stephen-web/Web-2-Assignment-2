@@ -14,7 +14,7 @@
     if (isset($_GET['movieId'])) {
         echo '<input id="movieId" value="' . $_GET['movieId'] . '" />';
     }
-    printHeader()
+    //printHeader()
     ?>
     <main>
         <header>TEMPORARY</header>
