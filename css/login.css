@@ -8,7 +8,7 @@ html{
 
 body{
     background-image: url(../images/dark-sky.jpg);
-    background-color: rgba(44, 41, 49, 0.25);
+    background-color: rgba(44, 41, 49, 0.3);
     background-blend-mode: exclusion;
     background-size: cover;
     background-repeat: no-repeat;
@@ -22,10 +22,10 @@ body{
 }
 
 .box{
-    box-shadow: 5px 5px 50px 15px rgba(0, 0, 0, 0.95);
-    background: rgba(44, 41, 49, 0.1);
+    background: rgba(44, 41, 49, 0.05);
     border: 1px solid rgba(44, 41, 49, 0.25);
     border-radius: 6px;
+    box-shadow: 5px 5px 50px 15px rgba(0, 0, 0, 0.85);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -34,7 +34,7 @@ body{
 }
 
 h2{
-    margin-top: 0%;
+    margin-top: 0;
     margin-bottom: 20%;
     text-transform: uppercase;
     font-size: 2.75rem;
@@ -44,11 +44,13 @@ h2{
     letter-spacing: 5px;
 }
 
-input[type=text], input[type=password], input[type=email] {
+input[type=text], 
+input[type=password], 
+input[type=email]{
     display: block;
     width: 300px;
     height: 50px;
-    background-color: rgba(111, 68, 70, 0.4);
+    background-color: rgba(111, 68, 70, 0.5);
     border: 1px solid rgba(111, 68, 70, 0.7);
     border-radius: 4px;
     font-size: 14px;
@@ -117,7 +119,7 @@ li p:hover{
     cursor: pointer;
 }
 
-footer:after {
+footer:after{
     content: 'Photo by Johannes Plenio on Unsplash';
     color: rgb(222, 162, 145);
     position: fixed;

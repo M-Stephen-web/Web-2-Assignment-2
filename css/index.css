@@ -9,7 +9,7 @@ html {
 body {
   /*Image url: https://unsplash.com/photos/2QUvkQTBh5s*/
   background-image: url(../images/dark-sky.jpg);
-  background-color: rgba(44, 41, 49, 0.1);
+  background-color: rgba(44, 41, 49, 0.15);
   background-blend-mode: exclusion;
   background-size: cover;
   background-repeat: no-repeat;
@@ -23,10 +23,10 @@ body {
 }
 
 #movieBrowserBox {
-  box-shadow: 5px 5px 50px 20px rgba(0, 0, 0, 0.95);
-  background: rgba(44, 41, 49, 0.1);
+  background: rgba(44, 41, 49, 0.05);
   border: 1px solid rgba(44, 41, 49, 0.25);
   border-radius: 6px;
+  box-shadow: 5px 5px 50px 20px rgba(0, 0, 0, 0.95);
   position: absolute;
   top: 50%;
   left: 50%;
