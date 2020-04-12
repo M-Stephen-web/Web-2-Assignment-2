@@ -79,27 +79,27 @@
 				}
 			?>
             <ul>
-				<li><label for = "firstname">First Name</label>
-				<input type = "text" name = "firstname" placeholder = "Required"<?php if (isset($_POST['firstname'])){ echo 'value = "' . $_POST['firstname'] . '"';}?> id = "first" required>
-				<p id = "firsterror">!</p></li> 
-				<li><label for = "lastname">Last Name</label>
-				<input type = "text" name = "lastname" placeholder = "Required" <?php if (isset($_POST['lastname'])){ echo 'value = "' . $_POST['lastname'] . '"';}?> id = "lname" required>
-				<p id = "lasterror">!</p></li> 
-				<li><label for = "city">City</label>
-				<input type = "text" name = "city" placeholder = "Required" <?php if (isset($_POST['city'])){ echo 'value = "' . $_POST['city'] . '"';}?> id = "city" required>
-				<p id = "cityerror">!</p></li> 
-				<li><label for = "country">Country</label>
-				<input type = "text" name = "country" placeholder = "Required" <?php if (isset($_POST['country'])){ echo 'value = "' . $_POST['country'] . '"';}?> id = "country" required>
-				<p id = "countryerror">!</p></li>
-				<li><label for = "email" id = "eid">Email</label>
-				<input type = "email" name = "email" placeholder = "Required" <?php if (isset($_POST['email'])){ echo 'value = "' . $_POST['email'] . '"';}?>id = "email" required>
-				<p id = "emailerror">!</p></li>
-				<li><label for = "password">Password</label>
-				<input type = "password" name = "password" placeholder = "Required" <?php if (isset($_POST['password'])){ echo 'value = "' . $_POST['password'] . '"';}?>id = "password" required>
-				<p id = "passerror">!</p></li>
-				<li><label for = "confirmpassword">Confirm Password</label>
-				<input type = "password" name = "confirmpassword" placeholder = "Required" <?php if (isset($_POST['confirmpassword'])){ echo 'value = "' . $_POST['confirmpassword'] . '"';}?>id = "confirm" required>
-				<p id = "confirmerror">!</p></li>
+				<li><label for = "firstname">First Name *</label></li>
+				<li><input type = "text" name = "firstname" placeholder = "John (Required)"<?php if (isset($_POST['firstname'])){ echo 'value = "' . $_POST['firstname'] . '"';}?> id = "first" required></li> 
+				<li><p id = "firsterror"></p></li> 
+				<li><label for = "lastname">Last Name *</label></li>
+				<li><input type = "text" name = "lastname" placeholder = "Doe (Required)" <?php if (isset($_POST['lastname'])){ echo 'value = "' . $_POST['lastname'] . '"';}?> id = "lname" required></li>
+				<li><p id = "lasterror"></p></li> 
+				<li><label for = "city">City *</label><li>
+				<li><input type = "text" name = "city" placeholder = "Los Angeles (Required)" <?php if (isset($_POST['city'])){ echo 'value = "' . $_POST['city'] . '"';}?> id = "city" required></li>
+				<li><p id = "cityerror"></p></li> 
+				<li><label for = "country">Country *</label></li>
+				<li><input type = "text" name = "country" placeholder = "Algeria (Required)" <?php if (isset($_POST['country'])){ echo 'value = "' . $_POST['country'] . '"';}?> id = "country" required></li>
+				<li><p id = "countryerror"></p></li>
+				<li><label for = "email" id = "eid">Email:</label></li>
+				<li><input type = "email" name = "email" placeholder = "jdoe@mail.com (Required)" <?php if (isset($_POST['email'])){ echo 'value = "' . $_POST['email'] . '"';}?>id = "email" required></li>
+				<li><p id = "emailerror"></p></li>
+				<li><label for = "password">Password:</label></li>
+				<li><input type = "password" name = "password" placeholder = "Password (Required)" <?php if (isset($_POST['password'])){ echo 'value = "' . $_POST['password'] . '"';}?>id = "password" required></li>
+				<li><p id = "passerror"></p></li>
+				<li><label for = "confirmpassword">Confirm Password:</label></li>
+				<li><input type = "password" name = "confirmpassword" placeholder = "Confirm Password (Required)" <?php if (isset($_POST['confirmpassword'])){ echo 'value = "' . $_POST['confirmpassword'] . '"';}?>id = "confirm" required></li>
+				<li><p id = "confirmerror"></p></li>
 				<input type = "submit" name = "register" value = "register" id = "submit">  
 			</ul>
         </form>
