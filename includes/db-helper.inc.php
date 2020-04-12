@@ -246,7 +246,7 @@
 	function getMoviesByIdsSQL($ids) //Return SQL query of getting all the movies with the ids matching the ids passed in
 	{
 	
-		$sql = 'SELECT id, title, poster_path FROM movie';
+		$sql = 'SELECT id, title, vote_average, release_date, poster_path FROM movie';
 		$sql .= " WHERE";
 		
 		//https://www.geeksforgeeks.org/php-end-function/
@@ -405,3 +405,28 @@
 		
 		return false;
 	}
+
+	function getTopRecommendedMoviesSQL()
+	{
+		$sql = "";
+
+		return $sql;
+	}
+
+	function getTopRecommendedMovies($connection)
+	{
+		$recommendedMovies = [];
+		
+		try{
+			$sqlResult = runQuery($connection, getTopRecommendedMoviesSQL(), null);
+	
+			foreach($sqlResult as $row)
+			{
+				$recommendedMovies[] = new Movie($row);
+			}
+		}
+		catch(PDOException $e){}
+		
+		return $recommendedMovies;
+	}
+?>
