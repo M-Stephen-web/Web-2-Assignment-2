@@ -37,4 +37,5 @@
         <a href = "registration.php">Don't have an account? Register Here!</a>
     </div>
 </body>
+<footer></footer>
 </html>
