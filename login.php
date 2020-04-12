@@ -39,5 +39,7 @@ if (isset($_POST['password']) && isset($_POST['email'])) {
         <a href="registration.php">Don't have an account? Register Here!</a>
     </div>
 </body>
+
 <footer></footer>
+
 </html>
