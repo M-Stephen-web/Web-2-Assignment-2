@@ -1,5 +1,5 @@
 <?php
-
+require_once('header.php')
 ?>
 
 <!DOCTYPE html>
@@ -12,12 +12,12 @@
 </head>
 
 <body>
-    <header class="header" id="favHeader">
-        <div>
-            <a href="index.php" id="homeButton" class="button">Home</a>
-            <h2>Favourites</h2>
-        </div>
-        <button id='removeAllFavorites'>Remove All Favorites</button>
+    <?php printHeader() ?>
+    <div>
+        <a href="index.php" id="homeButton" class="button">Home</a>
+        <h2>Favourites</h2>
+    </div>
+    <button id='removeAllFavorites'>Remove All Favorites</button>
     </header>
     <section id="favoritesBlock">
     </section>

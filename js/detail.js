@@ -14,12 +14,11 @@ const posterElement = document.querySelector("#movieDetailPoster");
 
 document.addEventListener("DOMContentLoaded", (e) => {
   //Shows the loading symbol and fetches for the movie detail
-  let movieId = document.querySelector('#movieId').value;
+  let movieId = document.querySelector("#movieId").value;
 
   showMovieDetail(movieId);
 
   function showMovieDetail(id) {
-
     leftMovieDetailBlock.style.visibility = "hidden";
     rightMovieDetailBlock.style.visibility = "hidden";
     movieId = id;
@@ -91,7 +90,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
   );
 
   function populateMovieDetail(movie) {
-    console.log(movie);
     movieTitleElement.innerHTML = movie.title;
     releaseDateElement.innerHTML = "Release Date: " + movie.release_date;
 
@@ -150,7 +148,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
     if (movie.crew != null) {
       let sortedCrew = JSON.parse(movie.crew.slice());
-      console.log(sortedCrew);
 
       sortedCrew.sort(function (a, b) {
         if (a.department == b.department) return a.name.localeCompare(b.name);
@@ -299,5 +296,5 @@ document.addEventListener("DOMContentLoaded", (e) => {
 const closeDetailPageButton = document.querySelector("#closeDetailPageButton");
 
 closeDetailPageButton.addEventListener("click", function () {
-  document.location.href = 'default.php';
+  document.location.href = "default.php";
 });
