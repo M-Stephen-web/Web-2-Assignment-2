@@ -1,5 +1,5 @@
 <?php
-
+require_once('header.php');
 
 ?>
 
@@ -14,8 +14,13 @@
 </head>
 
 <body>
-    <header>TEMPORARY</header>
     <section id="defaultSection">    
+    <?php
+    printHeader();
+    ?>
+
+    <section id="defaultSection">
+
         <aside id='asideFilterBlock'>
             <div class='filterBlock'>
                 <div id='filterBox'>

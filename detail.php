@@ -1,3 +1,6 @@
+<?php
+require_once('header.php');
+?>
 
 <head>
     <meta charset='utf-8' />
@@ -8,10 +11,10 @@
 
 <body>
     <?php
-    if (isset($_GET['movieId']))
-    {
-        echo '<input id="movieId" value="'. $_GET['movieId'] . '" />';
+    if (isset($_GET['movieId'])) {
+        echo '<input id="movieId" value="' . $_GET['movieId'] . '" />';
     }
+    printHeader()
     ?>
     <main>
         <section id='leftBlock'>
