@@ -134,8 +134,8 @@ aside,
   grid-column-start: 1;
   grid-column-end: 2;
 
-  grid-row-start: 2;
-  grid-row-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
 
   transition: 2s;
 
@@ -596,14 +596,6 @@ main {
   align-items: center;
 }
 
-#detailSection {
-  display: none;
-}
-
-#defaultSection {
-  display: none;
-}
-
 .loadingSymbol {
   width: 30%;
   height: auto;
@@ -678,4 +670,8 @@ footer {
   letter-spacing: 2px;
   font-style: italic;
   font-size: 9.5pt;
+}
+
+#movieId{
+  display: none;
 }

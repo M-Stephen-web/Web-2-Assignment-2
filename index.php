@@ -20,11 +20,12 @@ $userId = '';
 				<a href="login.php" id="login" class="button">Login</a>
 				<a href="registration.php" id="join" class="button">Join</a>
 			</div>
-			<input type='text' id='searchBox' placeholder='Search for Movies' />
+			<form action="default.php" method="get">
+				<input type='text' name="movieFilter" id='searchBox' placeholder='Search box for Movies' />
+			</form>
 		</div>
 	</section>
 	<footer>Photo by Johannes Plenio on Unsplash</footer>
-	<script src='js/index.js'></script>
 </body>
 
 </html>

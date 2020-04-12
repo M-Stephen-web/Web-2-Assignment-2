@@ -11,6 +11,7 @@ let showingMovies = []; //To hold all movies that are currently being displayed
 
 document.addEventListener("DOMContentLoaded", (e) => {
   //To fetch all the movies
+  fetchMovies();
   function fetchMovies() {
     fetch(movieListURL)
       .then(function (response) {
@@ -41,6 +42,31 @@ document.addEventListener("DOMContentLoaded", (e) => {
       .catch(function (error) {
         console.log(error);
       });
+  }
+
+  //Shows default page
+  function showDefaultPage() {
+
+    matchesRowsBlock.style.display = "none";
+    loadingSymbolDefaultView.style.display = "block";
+
+    let storage = retieveStorage();
+
+    //Checks if movies were saved to storage
+    if (storage.length > 0) {
+      movies = storage;
+
+      movies = sortMovies(movies); //Sort the stored movies
+
+      showingMovies = movies.slice();
+
+      populateDefaultView();
+    } //If movies are not saved to storage, then fetch them
+    else {
+      fetchMovies();
+    }
+
+    defaultSection.style.display = "grid";
   }
 
   //To retireve the movie data locally
@@ -145,34 +171,10 @@ document.addEventListener("DOMContentLoaded", (e) => {
     showDefaultPage(movies);
   });
 
-  //Element representing the speech button to speak the movie title
-  const favButton = document.querySelector("#addFavButton");
-
-  favButton.addEventListener("click", (e) => {
-    fetch(addFavUrl + movieId, {
-      method: "GET",
-    })
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          return Promise.reject({
-            status: response.status,
-            statusText: response.statusText,
-          });
-        }
-      })
-      .then((data) => {
-        if (data.errorMessage) {
-          alert(data.errorMessage);
-        }
-      });
-  });
-
   //Event delgation for when an image, title or button is clicked for a movie, that movie is shown in the detail view
   matchesRowsBlock.addEventListener("click", function (e) {
     if (e.target) {
-      showMovieDetail(e.target.parentNode.getAttribute("movieId"));
+      document.location.href = "detail.php?movieId="+e.target.parentNode.getAttribute("movieId");
     }
   });
 
