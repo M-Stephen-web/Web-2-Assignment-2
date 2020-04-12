@@ -243,7 +243,7 @@
 	}
 	
 	
-	function getFavoriteMoviesSQL($ids) //Return SQL query of getting all the movies with the ids matching the ids passed in
+	function getMoviesByIdsSQL($ids) //Return SQL query of getting all the movies with the ids matching the ids passed in
 	{
 	
 		$sql = 'SELECT id, title, poster_path FROM movie';
@@ -274,13 +274,11 @@
 		
 	}
 	
-	function getFavoriteMovies($User, $connection) //Returning all movies that are favorited by the user
+	function getMoviesByIds($movieIds, $connection) //Returning all movies that are favorited by the user
 	{
 		$values = array();
 		
 		$favoriteMovies = [];
-		
-		$movieIds = getFavoriteMovieIds($User, $connection); //Get all the movie ids the user has favorited
 		
 		$count = 0;
 		
@@ -291,7 +289,7 @@
 		}
 		
 		try{
-			$sqlResult = runQuery($connection, getFavoriteMoviesSQL($movieIds), $values);
+			$sqlResult = runQuery($connection, getMoviesByIdsSQL($movieIds), $values);
 
 			foreach($sqlResult as $row)
 			{
