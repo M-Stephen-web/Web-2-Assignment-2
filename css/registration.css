@@ -8,7 +8,7 @@ html{
 
 body{
     background-image: url(../images/dark-sky.jpg);
-    background-color: rgba(44, 41, 49, 0.3);
+    background-color: rgba(44, 41, 49, 0.2);
     background-blend-mode: exclusion;
     background-size: cover;
     background-repeat: no-repeat;
@@ -22,20 +22,20 @@ body{
 }
 
 .box{
-    background: rgba(44, 41, 49, 0.05);
-    border: 1px solid rgba(44, 41, 49, 0.25);
+    background: rgba(29, 32, 41, 0.75);
+    border: 1px solid rgba(36, 39, 50, 0.25);
     border-radius: 6px;
     box-shadow: 5px 5px 50px 15px rgba(0, 0, 0, 0.85);
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
-    padding: 5%;
+    padding: 3%;
 }
 
 h2{
+    display: fixed;
     margin-top: 0;
-    margin-bottom: 20%;
     text-transform: uppercase;
     font-size: 2.75rem;
     font-weight: bolder;
@@ -47,9 +47,8 @@ h2{
 input[type=text], 
 input[type=password], 
 input[type=email]{
-    background-color: rgba(111, 68, 70, 0.45);
+    background-color: rgba(111, 68, 70, 0.5);
     border: 1px solid rgba(111, 68, 70, 0.7);
-    box-shadow: 5px 5px 50px 15px rgba(0, 0, 0, 0.55);
     border-radius: 4px;
     display: block;
     width: 300px;
@@ -61,19 +60,19 @@ input[type=email]{
 }
 
 input[type=submit]{
-    width: 312.5px;
+    width: 60%;
     height: 50px;
     font-size: 1.15rem;
     font-weight: bold;
     text-transform: lowercase;
-    box-shadow: 6px 5px 20px 15px rgba(255, 255, 255, 0.15);
-    background-color: rgba(178, 86, 69, 0.65);
+    box-shadow: 6px 5px 20px 15px rgba(255, 255, 255, 0.05);
+    background-color: rgba(178, 86, 69, 0.55);
     border: 1px solid rgba(178, 86, 69, 1);
     border-radius: 4px;
     color: black;
     margin-top: 5%;
-    margin-bottom: 5%;
     letter-spacing: 2px;
+    margin-left: 15%;
 }
 
 input[type=submit]:hover{
@@ -84,26 +83,18 @@ input[type=submit]:hover{
     cursor: pointer;
 }
 
-a{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: black;
-    margin-top: 5%;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-a:hover{
-    color: rgb(26, 33, 43);
+p{
+    color: rgb(190, 72, 58);
 }
 
 form ul li label{
+    margin-right: 15px;
+    margin-top: 15px;
+    width: 20%;
     float: left;
-    margin-bottom: 10px;
-    width: 80px;
-    margin-right: 10px;
     text-align: right;
+    color: rgb(154, 99, 96);
+    letter-spacing: 1px;
 }
 
 li{
@@ -112,11 +103,11 @@ li{
 
 li p{
     display: none;
-    font-size: 20pt;
+    font-size: 16pt;
 }
 
 li p:hover{
-    cursor: pointer;
+    cursor: help;
 }
 
 footer:after{

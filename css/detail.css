@@ -1,0 +1,218 @@
+
+#detailSection header,
+main {
+    background-color: #ebebeb;
+}
+
+main section {
+    padding: 1em 2em 3em;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    overflow: auto;
+    height: 86vh;
+    margin-top: 10px;
+}
+
+@media only screen and (max-width: 1550px) {
+    main {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    #rightBlock {
+        grid-column-start: 1;
+        grid-column-end: 3;
+
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+
+    .tabContentBlock {
+        height: 50vh !important;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    main {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+
+    #middleBlock {
+        grid-column-start: 1;
+        grid-column-end: 2;
+
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+    #rightBlock {
+        grid-column-start: 1;
+        grid-column-end: 2;
+
+        grid-row-start: 3;
+        grid-row-end: 4;
+    }
+
+    .tabContentBlock {
+        height: 50vh !important;
+    }
+}
+
+.movieInfoBlock {
+    padding: 1em 2em;
+    border: 2px solid grey;
+    margin-top: 1em;
+    height: 8vh;
+    overflow-y: auto;
+}
+
+#movieDetailPosterBlock {
+    padding: 5em;
+}
+
+#movieDetailPoster:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+#tabButtonBlock {
+    display: flex;
+}
+
+#tabButtonBlock .tab {
+    padding: 0.5em 4em 0em 1em;
+    background-color: #c2c2c2;
+    border: 1px solid #4a98ff;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    margin-right: 0.5em;
+    height: 2em;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+#tabButtonBlock .tab:hover {
+    cursor: pointer;
+    background-color: #b3b3b3;
+}
+
+#tabButtonBlock .tab.selected {
+    background-color: white;
+}
+
+#tabButtonBlock .tab.selected:hover {
+    background-color: white;
+    cursor: pointer;
+}
+
+.tabContentBlock {
+    height: 68vh;
+    overflow-y: scroll;
+    overflow-y: scroll;
+    border: 1px solid #4a98ff;
+    background-color: white;
+    padding: 2em 0em 2em 2em;
+}
+
+.tabContentBlock .contentRow {
+    display: grid;
+    grid-template-columns: 0.7fr 1fr 1fr;
+    grid-gap: 10px;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.tabContentBlock.cast .contentRow {
+    grid-template-columns: 0.7fr 0.4fr 1fr;
+}
+
+#crewList {
+    display: none;
+}
+
+.loadingSymbol {
+    width: 30%;
+    height: auto;
+}
+
+#loadingSymbolDefaultView img {
+    width: 10%;
+    height: auto;
+}
+
+#largerMovieDetailPoster {
+    display: absolute;
+}
+
+/*CSS code url: https://www.w3schools.com/howto/howto_css_modals.asp*/
+/* The Modal (background) */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: none;
+    margin: 5% auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    border: none;
+    width: 35%;
+    /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: red;
+    float: right;
+    font-size: 128px;
+    font-weight: 700;
+}
+
+.close:hover,
+.close:focus {
+    color: darkred;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*End imported css code*/
+
+#movieId {
+    display: none;
+}
+
+/* background image credit design */
+footer:after {
+    content: 'Photo by Johannes Plenio on Unsplash';
+    position: fixed;
+    bottom: 0;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    color: rgb(222, 162, 145);
+    letter-spacing: 2px;
+    font-style: italic;
+    font-size: 9.5pt;
+}
