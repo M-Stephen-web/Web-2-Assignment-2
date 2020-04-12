@@ -1,6 +1,7 @@
 <?php
 $userName = '';
 $userId = '';
+require_once('header.php');
 ?>
 
 <!DOCTYPE html>
@@ -14,6 +15,7 @@ $userId = '';
 </head>
 
 <body>
+	<?php printHeader(); ?>
 	<section id='homeSection'>
 		<div id='movieBrowserBox'>
 			<div class='row'>

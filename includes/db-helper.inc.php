@@ -243,10 +243,10 @@
 	}
 	
 	
-	function getFavoriteMoviesSQL($ids) //Return SQL query of getting all the movies with the ids matching the ids passed in
+	function getMoviesByIdsSQL($ids) //Return SQL query of getting all the movies with the ids matching the ids passed in
 	{
 	
-		$sql = 'SELECT id, title, poster_path FROM movie';
+		$sql = 'SELECT id, title, vote_average, release_date, poster_path FROM movie';
 		$sql .= " WHERE";
 		
 		//https://www.geeksforgeeks.org/php-end-function/
@@ -274,13 +274,11 @@
 		
 	}
 	
-	function getFavoriteMovies($User, $connection) //Returning all movies that are favorited by the user
+	function getMoviesByIds($movieIds, $connection) //Returning all movies that are favorited by the user
 	{
 		$values = array();
 		
 		$favoriteMovies = [];
-		
-		$movieIds = getFavoriteMovieIds($User, $connection); //Get all the movie ids the user has favorited
 		
 		$count = 0;
 		
@@ -291,7 +289,7 @@
 		}
 		
 		try{
-			$sqlResult = runQuery($connection, getFavoriteMoviesSQL($movieIds), $values);
+			$sqlResult = runQuery($connection, getMoviesByIdsSQL($movieIds), $values);
 
 			foreach($sqlResult as $row)
 			{
@@ -407,3 +405,28 @@
 		
 		return false;
 	}
+
+	function getTopRecommendedMoviesSQL()
+	{
+		$sql = "SELECT id, title, release_date, vote_average FROM movie ORDER BY  SUBSTRING(release_date,1,4) DESC, vote_average DESC LIMIT 15;";
+
+		return $sql;
+	}
+
+	function getTopRecommendedMovies($connection)
+	{
+		$recommendedMovies = [];
+		
+		try{
+			$sqlResult = runQuery($connection, getTopRecommendedMoviesSQL(), null);
+	
+			foreach($sqlResult as $row)
+			{
+				$recommendedMovies[] = new Movie($row);
+			}
+		}
+		catch(PDOException $e){}
+		
+		return $recommendedMovies;
+	}
+?>

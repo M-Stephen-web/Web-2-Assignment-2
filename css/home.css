@@ -1,0 +1,87 @@
+body{
+    height: 94vh;
+}
+
+#homeGridLeft{
+    display: grid;
+    grid-template-rows: 2fr 4fr;
+    grid-row-gap: 1em;
+    margin-left: 1em;
+}
+
+#homeGridRight{
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+    grid-row-gap: 1em;
+    margin-right: 1em;
+}
+
+#homeGridBlock{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1em;
+}
+
+.transparentBox{
+    box-shadow: 6px 5px 20px 3px rgba(0, 0, 0, 0.95);
+    background: rgba(44, 41, 49, 0.1);
+    border: 5em;
+    border-color: rgba(44, 41, 49, 0.25);
+    padding: 3em;
+    padding-top: 1em;
+    padding-bottom: 3em;
+    border-radius: 6px;
+}
+
+.transparentBox h2{
+    text-align: center;
+    color:white;
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+#recommendations{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-row-gap: 1em;
+}
+
+#favoriteMoviesBox{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-row-gap: 1em;
+}
+
+.favoriteMovieBlock{
+    text-align: center;
+}
+
+.favoriteMovieBlock a{
+    color:white;
+    text-decoration: none;
+}
+
+.favoriteMovieBlock .imageAnchor{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#userInfoBox{
+    color:white;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+#userInfoBox div{
+    margin-bottom: 0.3em;
+}
+
+header{
+  margin-bottom: 2em;
+}

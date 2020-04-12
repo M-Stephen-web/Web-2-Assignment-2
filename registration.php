@@ -67,6 +67,17 @@
     <div class = "box">
         <h2>Register</h2>
 		<form method = "post" action = "registration.php">
+			<?php
+				if(!$passwordMatch)
+				{
+					echo '<p>Passwords do not match!</p>';
+				}
+
+				if($userAlreadyExists)
+				{
+					echo '<p>User already exists with provided email!</p>';
+				}
+			?>
             <ul>
 				<li><label for = "firstname">First Name</label>
 				<input type = "text" name = "firstname" placeholder = "Required"<?php if (isset($_POST['firstname'])){ echo 'value = "' . $_POST['firstname'] . '"';}?> id = "first" required>
