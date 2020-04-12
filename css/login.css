@@ -10,6 +10,9 @@ body{
     background-color: rgba(44, 41, 49, 0.35);
     background-blend-mode: exclusion;
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
     margin: 0;
     padding: 0;
     width: 100%;
