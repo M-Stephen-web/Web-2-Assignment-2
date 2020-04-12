@@ -15,7 +15,8 @@ $userId = '';
 </head>
 
 <body>
-	<?php //printHeader(); ?>
+	<?php //printHeader(); 
+	?>
 	<section id='homeSection'>
 		<div id='movieBrowserBox'>
 			<div class='row'>
