@@ -95,10 +95,10 @@
 				<input type = "email" name = "email" placeholder = "Required" <?php if (isset($_POST['email'])){ echo 'value = "' . $_POST['email'] . '"';}?>id = "email" required>
 				<p id = "emailerror"></p></li>
 				<li><label for = "password">Password</label>
-				<input type = "password" name = "password" placeholder = "Password (Required)" <?php if (isset($_POST['password'])){ echo 'value = "' . $_POST['password'] . '"';}?>id = "password" required>
+				<input type = "password" name = "password" placeholder = "Required" <?php if (isset($_POST['password'])){ echo 'value = "' . $_POST['password'] . '"';}?>id = "password" required>
 				<p id = "passerror"></p></li>
 				<li><label for = "confirmpassword">Confirm Password</label>
-				<input type = "password" name = "confirmpassword" placeholder = "Confirm Password (Required)" <?php if (isset($_POST['confirmpassword'])){ echo 'value = "' . $_POST['confirmpassword'] . '"';}?>id = "confirm" required>
+				<input type = "password" name = "confirmpassword" placeholder = "Required" <?php if (isset($_POST['confirmpassword'])){ echo 'value = "' . $_POST['confirmpassword'] . '"';}?>id = "confirm" required>
 				<p id = "confirmerror"></p>
 				<input type = "submit" name = "register" value = "register" id = "submit">  
 			</ul>
