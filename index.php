@@ -27,7 +27,7 @@ require_once('header.php');
 			</form>
 		</div>
 	</section>
-	<footer>Photo by Johannes Plenio on Unsplash</footer>
+	<footer></footer>
 </body>
 
 </html>
