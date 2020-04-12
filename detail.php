@@ -1,9 +1,10 @@
-
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset='utf-8' />
     <title>Movie Browser</title>
 
-    <link rel='stylesheet' href='css/index.css'>
+    <link rel='stylesheet' href='css/detail.css'>
 </head>
 
 <body>
@@ -14,12 +15,11 @@
     }
     ?>
     <main>
+        <header>TEMPORARY</header>
         <section id='leftBlock'>
-            <div class='row speak'>
-                <h1 id='movieDetailTitle'>Movie Title</h1>
-                <button id='addFavButton'>
-                    :heart:
-                </button>
+            <h1 id='movieDetailTitle'>Movie Title</h1>
+            <div class='favorite'>
+                <button id='addFavButton'>:heart:</button>
             </div>
             <p id='movieDetailReleaseDate'>Release Date: </p>
             <p id='movieDetailRevenue'>Revenue: </p>
@@ -30,32 +30,24 @@
             <div id='movieOtherInfoBlock'>
                 <div class='movieInfoBlock'>
                     <label>Companies</label>
-                    <ul id='companiesList'>
-                    </ul>
+                    <ul id='companiesList'></ul>
                 </div>
                 <div class='movieInfoBlock'>
                     <label>Countries</label>
-                    <ul id='countriesList'>
-                    </ul>
+                    <ul id='countriesList'></ul>
                 </div>
                 <div class='movieInfoBlock'>
                     <label>Keywords</label>
-                    <ul id='keywordsList'>
-                    </ul>
+                    <ul id='keywordsList'></ul>
                 </div>
                 <div class='movieInfoBlock'>
                     <label>Genres</label>
-                    <ul id='genresList'>
-                    </ul>
+                    <ul id='genresList'></ul>
                 </div>
             </div>
         </section>
         <section id='middleBlock'>
-            <center>
-                <button id='closeDetailPageButton'>
-                    Close
-                </button>
-            </center>
+            <center><button id='closeDetailPageButton'>Close</button></center>
             <center id='movieDetailPosterBlock'>
                 <img id='movieDetailPoster' />
                 <!-- Imported HTML Code URL: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal-->
@@ -72,44 +64,28 @@
         </section>
         <section id='rightBlock'>
             <div id='tabButtonBlock'>
-                <div class='tab selected' id='castTab'>
-                    Cast
-                </div>
-                <div class='tab' id='crewTab'>
-                    Crew
-                </div>
+                <div class='tab selected' id='castTab'>Cast</div>
+                <div class='tab' id='crewTab'>Crew</div>
             </div>
             <div class='tabContentBlock cast' id='castList'>
                 <div class='contentRow'>
-                    <span>
-                        Character
-                    </span>
-                    <span>
-
-                    </span>
-                    <span>
-                        Name
-                    </span>
+                    <span>Character</span>
+                    <span></span>
+                    <span>Name</span>
                 </div>
-                <div id='castListContent'>
-                </div>
+                <div id='castListContent'></div>
             </div>
             <div class='tabContentBlock' id='crewList'>
                 <div class='contentRow'>
-                    <span>
-                        Department
-                    </span>
-                    <span>
-                        Job
-                    </span>
-                    <span>
-                        Name
-                    </span>
+                    <span>Department</span>
+                    <span>Job</span>
+                    <span>Name</span>
                 </div>
-                <div id='crewListContent'>
-                </div>
+                <div id='crewListContent'></div>
             </div>
         </section>
     </main>
     <script src="js/detail.js"></script>
 </body>
+<footer></footer>
+</html>
