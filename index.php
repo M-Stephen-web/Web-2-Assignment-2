@@ -1,7 +1,7 @@
 <?php
 $userName = '';
 $userId = '';
-require_once('header.php')
+require_once('header.php');
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +15,7 @@ require_once('header.php')
 </head>
 
 <body>
-	<?php printHeader() ?>
+	<?php printHeader(); ?>
 	<section id='homeSection'>
 		<div id='movieBrowserBox'>
 			<div class='row'>
