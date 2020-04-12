@@ -12,7 +12,7 @@ body{
     background-blend-mode: exclusion;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: center;
     background-attachment: fixed;
     margin: 0;
     padding: 0;
@@ -81,7 +81,6 @@ input[type=submit]:hover{
     border: 1px solid rgba(118, 140, 167, 0.1);
     color: rgb(118, 140, 167);
     cursor: pointer;
-    letter-spacing: 2px;
 }
 
 p{
