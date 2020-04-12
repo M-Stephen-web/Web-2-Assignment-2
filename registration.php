@@ -60,13 +60,13 @@ if (isset($_POST['firstname']) || isset($_POST['lastname']) || isset($_POST['cit
 		<h2>Register</h2>
 		<form method="post" action="registration.php">
 			<?php
-			if (!$passwordMatch) {
-				echo '<p>Passwords do not match!</p>';
-			}
+			// if (!$passwordMatch) {
+			// 	echo '<p>Passwords do not match!</p>';
+			// }
 
-			if ($userAlreadyExists) {
-				echo '<p>User already exists with provided email!</p>';
-			}
+			// if ($userAlreadyExists) {
+			// 	echo '<p>User already exists with provided email!</p>';
+			// }
 			?>
 			<ul>
 				<li><label for="firstname">First Name</label>
