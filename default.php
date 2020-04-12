@@ -22,7 +22,7 @@ require_once('header.php');
                     <h2>Movie Filter</h2>
                     <div class='filterBlock'>
                         <label class='filterTitle'>Title</label>
-                        <input id='titleFilterInput' type='text' />
+                        <input id='titleFilterInput' type='text' <?php if(isset($_GET['movieFilter'])){echo 'value="' . $_GET['movieFilter'] . '"';} ?>/>
                     </div>
                     <div class='filterBlock'>
                         <label class='filterTitle'>Year</label>

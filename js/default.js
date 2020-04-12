@@ -173,9 +173,11 @@ document.addEventListener("DOMContentLoaded", (e) => {
   //Event delgation for when an image, title or button is clicked for a movie, that movie is shown in the detail view
   matchesRowsBlock.addEventListener("click", function (e) {
     if (e.target) {
-      console.log(e.target);
-      document.location.href =
-        "detail.php?movieId=" + e.target.parentNode.getAttribute("movieId");
+      if(e.target.parentNode.getAttribute("movieId") != null)
+      {
+        document.location.href =
+          "detail.php?movieId=" + e.target.parentNode.getAttribute("movieId");
+      }
     }
   });
 
