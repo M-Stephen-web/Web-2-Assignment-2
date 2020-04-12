@@ -64,5 +64,6 @@
         </div>
     </div>
 </body>
-</html>
+<footer></footer>
 <script src='js/home.js'></script>
+</html>
