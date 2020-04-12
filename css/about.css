@@ -7,7 +7,7 @@ html{
 }
 
 h3{
-  position: absolute;
+    position: absolute;
     top: 8.5%;
     left: 17.5%;
     transform: translateX(-50%) translateY(-50%);
@@ -15,8 +15,8 @@ h3{
     font-size: 2.75rem;
     font-weight: bolder;
     text-align: center;
-    color: rgba(227, 193, 182, 0.65);
     letter-spacing: 5px;
+    color: rgba(227, 193, 182, 0.65);
 }
 
 .p{
@@ -60,9 +60,4 @@ h3{
   padding-top: 1em;
   padding-bottom: 3em;
   border-radius: 6px;
-}
-
-h1{
-  color:white;
-  margin-left: 1em;
 }
