@@ -17,8 +17,6 @@
         <a href="index.php" id="homeButton" class="button">Home</a>
         <h2>Favourites</h2>
     </div>
-    <button id='removeAllFavorites'>Remove All Favorites</button>
-    </header>
     <section id="favoritesBlock">
     </section>
 </body>
