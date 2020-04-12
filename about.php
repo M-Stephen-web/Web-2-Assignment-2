@@ -14,7 +14,7 @@
 <body>
     <?php //printHeader() 
     ?>
-    <h3>About Us</h3>
+    <h1>About Us</h1>
     <center>
         <p class="card1">
             The group that built this webpage is comprised of
