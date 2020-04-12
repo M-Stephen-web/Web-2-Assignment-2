@@ -1,5 +1,7 @@
-<!DOCTYPE html>
-<html>
+<?php
+require_once('header.php');
+?>
+
 <head>
     <meta charset='utf-8' />
     <title>Movie Browser</title>
@@ -9,10 +11,10 @@
 
 <body>
     <?php
-    if (isset($_GET['movieId']))
-    {
-        echo '<input id="movieId" value="'. $_GET['movieId'] . '" />';
+    if (isset($_GET['movieId'])) {
+        echo '<input id="movieId" value="' . $_GET['movieId'] . '" />';
     }
+    printHeader()
     ?>
     <main>
         <header>TEMPORARY</header>
