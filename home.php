@@ -1,9 +1,9 @@
 <?php 
 
-    require_once('header.php');
-    require_once('includes/session-helper.inc.php');
+    // require_once('header.php');
+    // require_once('includes/session-helper.inc.php');
 
-    $user = GetSessionUser();
+    //$user = GetSessionUser();
 
 
 ?>
@@ -18,7 +18,7 @@
 
 <body>
     <?php  
-        printHeader(); 
+        //printHeader(); 
     ?>
     <div id="homeGridBlock">
         <div id="homeGridLeft">
