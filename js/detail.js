@@ -8,19 +8,48 @@ const imdbURL = "https://www.imdb.com/title/";
 const tmdbURL = "https://www.themoviedb.org/movie/";
 const loadingSymbolURL = "./images/loadingSymbol.gif";
 
+const leftMovieDetailBlock = document.querySelector("#leftBlock");
+const rightMovieDetailBlock = document.querySelector("#rightBlock");
+const posterElement = document.querySelector("#movieDetailPoster");
+
 document.addEventListener("DOMContentLoaded", (e) => {
   //Shows the loading symbol and fetches for the movie detail
+  let movieId = document.querySelector('#movieId').value;
+
+  showMovieDetail(movieId);
+
   function showMovieDetail(id) {
+
     leftMovieDetailBlock.style.visibility = "hidden";
     rightMovieDetailBlock.style.visibility = "hidden";
     movieId = id;
     posterElement.classList.add("loadingSymbol");
     posterElement.setAttribute("src", loadingSymbolURL);
-
-    showDetailPage();
-
     fetchMovieDetail(id);
   }
+  //Element representing the speech button to speak the movie title
+  const favButton = document.querySelector("#addFavButton");
+
+  favButton.addEventListener("click", (e) => {
+    fetch(addFavUrl + movieId, {
+      method: "GET",
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          return Promise.reject({
+            status: response.status,
+            statusText: response.statusText,
+          });
+        }
+      })
+      .then((data) => {
+        if (data.errorMessage) {
+          alert(data.errorMessage);
+        }
+      });
+  });
 
   //To fetch for the movie details, then populate the movie detail page
   function fetchMovieDetail(id) {
@@ -57,7 +86,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
   const keywordsListElement = document.querySelector("#keywordsList");
   const genresListElement = document.querySelector("#genresList");
 
-  const posterElement = document.querySelector("#movieDetailPoster");
   const largerPosterElement = document.querySelector(
     "#largerMovieDetailPoster"
   );
@@ -265,4 +293,11 @@ document.addEventListener("DOMContentLoaded", (e) => {
       modal.style.display = "none";
     }
   });
+});
+
+//Function to close the detail page
+const closeDetailPageButton = document.querySelector("#closeDetailPageButton");
+
+closeDetailPageButton.addEventListener("click", function () {
+  document.location.href = 'default.php';
 });

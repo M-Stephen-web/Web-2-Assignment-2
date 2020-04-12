@@ -1,5 +1,6 @@
 <?php
 
+
 ?>
 
 <head>
@@ -10,10 +11,10 @@
 </head>
 
 <body>
-    <section id='defaultSection'>
-        <header>
-            <h2>COMP 3512 Assign2</h2>
-        </header>
+    <header>
+        <h2>COMP 3512 Assign2</h2>
+    </header>
+    <section id="defaultSection">
         <aside id='asideFilterBlock'>
             <div class='row filterBlock'>
                 <div id='filterBox'>
@@ -120,25 +121,29 @@
                     </div>
                 </div>
                 <div id='filterCloseButton'>
-                    <h1>
-                        /< </h1> </div> </div> </aside> <div id='movieListBlock'>
-                            <center>
-                                <h2>List/Matches</h2>
-                            </center>
-                            <div class='matchesRow legend'>
-                                <label id='titleLabel'>Title</label>
-                                <label id='yearLabel'>Year</label>
-                                <label id='ratingLabel'>Rating</label>
-                            </div>
-                            <center id='errorMovieSearch'>
-                                No Movies Were Found
-                            </center>
-                            <div id='matchesRowsBlock'>
-                            </div>
-                            <center id='loadingSymbolDefaultView'>
-                                <img class='loadingSymbol' src='./images/loadingSymbol.gif' />
-                            </center>
+                    <h1> f
+                    </h1>
                 </div>
+            </div>
+        </aside>
+        <div id='movieListBlock'>
+            <center>
+                <h2>List/Matches</h2>
+            </center>
+            <div class='matchesRow legend'>
+                <label id='titleLabel'>Title</label>
+                <label id='yearLabel'>Year</label>
+                <label id='ratingLabel'>Rating</label>
+            </div>
+            <center id='errorMovieSearch'>
+                No Movies Were Found
+            </center>
+            <div id='matchesRowsBlock'>
+            </div>
+            <center id='loadingSymbolDefaultView'>
+                <img class='loadingSymbol' src='./images/loadingSymbol.gif' />
+            </center>
+        </div>
     </section>
     <script src="js/default.js"></script>
 </body>
