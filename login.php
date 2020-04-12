@@ -30,7 +30,7 @@ if (isset($_POST['password']) && isset($_POST['email'])) {
         <form method="post" action="login.php">
             <h2>Sign In</h2>
             <?php if ($attemptLoginFailed == true) {
-                echo '<p>Either the usernmane or password is incorrect</p>';
+                //echo '<p>Either the usernmane or password is incorrect</p>';
             } ?>
             <input type="text" name="email" placeholder="Enter Email" required>
             <input type="password" name="password" placeholder="Enter Password" required>

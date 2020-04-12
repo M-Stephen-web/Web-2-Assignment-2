@@ -11,9 +11,9 @@
 
 <body>
     <?php
-    if (isset($_GET['movieId'])) {
-        echo '<input id="movieId" value="' . $_GET['movieId'] . '" />';
-    }
+    // if (isset($_GET['movieId'])) {
+    //     echo '<input id="movieId" value="' . $_GET['movieId'] . '" />';
+    // }
     //printHeader()
     ?>
     <main>

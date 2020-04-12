@@ -1,5 +1,5 @@
 <?php
-require_once('header.php')
+//require_once('header.php')
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +12,7 @@ require_once('header.php')
 </head>
 
 <body>
-    <?php printHeader() ?>
+    <?php //printHeader() ?>
     <div class="header">
         <h1>Favourites</h1>
         <button id='removeAllFavorites' class="button">Remove All Favorites</button>
