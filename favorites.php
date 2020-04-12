@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <?php printHeader() ?>
+    <?php //printHeader() ?>
     <div>
         <a href="index.php" id="homeButton" class="button">Home</a>
         <h2>Favourites</h2>

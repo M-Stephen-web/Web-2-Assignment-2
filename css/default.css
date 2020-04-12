@@ -163,11 +163,11 @@ h2{
     text-transform: uppercase;
 }
 
-/* aside .filterBlock {
+aside .filterBlock {
     margin-top: 5%;
     margin-bottom: 5%;
     height: 100%;
-} */
+}
 
 /* Side Panel Button */
 #filterCloseButton {

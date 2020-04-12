@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <?php printHeader() 
+    <?php //printHeader() 
     ?>
     <h3>About Us</h3>
     <center>
