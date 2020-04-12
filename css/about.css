@@ -6,3 +6,7 @@
   border: 1px solid white;
   border-radius: 1rem;
 }
+
+.card a {
+  color: violet;
+}
