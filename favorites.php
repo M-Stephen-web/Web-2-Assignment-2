@@ -13,12 +13,10 @@ require_once('header.php')
 
 <body>
     <?php printHeader() ?>
-    <div>
-        <a href="index.php" id="homeButton" class="button">Home</a>
-        <h2>Favourites</h2>
+    <div class="header">
+        <h1>Favourites</h1>
+        <button id='removeAllFavorites' class="button">Remove All Favorites</button>
     </div>
-    <button id='removeAllFavorites'>Remove All Favorites</button>
-    </header>
     <section id="favoritesBlock">
     </section>
 </body>

@@ -1,5 +1,5 @@
 .header{
-    margin: 0 5em;
+    margin: 2em 5em 0;
     display: flex;
 
     color:white;
@@ -17,6 +17,8 @@
     margin-left: auto;
     margin-bottom: auto;
     margin-top: 0.5em;
+    padding: 1% 2%;
+    width: fit-content;
 }
 
 @media only screen and (max-width: 1750px) {
