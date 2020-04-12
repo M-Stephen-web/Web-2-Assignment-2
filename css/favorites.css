@@ -89,7 +89,9 @@
     cursor: pointer;
 }
 
-footer {
+/* background image credit design */
+footer:after {
+    content: 'Photo by Johannes Plenio on Unsplash';
     position: fixed;
     bottom: 0;
     padding-bottom: 20px;
@@ -98,4 +100,4 @@ footer {
     letter-spacing: 2px;
     font-style: italic;
     font-size: 9.5pt;
-  }
+}

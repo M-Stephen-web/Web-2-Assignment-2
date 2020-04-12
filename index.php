@@ -28,7 +28,7 @@ $userId = '';
 			</form>
 		</div>
 	</section>
-	<footer></footer>
 </body>
+<footer></footer>
 
 </html>

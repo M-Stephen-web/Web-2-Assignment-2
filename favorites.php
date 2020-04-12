@@ -3,7 +3,7 @@
 ?>
 
 <!DOCTYPE html>
-
+<html>
 <head>
     <meta charset='utf-8' />
     <title>Favourites</title>
@@ -20,4 +20,6 @@
     <section id="favoritesBlock">
     </section>
 </body>
+<footer></footer>
 <script src='js/favorites.js'></script>
+</html>

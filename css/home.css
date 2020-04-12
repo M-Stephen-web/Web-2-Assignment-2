@@ -1,5 +1,6 @@
 body{
     height: 94vh;
+    position: flex;
 }
 
 #homeGridLeft{
@@ -84,4 +85,17 @@ body{
 
 header{
   margin-bottom: 2em;
+}
+
+/* background image credit design */
+footer:after {
+    content: 'Photo by Johannes Plenio on Unsplash';
+    position: fixed;
+    bottom: 0;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    color: rgb(222, 162, 145);
+    letter-spacing: 2px;
+    font-style: italic;
+    font-size: 9.5pt;
 }

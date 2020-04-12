@@ -65,9 +65,23 @@ h1{
 .card1 a:hover,
 .card2 a:hover {
   color: rgb(190, 72, 58);
+
 }
 center{
   font-size: large;
   letter-spacing: 3px;
   padding: 5px;
+}
+
+/* background image credit design */
+footer:after {
+  content: 'Photo by Johannes Plenio on Unsplash';
+  position: fixed;
+  bottom: 0;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  color: rgb(222, 162, 145);
+  letter-spacing: 2px;
+  font-style: italic;
+  font-size: 9.5pt;
 }
