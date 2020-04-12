@@ -1,5 +1,5 @@
 <?php
-
+require_once('header.php');
 
 ?>
 
@@ -11,9 +11,10 @@
 </head>
 
 <body>
-    <header>
-        <h2>COMP 3512 Assign2</h2>
-    </header>
+    <?php
+    printHeader();
+    ?>
+
     <section id="defaultSection">
         <aside id='asideFilterBlock'>
             <div class='row filterBlock'>
