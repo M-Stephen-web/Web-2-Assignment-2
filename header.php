@@ -3,7 +3,7 @@ require_once('includes/session-helper.inc.php');
 function printHeader()
 {
     echo "<header> 
-    <a href='index.php' class='button' id='homeButton'>Home</a> 
+    <a href='home.php' class='button' id='homeButton'>Home</a> 
     <a href='about.php' class='button' id='aboutButton'>About</a>
     ";
     if (IsLoggedIn()) {
