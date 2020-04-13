@@ -35,11 +35,11 @@
     ?>
     <main>
         <section id='leftBlock'>
-            <h1 id='movieDetailTitle'><?php echo $movie->title ?></h1>
+            <h1 id='movieDetailTitle'><?php //echo $movie->title ?></h1>
             <div class='favorite'>
                 <center><button id='addFavButton'></button></center>
             </div>
-            <p id='movieDetailReleaseDate'>Release Date: <?php echo $movie->release_date ?></p>
+            <p id='movieDetailReleaseDate'>Release Date: <?php //echo $movie->release_date ?></p>
             <p id='movieDetailRevenue'>Revenue: 
                 <?php 
                     //https://www.php.net/manual/en/function.number-format.php For the number_format function
@@ -55,9 +55,9 @@
                     // echo $hours . "h " . $minutes ."m";
                 ?>
             </p>
-            <p id='movieDetailTagline'>Tagline: <?php echo $movie->tagline ?></p>
-            <p id='movieDetailIMDBLabel'>IMDB Link: <a id='movieDetailIMDBLink' href="https://www.imdb.com/title/<?php echo $movie->imdb_id ?>">Link</a></p>
-            <p id='movieDetailTMDBLabel'>TMDB Link: <a id='movieDetailTMDBLink' href=https://www.themoviedb.org/movie/<?php echo $movie->tmdb_id ?>">Link</a></p>
+            <p id='movieDetailTagline'>Tagline: <?php //echo $movie->tagline ?></p>
+            <p id='movieDetailIMDBLabel'>IMDB Link: <a id='movieDetailIMDBLink' href="https://www.imdb.com/title/<?php //echo $movie->imdb_id ?>">Link</a></p>
+            <p id='movieDetailTMDBLabel'>TMDB Link: <a id='movieDetailTMDBLink' href=https://www.themoviedb.org/movie/<?php //echo $movie->tmdb_id ?>">Link</a></p>
             <div id='movieOtherInfoBlock'>
                 <div class='movieInfoBlock'>
                     <label>Companies</label>
