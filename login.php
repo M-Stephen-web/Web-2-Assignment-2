@@ -1,19 +1,19 @@
 <?php
-require_once('includes/db-helper.inc.php');
-require_once('includes/session-helper.inc.php');
-require_once('includes/config.inc.php');
+// require_once('includes/db-helper.inc.php');
+// require_once('includes/session-helper.inc.php');
+// require_once('includes/config.inc.php');
 
 
 //Variable for specific errors
-$attemptLoginFailed = false;
+// $attemptLoginFailed = false;
 
-if (isset($_POST['password']) && isset($_POST['email'])) { //Checks if both values are given
-    if (LoginUser($_POST['email'], $_POST['password'], $connection)) { //Attempts to login the user
-        header("location:home.php"); //If successful, send them to their home page
-    } else {
-        $attemptLoginFailed = true; //Else, throw error
-    }
-}
+// if (isset($_POST['password']) && isset($_POST['email'])) { //Checks if both values are given
+//     if (LoginUser($_POST['email'], $_POST['password'], $connection)) { //Attempts to login the user
+//         header("location:home.php"); //If successful, send them to their home page
+//     } else {
+//         $attemptLoginFailed = true; //Else, throw error
+//     }
+// }
 ?>
 <!DOCTYPE html>
 <html lang=en>

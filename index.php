@@ -1,6 +1,6 @@
 <?php
-$userName = '';
-$userId = '';
+// $userName = '';
+// $userId = '';
 // require_once('header.php');
 ?>
 

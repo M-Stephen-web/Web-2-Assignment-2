@@ -5,52 +5,52 @@
 // require_once('includes/config.inc.php');
 
 //Variables for specific errors
-$incompleteForm = false; 
-$passwordMatch = true;
-$userAlreadyExists = false;
+// $incompleteForm = false; 
+// $passwordMatch = true;
+// $userAlreadyExists = false;
 
-//Checks if any of the information is given
-if (isset($_POST['firstname']) || isset($_POST['lastname']) || isset($_POST['city']) || isset($_POST['country']) || isset($_POST['email']) || isset($_POST['password'])) 
-{
-	//Checks if all the information is given and the passwords are the same
-	if (isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['city']) && isset($_POST['country']) && isset($_POST['email']) && isset($_POST['password']) && 
-		isset($_POST['confirmpassword']) && $_POST['confirmpassword'] == $_POST['password']) 
-	{
-		$existedUser = getUser($_POST['email'], $connection); //Attempts to get a user with the provided email
+// //Checks if any of the information is given
+// if (isset($_POST['firstname']) || isset($_POST['lastname']) || isset($_POST['city']) || isset($_POST['country']) || isset($_POST['email']) || isset($_POST['password'])) 
+// {
+// 	//Checks if all the information is given and the passwords are the same
+// 	if (isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['city']) && isset($_POST['country']) && isset($_POST['email']) && isset($_POST['password']) && 
+// 		isset($_POST['confirmpassword']) && $_POST['confirmpassword'] == $_POST['password']) 
+// 	{
+// 		$existedUser = getUser($_POST['email'], $connection); //Attempts to get a user with the provided email
 
-		if ($existedUser == null) //If the attempt to get the user failed, then create the new user
-		{
-			//Create the new user object
-			$userData = array();
+// 		if ($existedUser == null) //If the attempt to get the user failed, then create the new user
+// 		{
+// 			//Create the new user object
+// 			$userData = array();
 
-			$userData['firstname'] = $_POST['firstname'];
-			$userData['lastname'] = $_POST['lastname'];
-			$userData['city'] = $_POST['city'];
-			$userData['country'] = $_POST['country'];
-			$userData['email'] = $_POST['email'];
-			$userData['password'] = password_hash($_POST['password'], PASSWORD_BCRYPT, ['cost' => 12]);
+// 			$userData['firstname'] = $_POST['firstname'];
+// 			$userData['lastname'] = $_POST['lastname'];
+// 			$userData['city'] = $_POST['city'];
+// 			$userData['country'] = $_POST['country'];
+// 			$userData['email'] = $_POST['email'];
+// 			$userData['password'] = password_hash($_POST['password'], PASSWORD_BCRYPT, ['cost' => 12]);
 
-			$user = new User($userData);
+// 			$user = new User($userData);
 
-			if (RegisterUser($user, $connection)) { //Attemot to create the user
-				header("location:login.php"); //if successul, prompt them to login
-			}
-		} 
-		else //Else there already exists a user, turn userAlreadyExists to true
-		{
-			$userAlreadyExists = true;
-		}
-	}
-	//If the password and confirm password do exist, but do not match then turn passwordMatch variable to false
-	else if (isset($_POST['password']) && isset($_POST['confirmpassword']) && $_POST['confirmpassword'] != $_POST['password']) 
-	{
-		$passwordMatch = false;
-	}
-} 
-else 
-{
-	$incompleteForm = true;
-}
+// 			if (RegisterUser($user, $connection)) { //Attemot to create the user
+// 				header("location:login.php"); //if successul, prompt them to login
+// 			}
+// 		} 
+// 		else //Else there already exists a user, turn userAlreadyExists to true
+// 		{
+// 			$userAlreadyExists = true;
+// 		}
+// 	}
+// 	//If the password and confirm password do exist, but do not match then turn passwordMatch variable to false
+// 	else if (isset($_POST['password']) && isset($_POST['confirmpassword']) && $_POST['confirmpassword'] != $_POST['password']) 
+// 	{
+// 		$passwordMatch = false;
+// 	}
+// } 
+// else 
+// {
+// 	$incompleteForm = true;
+// }
 ?>
 
 <!DOCTYPE html>
@@ -76,48 +76,48 @@ else
 			<ul>
 				<li><p id="firsterror">!</p>
 					<label for="firstname">First Name</label>
-					<input type="text" name="firstname" placeholder="Required" <?php if (isset($_POST['firstname'])) {
-																					echo 'value = "' . $_POST['firstname'] . '"';
-																				} ?> id="first" required>
+					<input type="text" name="firstname" placeholder="Required" <?php //if (isset($_POST['firstname'])) {
+																				//	echo 'value = "' . $_POST['firstname'] . '"';
+																				//} ?> id="first" required>
 				</li>
 				<li><p id="lasterror">!</p>
 					<label for="lastname">Last Name</label>
-					<input type="text" name="lastname" placeholder="Required" <?php if (isset($_POST['lastname'])) {
-																					echo 'value = "' . $_POST['lastname'] . '"';
-																				} ?> id="lname" required>
+					<input type="text" name="lastname" placeholder="Required" <?php // if (isset($_POST['lastname'])) {
+																				//	echo 'value = "' . $_POST['lastname'] . '"';
+																				//} ?> id="lname" required>
 				</li>
 				<li><p id="cityerror">!</p>
 					<label for="city">City</label>
-					<input type="text" name="city" placeholder="Required" <?php if (isset($_POST['city'])) {
-																				echo 'value = "' . $_POST['city'] . '"';
-																			} ?> id="city" required>
+					<input type="text" name="city" placeholder="Required" <?php // if (isset($_POST['city'])) {
+																			//	echo 'value = "' . $_POST['city'] . '"';
+																			//} ?> id="city" required>
 				</li>
 				<li><p id="countryerror">!</p>
 					<label for="country">Country</label>
-					<input type="text" name="country" placeholder="Required" <?php if (isset($_POST['country'])) {
-																					echo 'value = "' . $_POST['country'] . '"';
-																				} ?> id="country" required>
+					<input type="text" name="country" placeholder="Required" <?php //if (isset($_POST['country'])) {
+																				//	echo 'value = "' . $_POST['country'] . '"';
+																				//} ?> id="country" required>
 				</li>
 				<li><p id="emailerror">!</p>
 					<label for="email" id="eid">Email</label>
-					<input type="email" name="email" placeholder="Required" <?php if (isset($_POST['email'])) {
-																				echo 'value = "' . $_POST['email'] . '"';
-																			} ?>id="email" required>
+					<input type="email" name="email" placeholder="Required" <?php //if (isset($_POST['email'])) {
+																			//	echo 'value = "' . $_POST['email'] . '"';
+																			//} ?>id="email" required>
 				</li>
 				<li><p id="passerror">!</p>
 					<label for="password">Password</label>
-					<input type="password" name="password" placeholder="Required" <?php if (isset($_POST['password'])) {
-																						echo 'value = "' . $_POST['password'] . '"';
-																					} ?>id="password" required>
+					<input type="password" name="password" placeholder="Required" <?php //if (isset($_POST['password'])) {
+																						//echo 'value = "' . $_POST['password'] . '"';
+																					//} ?>id="password" required>
 				</li>
 				<li><p id="confirmerror">!</p>
 					<label for="confirmpassword">Confirm Password</label>
-					<input type="password" name="confirmpassword" placeholder="Required" <?php if (isset($_POST['confirmpassword'])) {
-																								echo 'value = "' . $_POST['confirmpassword'] . '"';
-																							} ?>id="confirm" required>
-					<?php if ($passwordMatch == false){
-						echo '<p id="confirmerror"></p>';
-					}?>
+					<input type="password" name="confirmpassword" placeholder="Required" <?php //if (isset($_POST['confirmpassword'])) {
+																								//echo 'value = "' . $_POST['confirmpassword'] . '"';
+																							//} ?>id="confirm" required>
+					<?php //if ($passwordMatch == false){
+						//echo '<p id="confirmerror"></p>';}
+					?>
 					<input type="submit" name="register" value="register" id="submit">
 			</ul>
 		</form>

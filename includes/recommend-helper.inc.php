@@ -1,8 +1,8 @@
 <?php
     //Purpose of this page is to handle the recommendation of movies for the home page
 
-    require_once('db-helper.inc.php'); //Needed to access the database for movies0
-    require_once('session-helper.inc.php'); //To get the current user
+    // require_once('db-helper.inc.php'); //Needed to access the database for movies0
+    // require_once('session-helper.inc.php'); //To get the current user
 
     function getRecommendedMovies($connection)
     {
