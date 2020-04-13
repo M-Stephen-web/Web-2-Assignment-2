@@ -1,6 +1,8 @@
 <?php
 // require_once('header.php');
+// require_once('includes/session-helper.inc.php');
 
+//$user = GetSessionUser();
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +16,9 @@
 </head>
 
 <body>
-    <header>TEMPORARY</header>
+    <?php  
+        //printHeader(); 
+    ?>
     <section id="defaultSection">    
         <aside id='asideFilterBlock'>
             <div class='filterBlock'>

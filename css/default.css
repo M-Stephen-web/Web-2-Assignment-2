@@ -348,6 +348,17 @@ aside .filterBlock {
     padding: 0 2em;
 }
 
+/* ref link= https://www.youtube.com/watch?v=biOMz4puGt8 */
+section .matchesRow::-webkit-scrollbar {
+    width: 0.5rem;
+}
+section .matchesRow::-webkit-scrollbar-track {
+    background-color: rgba(178, 86, 69, 0.4);
+}
+section .matchesRow::-webkit-scrollbar-thumb {
+    background-color: rgb(99, 47, 45);
+}
+
 #titleLabel,
 #yearLabel,
 #ratingLabel{

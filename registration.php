@@ -1,7 +1,7 @@
 <?php
-// require_once('includes/db-helper.inc.php');
-// require_once('includes/session-helper.inc.php');
-// require_once('includes/config.inc.php');
+ require_once('includes/db-helper.inc.php');
+ require_once('includes/session-helper.inc.php');
+ require_once('includes/config.inc.php');
 
 //Variables for specific errors
 $incompleteForm = false; 
@@ -22,14 +22,15 @@ if (isset($_POST['firstname']) || isset($_POST['lastname']) || isset($_POST['cit
 			//Create the new user object
 			$userData = array();
 
-			$userData['firstname'] = $_POST['firstname'];
-			$userData['lastname'] = $_POST['lastname'];
-			$userData['city'] = $_POST['city'];
-			$userData['country'] = $_POST['country'];
-			$userData['email'] = $_POST['email'];
-			$userData['password'] = password_hash($_POST['password'], PASSWORD_BCRYPT, ['cost' => 12]);
+// 			$userData['firstname'] = $_POST['firstname'];
+// 			$userData['lastname'] = $_POST['lastname'];
+// 			$userData['city'] = $_POST['city'];
+// 			$userData['country'] = $_POST['country'];
+// 			$userData['email'] = $_POST['email'];
+// 			$userData['password'] = password_hash($_POST['password'], PASSWORD_BCRYPT, ['cost' => 12]);
 
-			$user = new User($userData);
+// 			$user = new User($userData);
+
 
 			if (RegisterUser($user, $connection)) { //Attemot to create the user
 				header("location:login.php"); //if successul, prompt them to login
