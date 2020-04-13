@@ -44,6 +44,12 @@
 			{
 				//https://stackoverflow.com/questions/44887880/store-object-in-php-session/44888019 For seralize user object
 				$_SESSION['User'] = serialize($User); //Seralizes the User object and save it to the session
+
+				$favoriteMovieIds = getFavoriteMovieIds($User, $connection); //Get all the movie ids the user has favorited
+
+				$favoriteMovies = getMoviesByIds($favoriteMovieIds, $connection); //Passes the ids from above to get the movies
+
+				$_SESSION['Favorites'] = $favoriteMovies;
 				
 				return true; //Return true if successfully saved the user to session
 			}

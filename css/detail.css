@@ -133,12 +133,18 @@ h1 {
     border: none;
     background-size: cover;
     background-position: center;
-    background-image: url(../images/heart.png);
+    background-image: url(../images/hollow_heart.png);
     cursor: pointer;
 }
 
 #addFavButton.selected{
-    background-image: url(../images/unheart.jpg);
+    background-image: url(../images/heart.png);
+}
+
+#addFavButton.selected:hover{
+    cursor: auto;
+    background-color: inherit;
+    border:inherit;
 }
 
 #addFavButton:hover {
