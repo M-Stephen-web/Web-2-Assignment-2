@@ -143,8 +143,8 @@ h1 {
 
 #addFavButton.selected:hover{
     cursor: auto;
-    background-color: inherit;
-    border:inherit;
+    background-color: none;
+    border:none;
 }
 
 #addFavButton:hover {

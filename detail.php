@@ -45,6 +45,7 @@ if(isset($_SESSION['Favorites']))
     <title>Single Movie - </title>
 
     <link rel='stylesheet' href='css/detail.css'>
+    <link rel='stylesheet' href='css/index.css'>
 </head>
 
 <body>
@@ -123,6 +124,7 @@ if(isset($_SESSION['Favorites']))
                     <ul id='keywordsList'>
                         <?php 
                             $keywordsArray = json_decode($movie->keywords);
+                            if($keywordsArray)
                             foreach($keywordsArray as $keyword)
                             {
                                 echo "<li>" . $keyword->name . "</li>";

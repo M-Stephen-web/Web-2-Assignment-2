@@ -1,5 +1,5 @@
 <?php
-// require_once('./header.php');
+ require_once('./header.php');
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <?php //printHeader() 
+    <?php printHeader() 
     ?>
     <h1>About Us</h1>
     <center>
