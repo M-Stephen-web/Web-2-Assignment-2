@@ -1,5 +1,5 @@
 //All URLS needed
-const movieListURL = "http://phseguin.ca/apis/movies-all.php";
+const movieListURL = "http://phseguin.ca/apis/api-movies-brief.php";
 const posterURL = "https://image.tmdb.org/t/p/";
 const loginURL = "http://phseguin.ca/apis/login-user.php";
 const registerURL = "http://phseguin.ca/apis/register-user.php";
@@ -175,7 +175,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     if (e.target) {
       if (e.target.parentNode.getAttribute("movieId") != null) {
         document.location.href =
-          "detail.php?movieId=" + e.target.parentNode.getAttribute("movieId");
+          "single-movie.php?movieId=" + e.target.parentNode.getAttribute("movieId");
       }
     }
   });

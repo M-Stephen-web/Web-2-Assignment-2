@@ -51,7 +51,7 @@ h1{
 
 .card2{
   position: absolute;
-  top: 50%;
+  top: 55%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   text-decoration: none;
