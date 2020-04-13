@@ -1,55 +1,55 @@
 html {
-  height: 100vh;
-  overflow: hidden;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-  /*Image url: https://unsplash.com/photos/2QUvkQTBh5s*/
-  background-image: url(../images/dark-sky.jpg);
-  background-color: rgba(44, 41, 49, 0.2);
-  background-blend-mode: exclusion;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  height: 100vh;
-  position: relative;
+    /*Image url: https://unsplash.com/photos/2QUvkQTBh5s*/
+    background-image: url(../images/dark-sky.jpg);
+    background-color: rgba(44, 41, 49, 0.2);
+    background-blend-mode: exclusion;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+    position: relative;
 }
 
 #defaultSection {
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-  grid-template-rows: 1fr auto auto;
-  grid-gap: 10px;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr auto auto;
+    grid-gap: 10px;
 
   transition: 2s;
 }
 
 header {
-  margin: 2em 1em 1em 1em;
+    margin: 2em 1em 1em 1em;
 }
 
 header,
 #asideFilterBlock,
 #movieListBlock {
-  background: rgba(30, 28, 33, 0.45);
-  border: 1px solid rgba(30, 28, 33, 0.1);
-  box-shadow: 5px 5px 50px 20px rgba(0, 0, 0, 0.5);
-  border-radius: 6px;
+    background: rgba(30, 28, 33, 0.45);
+    border: 1px solid rgba(30, 28, 33, 0.1);
+    box-shadow: 5px 5px 50px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 6px;
 }
 
 #defaultSection header {
-  grid-column-start: 1;
-  grid-column-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 3;
 
   grid-row-start: 1;
   grid-row-end: 2;
 }
 
 #asideFilterBlock {
-  grid-column-start: 1;
-  grid-column-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 2;
 
   grid-row-start: 1;
   grid-row-end: 2;
@@ -61,8 +61,8 @@ header,
 }
 
 #movieListBlock {
-  grid-column-start: 4;
-  grid-column-end: 2;
+    grid-column-start: 4;
+    grid-column-end: 2;
 
   grid-row-start: 1;
   grid-row-end: 2;
@@ -74,12 +74,12 @@ header,
 }
 
 #defaultSection.asideClose {
-  grid-template-columns: 10rem auto;
+    grid-template-columns: 10rem auto;
 }
 
 #defaultSection.asideClose #asideFilterBox {
-  width: 9rem;
-  transition: width 200ms ease;
+    width: 9rem;
+    transition: width 200ms ease;
 }
 
 #defaultSection aside.closeBox #filterBox {
@@ -158,13 +158,13 @@ input {
 
 h2,
 label {
-  color: rgb(227, 193, 182);
-  letter-spacing: 2px;
+    color: rgb(227, 193, 182);
+    letter-spacing: 2px;
 }
 
 h2 {
-  text-align: center;
-  text-transform: uppercase;
+    text-align: center;
+    text-transform: uppercase;
 }
 
 aside .filterBlock {
@@ -175,12 +175,12 @@ aside .filterBlock {
 
 /* Side Panel Button */
 #filterCloseButton {
-  display: grid;
-  position: absolute;
-  top: 88vh;
-  width: 4em;
-  background-color: rgba(178, 86, 69, 0.55);
-  border: 1px solid rgba(178, 86, 69, 0.3);
+    display: grid;
+    position: absolute;
+    top: 88vh;
+    width: 4em;
+    background-color: rgba(178, 86, 69, 0.55);
+    border: 1px solid rgba(178, 86, 69, 0.3);
 }
 
 #filterCloseButton:hover {
@@ -198,6 +198,7 @@ aside .filterBlock {
   margin-top: 15px;
   margin-bottom: 20px;
 }
+
 .filterRow label {
   display: flex;
   align-items: center;
@@ -211,7 +212,7 @@ aside .filterBlock {
 }
 
 .filterRow input[type="number"] {
-  width: 80%;
+    width: 80%;
 }
 
 .filterTitle {
@@ -234,8 +235,8 @@ aside .filterBlock {
 }
 
 .rangeDescription span {
-  color: rgb(227, 193, 182);
-  font-size: 9pt;
+    color: rgb(227, 193, 182);
+    font-size: 9pt;
 }
 
 /*CSS code url: https://www.w3schools.com/howto/howto_js_rangeslider.asp*/
@@ -343,6 +344,11 @@ aside .filterBlock {
   width: 90%;
 }
 
+#filterBox {
+    display: fixed;
+    justify-content: stretch;
+}
+
 .matchesRow {
   display: grid;
   grid-template-columns: 1fr 3fr 1.5fr 1fr 1.5fr;
@@ -357,9 +363,11 @@ aside .filterBlock {
 section .matchesRow::-webkit-scrollbar {
     width: 0.5rem;
 }
+
 section .matchesRow::-webkit-scrollbar-track {
     background-color: rgba(178, 86, 69, 0.4);
 }
+
 section .matchesRow::-webkit-scrollbar-thumb {
     background-color: rgb(99, 47, 45);
 }
@@ -367,7 +375,7 @@ section .matchesRow::-webkit-scrollbar-thumb {
 #titleLabel,
 #yearLabel,
 #ratingLabel {
-  text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 .multiRowInput input[type="number"] {
@@ -380,9 +388,9 @@ section .matchesRow::-webkit-scrollbar-thumb {
 }
 
 .matchesRow span {
-  color: rgb(227, 193, 182);
-  font-weight: 200;
-  letter-spacing: 2px;
+    color: rgb(227, 193, 182);
+    font-weight: 200;
+    letter-spacing: 2px;
 }
 
 .matchesRow label:hover {

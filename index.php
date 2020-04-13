@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 	require_once('includes/session-helper.inc.php');
 	
 	if(IsLoggedIn())
@@ -11,6 +12,12 @@
     require_once('includes/config.inc.php');
     
     $posterURL = "https://image.tmdb.org/t/p/w92";
+=======
+// $userName = '';
+// $userId = '';
+// require_once('header.php');
+?>
+>>>>>>> 97554e096ff399ad8778f44a2f8ec7f5529d71f5
 
     $user = GetSessionUser();
 

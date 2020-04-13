@@ -24,7 +24,7 @@ $favoriteMovies = unserialize($_SESSION['Favorites']);
 </head>
 
 <body>
-    <?php printHeader() ?>
+    <?php //printHeader() ?>
     <div class="header">
         <h1>Favourites</h1>
         <a id='removeAllFavorites' class="button" href="favorites/removeAllFavorites.php">Remove All Favorites</a>
