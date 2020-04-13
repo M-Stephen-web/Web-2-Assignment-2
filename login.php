@@ -9,7 +9,7 @@ $attemptLoginFailed = false;
 
 if (isset($_POST['password']) && isset($_POST['email'])) { //Checks if both values are given
     if (LoginUser($_POST['email'], $_POST['password'], $connection)) { //Attempts to login the user
-        header("location:home.php"); //If successful, send them to their home page
+        header("location:index.php"); //If successful, send them to their home page
     } else {
         $attemptLoginFailed = true; //Else, throw error
     }
