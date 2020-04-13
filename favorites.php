@@ -36,7 +36,7 @@ $favoriteMovies = unserialize($_SESSION['Favorites']);
             {
                 echo '<div class="favoriteMovieBlock">';
                     echo '<a class="removeFavoriteButton" href="favorites/removeSingleFavorite.php?movieId='. $movie->id . '">X</a>';
-                    echo '<a href="single-movie.php?movieId="' . $movie->id . '>';
+                    echo '<a href="single-movie.php?movieId=' . $movie->id . '">';
                         echo '<img class="favoriteMovieImage" src="' . $posterURL . $movie->poster_path . '" />';
                         echo '<div class="favoriteMovieTitle">' . $movie->title . '</div>';
                     echo '</a>';
