@@ -1,8 +1,8 @@
 <?php
-// require_once('header.php');
-// require_once('includes/session-helper.inc.php');
+require_once('header.php');
+require_once('includes/session-helper.inc.php');
 
-//$user = GetSessionUser();
+$user = GetSessionUser();
 ?>
 
 <!DOCTYPE html>
@@ -13,11 +13,12 @@
     <title>Browse/Search Movie</title>
 
     <link rel='stylesheet' href='css/default.css'>
+    <link rel='stylesheet' href='css/index.css'>
 </head>
 
 <body>
     <?php  
-        //printHeader(); 
+        printHeader(); 
     ?>
     <section id="defaultSection">    
         <aside id='asideFilterBlock'>
@@ -26,7 +27,7 @@
                     <h2>Movie Filter</h2>
                     <div class='filterBlock'>
                         <label class='filterTitle'>Title</label>
-                        <input id='titleFilterInput' type='text' <?php //if(isset($_GET['movieFilter'])){echo 'value="' . $_GET['movieFilter'] . '"';} ?>/>
+                        <input id='titleFilterInput' type='text' <?php if(isset($_GET['movieFilter'])){echo 'value="' . $_GET['movieFilter'] . '"';} ?>/>
                     </div>
                     <div class='filterBlock'>
                         <label class='filterTitle'>Year</label>

@@ -1,56 +1,56 @@
 <?php
 
-// require_once('includes/db-helper.inc.php');
-// require_once('includes/session-helper.inc.php');
-// require_once('includes/config.inc.php');
+require_once('includes/db-helper.inc.php');
+require_once('includes/session-helper.inc.php');
+require_once('includes/config.inc.php');
 
 //Variables for specific errors
-// $incompleteForm = false; 
-// $passwordMatch = true;
-// $userAlreadyExists = false;
+$incompleteForm = false; 
+$passwordMatch = true;
+$userAlreadyExists = false;
 
-// //Checks if any of the information is given
-// if (isset($_POST['firstname']) || isset($_POST['lastname']) || isset($_POST['city']) || isset($_POST['country']) || isset($_POST['email']) || isset($_POST['password'])) 
-// {
-// 	//Checks if all the information is given and the passwords are the same
-// 	if (isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['city']) && isset($_POST['country']) && isset($_POST['email']) && isset($_POST['password']) && 
-// 		isset($_POST['confirmpassword']) && $_POST['confirmpassword'] == $_POST['password']) 
-// 	{
-// 		$existedUser = getUser($_POST['email'], $connection); //Attempts to get a user with the provided email
+//Checks if any of the information is given
+if (isset($_POST['firstname']) || isset($_POST['lastname']) || isset($_POST['city']) || isset($_POST['country']) || isset($_POST['email']) || isset($_POST['password'])) 
+{
+	//Checks if all the information is given and the passwords are the same
+	if (isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['city']) && isset($_POST['country']) && isset($_POST['email']) && isset($_POST['password']) && 
+		isset($_POST['confirmpassword']) && $_POST['confirmpassword'] == $_POST['password']) 
+	{
+		$existedUser = getUser($_POST['email'], $connection); //Attempts to get a user with the provided email
 
-// 		if ($existedUser == null) //If the attempt to get the user failed, then create the new user
-// 		{
-// 			//Create the new user object
-// 			$userData = array();
+		if ($existedUser == null) //If the attempt to get the user failed, then create the new user
+		{
+			//Create the new user object
+			$userData = array();
 
-// 			$userData['firstname'] = $_POST['firstname'];
-// 			$userData['lastname'] = $_POST['lastname'];
-// 			$userData['city'] = $_POST['city'];
-// 			$userData['country'] = $_POST['country'];
-// 			$userData['email'] = $_POST['email'];
-// 			$userData['password'] = password_hash($_POST['password'], PASSWORD_BCRYPT, ['cost' => 12]);
+			$userData['firstname'] = $_POST['firstname'];
+			$userData['lastname'] = $_POST['lastname'];
+			$userData['city'] = $_POST['city'];
+			$userData['country'] = $_POST['country'];
+			$userData['email'] = $_POST['email'];
+			$userData['password'] = password_hash($_POST['password'], PASSWORD_BCRYPT, ['cost' => 12]);
 
-// 			$user = new User($userData);
+			$user = new User($userData);
 
-// 			if (RegisterUser($user, $connection)) { //Attemot to create the user
-// 				header("location:login.php"); //if successul, prompt them to login
-// 			}
-// 		} 
-// 		else //Else there already exists a user, turn userAlreadyExists to true
-// 		{
-// 			$userAlreadyExists = true;
-// 		}
-// 	}
-// 	//If the password and confirm password do exist, but do not match then turn passwordMatch variable to false
-// 	else if (isset($_POST['password']) && isset($_POST['confirmpassword']) && $_POST['confirmpassword'] != $_POST['password']) 
-// 	{
-// 		$passwordMatch = false;
-// 	}
-// } 
-// else 
-// {
-// 	$incompleteForm = true;
-// }
+			if (RegisterUser($user, $connection)) { //Attemot to create the user
+				header("location:login.php"); //if successul, prompt them to login
+			}
+		} 
+		else //Else there already exists a user, turn userAlreadyExists to true
+		{
+			$userAlreadyExists = true;
+		}
+	}
+	//If the password and confirm password do exist, but do not match then turn passwordMatch variable to false
+	else if (isset($_POST['password']) && isset($_POST['confirmpassword']) && $_POST['confirmpassword'] != $_POST['password']) 
+	{
+		$passwordMatch = false;
+	}
+} 
+else 
+{
+	$incompleteForm = true;
+}
 ?>
 
 <!DOCTYPE html>

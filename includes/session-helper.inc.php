@@ -49,7 +49,7 @@
 
 				$favoriteMovies = getMoviesByIds($favoriteMovieIds, $connection); //Passes the ids from above to get the movies
 
-				$_SESSION['Favorites'] = $favoriteMovies;
+				$_SESSION['Favorites'] = serialize($favoriteMovies);
 				
 				return true; //Return true if successfully saved the user to session
 			}
