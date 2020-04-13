@@ -26,19 +26,19 @@
                 <h2>User Information</h2>
                 <div id="userInfoBox">
                     <div>
-                        Firstname: <?php echo $user->firstname ?>
+                        Firstname: <?php //echo $user->firstname ?>
                     </div>
                     <div>
-                        Lastname: <?php echo $user->lastname ?>
+                        Lastname: <?php //echo $user->lastname ?>
                     </div>
                     <div>
-                        City: <?php echo $user->city ?>
+                        City: <?php //echo $user->city ?>
                     </div>
                     <div>
-                        Country: <?php echo $user->country ?>
+                        Country: <?php //echo $user->country ?>
                     </div>
                     <div>
-                        Email: <?php echo $user->email ?>
+                        Email: <?php //echo $user->email ?>
                     </div>
                 </div>
             </div>
