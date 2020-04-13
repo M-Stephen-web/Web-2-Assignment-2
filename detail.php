@@ -1,5 +1,8 @@
 <?php
 // require_once('header.php');
+// require_once('includes/session-helper.inc.php');
+
+//$user = GetSessionUser();
 ?>
 
 <head>
@@ -17,11 +20,10 @@
     //printHeader()
     ?>
     <main>
-        <header>TEMPORARY</header>
         <section id='leftBlock'>
             <h1 id='movieDetailTitle'>Movie Title</h1>
             <div class='favorite'>
-                <button id='addFavButton'>:heart:</button>
+                <center><button id='addFavButton'></button></center>
             </div>
             <p id='movieDetailReleaseDate'>Release Date: </p>
             <p id='movieDetailRevenue'>Revenue: </p>
