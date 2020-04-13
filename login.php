@@ -3,15 +3,15 @@
 // require_once('includes/session-helper.inc.php');
 // require_once('includes/config.inc.php');
 
-$attemptLoginFailed = false;
+// $attemptLoginFailed = false;
 
-if (isset($_POST['password']) && isset($_POST['email'])) {
-    if (LoginUser($_POST['email'], $_POST['password'], $connection)) {
-        header("location:index.php");
-    } else {
-        $attemptLoginFailed = true;
-    }
-}
+// if (isset($_POST['password']) && isset($_POST['email'])) {
+//     if (LoginUser($_POST['email'], $_POST['password'], $connection)) {
+//         header("location:index.php");
+//     } else {
+//         $attemptLoginFailed = true;
+//     }
+// }
 ?>
 <!DOCTYPE html>
 <html lang=en>
@@ -29,9 +29,9 @@ if (isset($_POST['password']) && isset($_POST['email'])) {
     <div class="box">
         <form method="post" action="login.php">
             <h2>Sign In</h2>
-            <?php if ($attemptLoginFailed == true) {
-                //echo '<p>Either the usernmane or password is incorrect</p>';
-            } ?>
+            <?php //if ($attemptLoginFailed == true) {
+                //echo '<p>Either the usernmane or password is incorrect</p>';} 
+            ?>
             <input type="text" name="email" placeholder="Enter Email" required>
             <input type="password" name="password" placeholder="Enter Password" required>
             <input type="submit" name="Login" value="Sign in">
