@@ -1,4 +1,6 @@
 <?php
+	//This page's purpose is to get all movies the user has favorited
+	
     //https://www.techiediaries.com/php-rest-api/
     header("Content-Type: application/json; charset=UTF-8");
 
@@ -7,24 +9,24 @@
     require_once('../includes/class-helper.inc.php');
     require_once('../includes/session-helper.inc.php');
     
-	$payload = null;
+	$payload = null; //Declare the payload variable
 	
-	if(IsLoggedIn())
+	if(IsLoggedIn())//Checks if the user is logged in
 	{
-		$User = GetSessionUser();
+		$User = GetSessionUser(); //Gets current user
 
 		$movieIds = getFavoriteMovieIds($User, $connection); //Get all the movie ids the user has favorited
 
-		$movies = getMoviesByIds($movieIds, $connection);
+		$movies = getMoviesByIds($movieIds, $connection); //Passes the ids from above to get the movies
 		
-		$payload = new Payload(true, $movies, null);
+		$payload = new Payload(true, $movies, null); //Puts all the movies into the payload
 	}
 	else
-	{
+	{//Throw error if a database error occured
 		$payload = new Payload(false, null, "Error! DB error!");
 	}
 
-    $json = json_encode($payload);
+    $json = json_encode($payload); //Encode the payload in json
 
-    echo $json;
+    echo $json; //Return the json
 ?>

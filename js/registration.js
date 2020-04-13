@@ -1,5 +1,7 @@
-document.addEventListener("DOMContentLoaded", function() {
 
+
+document.addEventListener("DOMContentLoaded", function() {
+    
     let firstname = document.querySelector("#first");
     let lastname = document.querySelector("#lname");
     let city = document.querySelector("#city");
@@ -16,6 +18,8 @@ document.addEventListener("DOMContentLoaded", function() {
     let emailerror = document.querySelector("#emailerror");
     let passerror = document.querySelector("#passerror");
     let confirmerror = document.querySelector("#confirmerror");
+
+    console.log(firsterror);
     
     
     //Event listeners that create alerts when the error exclamations are clicked
@@ -83,45 +87,49 @@ document.addEventListener("DOMContentLoaded", function() {
     //Form validation on click of the submit button
     
     submit.addEventListener('click', function() {
+        console.log(document.querySelector("#first"));
         if (firstname.value == ""){
             firsterror.style.display = "block";
-            return;
+            return false;
         }
 
         if (lastname.value == ""){
             lasterror.style.display = "block";
-            return;
+            return false;
         }
 
         if (city.value == ""){
             cityerror.style.display = "block";
-            return;
+            return false;
         }
         
-        if (country.value == "default"){
+        if (country.value == ""){
             countryerror.style.display = "block";
-            return;
+            return false;
         }
 
         if (validateEmail(email) == false){
-            return;
+            return false;
         }
         
        
         if (confirm.value != password.value){
             confirmerror.style.display = "block";
-            return;
+            return false;
         }
             
         else {
             passerror.style.display = "block";
-            return;
+            return false;
         }
+        return true;
     });
 
 });
 
+//This function was taken from w3resource "JavaScript: HTML Form - email validation" https://www.w3resource.com/javascript/form/email-validation.php
 validateEmail = (email) => {
+    //https://www.w3resource.com/javascript/form/email-validation.php Reference for regular expression
     let eformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (email.value.match(eformat)){
         return true;
@@ -131,3 +139,6 @@ validateEmail = (email) => {
         return false;
     }
 }
+
+
+

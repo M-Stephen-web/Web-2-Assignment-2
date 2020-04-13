@@ -1,21 +1,25 @@
 <?php
-header("Content-Type: application/json; charset=UTF-8");
+    //This page's purpose is to get recommended movies for the current user
 
-require_once('../includes/db-helper.inc.php');
-require_once('../includes/config.inc.php');
-require_once('../includes/class-helper.inc.php');
-require_once('../includes/recommend-helper.inc.php');
+    //https://www.techiediaries.com/php-rest-api/ For the structure of creating an API
+    header("Content-Type: application/json; charset=UTF-8");
+
+    require_once('../includes/db-helper.inc.php');
+    require_once('../includes/config.inc.php');
+    require_once('../includes/class-helper.inc.php');
+    require_once('../includes/recommend-helper.inc.php');
 
 
-if (IsLoggedIn()) {
+    if (IsLoggedIn()) { //Checks is the user is logged in
 
-    $recommended = getRecommendedMovies($connection); #this will be the name of the function to create a list of recommendations
+        $recommended = getRecommendedMovies($connection); //Get all the recommended movies
 
-    $payload = new Payload(true, $recommended, null);
-} else {
-    $payload = new Payload(false, null, "Error getting list of recommendations");
-}
+        $payload = new Payload(true, $recommended, null);//Put the movies in a payload
+    } else {//Give error if an error does occur
+        $payload = new Payload(false, null, "Error getting list of recommendations");
+    }
+    
+    $json = json_encode($payload); //Encode the payload in json
 
-$json = json_encode($payload);
-
-echo $json;
+    echo $json; //Return the json
+?>
