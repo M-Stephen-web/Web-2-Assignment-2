@@ -61,7 +61,7 @@ if(isset($_SESSION['Favorites']))
                 {
                     echo "
                         <div class='favorite'>
-                            <center><a href='favorites/addSingleFavorite.php?movieId=". $movie->id ."'><button id='addFavButton' class='selected'></button></a></center>
+                            <center><button id='addFavButton' class='selected'></button></center>
                         </div>
                     ";
                 }
