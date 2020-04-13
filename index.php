@@ -68,10 +68,10 @@
 							{
 								echo 
 								"<div class='favoriteMovieBlock'>
-									<a class='imageAnchor' href='detail.php?movieId=" . $movie->id . "'>
+									<a class='imageAnchor' href='single-movie.php?movieId=" . $movie->id . "'>
 										<img src='" . $posterURL . $movie->poster_path . "' />
 									</a>
-									<a class='imageAnchor' href='detail.php?movieId=" . $movie->id . "'>
+									<a class='imageAnchor' href='single-movie.php?movieId=" . $movie->id . "'>
 										".$movie->title."
 									</a>
 								</div>";
@@ -83,7 +83,7 @@
 			<div id="homeGridRight">
 				<div class="transparentBox" id="searchBox">
 					<h2>Search Box For Movies</h2>
-					<form method="GET" action="default.php">
+					<form method="GET" action="browse-movies.php">
 						<input id="movieSearch" name="movieFilter">
 					</form>
 				</div>
@@ -95,10 +95,10 @@
 							{
 								echo 
 								"<div class='favoriteMovieBlock'>
-									<a class='imageAnchor' href='detail.php?movieId=" . $movie->id . "'>
+									<a class='imageAnchor' href='single-movie.php?movieId=" . $movie->id . "'>
 										<img src='" . $posterURL . $movie->poster_path . "' />
 									</a>
-									<a class='imageAnchor' href='detail.php?movieId=" . $movie->id . "'>
+									<a class='imageAnchor' href='single-movie.php?movieId=" . $movie->id . "'>
 										".$movie->title."
 									</a>
 								</div>";
@@ -134,7 +134,7 @@ else{
 					<a href="login.php" id="login" class="button">Login</a>
 					<a href="registration.php" id="join" class="button">Join</a>
 				</div>
-				<form action="default.php" method="get">
+				<form action="browse-movies.php" method="get">
 					<input type='text' name="movieFilter" id='searchBox' placeholder='Search box for Movies' />
 				</form>
 			</div>

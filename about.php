@@ -25,7 +25,13 @@
             <a href="https://github.com/namuun39">Namuun Amarkhuu</a>
         </p>
         <p class="card2">
-            you can find the repo for this project <a href="https://github.com/M-Stephen-web/Web-2-Assignment-2">here</a>
+            You can find the repo for this project <a href="https://github.com/M-Stephen-web/Web-2-Assignment-2">here</a> <br/>
+            This website will allow you to look through movies in the DataBase and will be able to be added as a favourite once a user signs in. <br/>
+            COMP 3512 - 001 <br/>
+            Randy Connolly <br/>
+            Mount Royal University <br/>
+            Winter 2020 + 3rd year<br/>
+            HTML, CSS, JavaScript, PHP, SQL, XAMPP, Google Cloud Platform...<br/>
         </p>
     </center>
 
