@@ -1,25 +1,10 @@
 <?php
-<<<<<<< HEAD
-	require_once('includes/session-helper.inc.php');
-	
-	if(IsLoggedIn())
-	{
-		
-    require_once('header.php');
-    require_once('includes/session-helper.inc.php');
-    require_once('includes/recommend-helper.inc.php');
-    require_once('includes/db-helper.inc.php');
-    require_once('includes/config.inc.php');
-    
-    $posterURL = "https://image.tmdb.org/t/p/w92";
-=======
 // $userName = '';
 // $userId = '';
 // require_once('header.php');
 ?>
->>>>>>> 97554e096ff399ad8778f44a2f8ec7f5529d71f5
 
-    $user = GetSessionUser();
+    <!-- $user = GetSessionUser();
 
     $recommendedMovies = getRecommendedMovies($connection);
 
@@ -31,7 +16,7 @@
     {
         $favoritedMovies = [];
     }
-?>
+?> -->
 	<!DOCTYPE html>
 	<html>
 
@@ -43,7 +28,7 @@
 
 		<body>
 		<?php  
-			printHeader(); 
+			//printHeader(); 
 		?>
 		<div id="homeGridBlock">
 			<div id="homeGridLeft">
@@ -119,8 +104,8 @@
 	<footer></footer>
 	</html>
 <?php
-}
-else{
+// }
+// else{
 	?>
 	<!DOCTYPE html>
 	<html>
@@ -151,5 +136,5 @@ else{
 	
 	</html>
 <?php
-}
+
 ?>

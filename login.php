@@ -5,17 +5,6 @@
 
 
 //Variable for specific errors
-<<<<<<< HEAD
-$attemptLoginFailed = false;
-
-if (isset($_POST['password']) && isset($_POST['email'])) { //Checks if both values are given
-    if (LoginUser($_POST['email'], $_POST['password'], $connection)) { //Attempts to login the user
-        header("location:index.php"); //If successful, send them to their home page
-    } else {
-        $attemptLoginFailed = true; //Else, throw error
-    }
-}
-=======
 // $attemptLoginFailed = false;
 
 // if (isset($_POST['password']) && isset($_POST['email'])) { //Checks if both values are given
@@ -25,7 +14,6 @@ if (isset($_POST['password']) && isset($_POST['email'])) { //Checks if both valu
 //         $attemptLoginFailed = true; //Else, throw error
 //     }
 // }
->>>>>>> 97554e096ff399ad8778f44a2f8ec7f5529d71f5
 ?>
 <!DOCTYPE html>
 <html lang=en>

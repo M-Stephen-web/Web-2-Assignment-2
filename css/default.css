@@ -175,6 +175,7 @@ aside .filterBlock {
 
 /* Side Panel Button */
 #filterCloseButton {
+    content: '';
     display: grid;
     position: absolute;
     top: 88vh;
