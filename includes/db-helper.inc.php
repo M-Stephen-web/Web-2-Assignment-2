@@ -505,7 +505,7 @@
 
 	function getTopRecommendedMoviesSQL()  //SQL query to get all top recommended movies by sorting them by year and then vote_average,ut only take 15
 	{
-		$sql = "SELECT id, title, release_date, vote_average FROM movie ORDER BY  SUBSTRING(release_date,1,4) DESC, vote_average DESC LIMIT 15;";
+		$sql = "SELECT id, title, release_date, vote_average, poster_path FROM movie ORDER BY  SUBSTRING(release_date,1,4) DESC, vote_average DESC LIMIT 15;";
 
 		return $sql;
 	}

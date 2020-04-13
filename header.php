@@ -15,4 +15,4 @@
 //         <a href='registration.php' class='button' id='signupButton'>Sign Up</a>";
 //     }
 //     echo "</header>";
-}
+//}

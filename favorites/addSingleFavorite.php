@@ -22,9 +22,9 @@ if(isset($_GET['movieId']) && IsLoggedIn()) //Checks if user is logged in and th
 
         foreach($favoriteMovies as $movie) //Checks if movie is already added
         {
-            if($movie->id = $addMovieId)
+            if($movie->id == $addMovieId)
             {
-                header('Location: ' . $_SERVER["HTTP_REFERER"]);
+                header('Location: ../detail.php?movieId=' . $addMovieId);
             }
         }
     }
@@ -40,7 +40,7 @@ if(isset($_GET['movieId']) && IsLoggedIn()) //Checks if user is logged in and th
         $_SESSION['Favorites'] = serialize($favoriteMovies);
     }
 
-    header('Location: ' . $_SERVER["HTTP_REFERER"]);
+    header('Location: ../detail.php?movieId=' . $addMovieId);
 }
 
 function addToDatabase($movieId, $user, $connection)
