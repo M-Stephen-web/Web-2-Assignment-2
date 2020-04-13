@@ -85,6 +85,7 @@ input[type="submit"]:hover {
 
 p {
   color: rgb(190, 72, 58);
+  font-size: 20pt;
 }
 
 form ul li label {
@@ -103,8 +104,13 @@ li {
 
 li p {
   display: none;
-  font-size: 16pt;
+  font-size: 25pt;
+  float: right;
 }
+
+/*#confirmerror{
+  display: block;
+}*/
 
 li p:hover {
   cursor: help;
@@ -121,6 +127,30 @@ footer:after {
   font-style: italic;
   font-size: 9.5pt;
 }
+@media only screen and (max-width: 500px) {
+  .box {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    padding: 15px;
+    max-width: 90vw;
+    margin-bottom: 40px;
+  }
+
+footer:after {
+  content: "Photo by Johannes Plenio on Unsplash";
+  color: rgb(222, 162, 145);
+  position: fixed;
+  bottom: 0;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  letter-spacing: 2px;
+  font-style: italic;
+  font-size: 9.5pt;
+}
+}
+
 @media only screen and (max-width: 500px) {
   .box {
     position: relative;
