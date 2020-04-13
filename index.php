@@ -1,8 +1,16 @@
 <?php
-// $userName = '';
-// $userId = '';
-// require_once('header.php');
-?>
+	require_once('includes/session-helper.inc.php');
+	
+	if(IsLoggedIn())
+	{
+		
+    require_once('header.php');
+    require_once('includes/session-helper.inc.php');
+    require_once('includes/recommend-helper.inc.php');
+    require_once('includes/db-helper.inc.php');
+    require_once('includes/config.inc.php');
+    
+    $posterURL = "https://image.tmdb.org/t/p/w92";
 
     <!-- $user = GetSessionUser();
 

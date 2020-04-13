@@ -1,6 +1,8 @@
 <?php
 	//This page's purpose is to connect the database to the rest of the php pages
 
+	require_once('class-helper.inc.php');
+
 	/*
 	Base run query function that runs query strings to the database.
 	

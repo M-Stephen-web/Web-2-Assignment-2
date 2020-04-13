@@ -1,10 +1,10 @@
 <?php
 	//This page's purpose is to deal with anything session related
 
-	// session_start();
+	session_start();
 
-	// require_once('class-helper.inc.php'); //To handle User classes
-    // require_once('config.inc.php'); //To have access to the connection variable
+	require_once('class-helper.inc.php'); //To handle User classes
+    require_once('config.inc.php'); //To have access to the connection variable
 	
 	
 	/*
