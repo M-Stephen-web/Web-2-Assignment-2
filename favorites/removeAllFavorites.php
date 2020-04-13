@@ -15,7 +15,7 @@
         }
     }
 
-    header('Location: favorites.php');
+    header('Location: ../favorites.php');
 
 
     function deleteFromDatabase($connection)

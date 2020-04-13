@@ -66,16 +66,16 @@
                 }
             }
     
-            $recommendedMovieIds = [];
+            // $recommendedMovieIds = [];
     
-            foreach($recommendedMovies as $movie)
-            {
-                $recommendedMovieIds[] = $movie->id;
-            }
+            // foreach($recommendedMovies as $movie)
+            // {
+            //     $recommendedMovieIds[] = $movie->id;
+            // }
     
-            $recommendedMoviesFull = getMoviesByIds($recommendedMovieIds, $connection);
+            // $recommendedMoviesFull = getMoviesByIds($recommendedMovieIds, $connection);
     
-            return $recommendedMoviesFull; //Return movies
+            return $recommendedMovies; //Return movies
         }
     }
 

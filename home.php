@@ -1,11 +1,25 @@
 <?php 
 
-    // require_once('header.php');
-    // require_once('includes/session-helper.inc.php');
+    require_once('header.php');
+    require_once('includes/session-helper.inc.php');
+    require_once('includes/recommend-helper.inc.php');
+    require_once('includes/db-helper.inc.php');
+    require_once('includes/config.inc.php');
+    
+    $posterURL = "https://image.tmdb.org/t/p/w92";
 
-    //$user = GetSessionUser();
+    $user = GetSessionUser();
 
+    $recommendedMovies = getRecommendedMovies($connection);
 
+    if(isset($_SESSION['Favorites']))
+    {
+        $favoritedMovies = unserialize($_SESSION['Favorites']);
+    }
+    else
+    {
+        $favoritedMovies = [];
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,7 +32,7 @@
 
 <body>
     <?php  
-        //printHeader(); 
+        printHeader(); 
     ?>
     <div id="homeGridBlock">
         <div id="homeGridLeft">
@@ -45,7 +59,20 @@
             <div class="transparentBox">
                 <h2>Favorites</h2>
                 <div id="favoriteMoviesBox">
-
+                    <?php
+                        foreach($favoritedMovies as $movie)
+                        {
+                            echo 
+                            "<div class='favoriteMovieBlock'>
+                                <a class='imageAnchor' href='detail.php?movieId=" . $movie->id . "'>
+                                    <img src='" . $posterURL . $movie->poster_path . "' />
+                                </a>
+                                <a class='imageAnchor' href='detail.php?movieId=" . $movie->id . "'>
+                                    ".$movie->title."
+                                </a>
+                            </div>";
+                        }
+                    ?>
                 </div>
             </div>
         </div>
@@ -59,11 +86,25 @@
             <div class="transparentBox">
                 <h2>Recommendations</h2>
                 <div id="recommendations">
+                    <?php
+                        foreach($recommendedMovies as $movie)
+                        {
+                            echo 
+                            "<div class='favoriteMovieBlock'>
+                                <a class='imageAnchor' href='detail.php?movieId=" . $movie->id . "'>
+                                    <img src='" . $posterURL . $movie->poster_path . "' />
+                                </a>
+                                <a class='imageAnchor' href='detail.php?movieId=" . $movie->id . "'>
+                                    ".$movie->title."
+                                </a>
+                            </div>";
+                        }
+                    ?>
                 </div>
             </div>
         </div>
     </div>
 </body>
 <footer></footer>
-<script src='js/home.js'></script>
+<!--<script src='js/home.js'></script>-->
 </html>
