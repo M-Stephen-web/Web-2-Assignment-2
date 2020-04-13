@@ -24,7 +24,7 @@ if(isset($_GET['movieId']) && IsLoggedIn()) //Checks if user is logged in and th
         {
             if($movie->id == $addMovieId)
             {
-                header('Location: ../detail.php?movieId=' . $addMovieId);
+                header('Location: ../single-movie.php?movieId=' . $addMovieId);
             }
         }
     }
@@ -40,7 +40,7 @@ if(isset($_GET['movieId']) && IsLoggedIn()) //Checks if user is logged in and th
         $_SESSION['Favorites'] = serialize($favoriteMovies);
     }
 
-    header('Location: ../detail.php?movieId=' . $addMovieId);
+    header('Location: ../single-movie.php?movieId=' . $addMovieId);
 }
 
 function addToDatabase($movieId, $user, $connection)
