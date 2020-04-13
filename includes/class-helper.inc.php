@@ -1,10 +1,11 @@
 <?php
+	//This page's purpose is to define all the classes to be used for this website
 
-	class User
+	class User //Class to represent the user table
 	{
 		function __construct($userData)
 		{
-			if($userData['id'] != null)
+			if($userData['id'] != null) //Will not always have Id, such as when creating a new user
 			{
 				$this->id = $userData['id'];
 			}
@@ -26,11 +27,12 @@
 		
 	}
 	
-	class Movie
+	class Movie //Class to represen the movies table
 	{
 		function __construct($sqlResult)
 		{
 			$this->id = $sqlResult['id'];
+			//Will not always have the rest of the data below
 			if(isset($sqlResult['tmdb_id']))
 			{
 				$this->tmdb_id = $sqlResult['tmdb_id'];
@@ -126,7 +128,7 @@
 		public $crew;
 	}
 
-	class Payload
+	class Payload //Class to represent the way information is sent through APIs
 	{
 		function __construct($isSuccessful, $data, $errorMessage)
 		{
@@ -141,7 +143,7 @@
 
 	}
 	
-	class Favorite
+	class Favorite //Class to represent the favorites table
 	{
 		function __construct($userId, $movieId)
 		{

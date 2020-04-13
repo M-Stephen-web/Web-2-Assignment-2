@@ -1,64 +1,124 @@
 <?php
-// require_once('header.php');
+require_once('header.php');
+require_once('includes/session-helper.inc.php');
+require_once('includes/db-helper.inc.php');
+require_once('includes/config.inc.php');
+
+$posterURL = 'https://image.tmdb.org/t/p/w500';
+$largerPosterURL = 'https://image.tmdb.org/t/p/w780';
+
+$user = GetSessionUser();
+
+$movie = null;
+
+if(isset($_GET['movieId']))
+{
+    $movie = getMovieDetail($_GET['movieId'], $connection);
+}
+
+if($movie == null)
+{
+    header('Location: home.php');
+}
 ?>
 
 <head>
     <meta charset='utf-8' />
-    <title>Movie Browser</title>
+    <title>Single Movie - </title>
 
     <link rel='stylesheet' href='css/detail.css'>
 </head>
 
 <body>
     <?php
-    if (isset($_GET['movieId'])) {
-        echo '<input id="movieId" value="' . $_GET['movieId'] . '" />';
-    }
-    //printHeader()
+        printHeader()
     ?>
     <main>
-        <header>TEMPORARY</header>
         <section id='leftBlock'>
-            <h1 id='movieDetailTitle'>Movie Title</h1>
+            <h1 id='movieDetailTitle'><?php echo $movie->title ?></h1>
             <div class='favorite'>
-                <button id='addFavButton'>:heart:</button>
+                <center><button id='addFavButton'></button></center>
             </div>
-            <p id='movieDetailReleaseDate'>Release Date: </p>
-            <p id='movieDetailRevenue'>Revenue: </p>
-            <p id='movieDetailRuntime'>Runtime: </p>
-            <p id='movieDetailTagline'>Tagline: </p>
-            <p id='movieDetailIMDBLabel'>IMDB Link: <a id='movieDetailIMDBLink'></a></p>
-            <p id='movieDetailTMDBLabel'>TMDB Link: <a id='movieDetailTMDBLink'></a></p>
+            <p id='movieDetailReleaseDate'>Release Date: <?php echo $movie->release_date ?></p>
+            <p id='movieDetailRevenue'>Revenue: 
+                <?php 
+                    //https://www.php.net/manual/en/function.number-format.php For the number_format function
+                    echo '$'.number_format($movie->revenue) 
+                ?>
+            </p>
+            <p id='movieDetailRuntime'>Runtime: 
+                <?php 
+                    //https://www.w3schools.com/PHP/func_math_floor.asp For the floor function
+                    $hours =  floor($movie->runtime/60);
+                    $minutes = $movie->runtime - 60*$hours;
+                    
+                    echo $hours . "h " . $minutes ."m";
+                ?>
+            </p>
+            <p id='movieDetailTagline'>Tagline: <?php echo $movie->tagline ?></p>
+            <p id='movieDetailIMDBLabel'>IMDB Link: <a id='movieDetailIMDBLink' href="https://www.imdb.com/title/<?php echo $movie->imdb_id ?>">Link</a></p>
+            <p id='movieDetailTMDBLabel'>TMDB Link: <a id='movieDetailTMDBLink' href=https://www.themoviedb.org/movie/<?php echo $movie->tmdb_id ?>">Link</a></p>
             <div id='movieOtherInfoBlock'>
                 <div class='movieInfoBlock'>
                     <label>Companies</label>
-                    <ul id='companiesList'></ul>
+                    <ul id='companiesList'>
+                        <?php 
+                            $companiesArray = json_decode($movie->production_companies);
+                            foreach($companiesArray as $company)
+                            {
+                                echo "<li>" . $company->name . "</li>";
+                            }
+                        ?>
+                    </ul>
                 </div>
                 <div class='movieInfoBlock'>
                     <label>Countries</label>
-                    <ul id='countriesList'></ul>
+                    <ul id='countriesList'>
+                        <?php 
+                            $countriesArray = json_decode($movie->production_countries);
+                            foreach($countriesArray as $country)
+                            {
+                                echo "<li>" . $country->name . "</li>";
+                            }
+                        ?>
+                    </ul>
                 </div>
                 <div class='movieInfoBlock'>
                     <label>Keywords</label>
-                    <ul id='keywordsList'></ul>
+                    <ul id='keywordsList'>
+                        <?php 
+                            $keywordsArray = json_decode($movie->keywords);
+                            foreach($keywordsArray as $keyword)
+                            {
+                                echo "<li>" . $keyword->name . "</li>";
+                            }
+                        ?>
+                    </ul>
                 </div>
                 <div class='movieInfoBlock'>
                     <label>Genres</label>
-                    <ul id='genresList'></ul>
+                    <ul id='genresList'>
+                        <?php 
+                            $genresArray = json_decode($movie->genres);
+                            foreach($genresArray as $genre)
+                            {
+                                echo "<li>" . $genre->name . "</li>";
+                            }
+                        ?>
+                    </ul>
                 </div>
             </div>
         </section>
         <section id='middleBlock'>
-            <center><button id='closeDetailPageButton'>Close</button></center>
             <center id='movieDetailPosterBlock'>
-                <img id='movieDetailPoster' />
+                <img id='movieDetailPoster' src="<?php echo $posterURL . $movie->poster_path ?>" />
                 <!-- Imported HTML Code URL: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal-->
                 <!-- The Modal -->
                 <div id='largerPosterModel' class='modal'>
                     <!-- Modal content -->
                     <div class='modal-content'>
                         <span class='close'>&times;</span>
-                        <img id='largerMovieDetailPoster' />
+                        <img id='largerMovieDetailPoster' src="<?php echo $largerPosterURL . $movie->poster_path ?>" />
                     </div>
                 </div>
                 <!-- End of Imported HTML Code -->
@@ -75,7 +135,24 @@
                     <span></span>
                     <span>Name</span>
                 </div>
-                <div id='castListContent'></div>
+                <div id='castListContent'>
+                    <?php
+                        $castArray = json_decode($movie->cast);
+                        foreach($castArray as $cast)
+                        {
+                            echo "<div class='contentRow'>
+                                <span>
+                                    " . $cast->character . "
+                                </span>
+                                <span>
+                                </span>
+                                <span>
+                                    " . $cast->name . "
+                                </span>
+                            </div>";
+                        }
+                    ?>
+                </div>
             </div>
             <div class='tabContentBlock' id='crewList'>
                 <div class='contentRow'>
@@ -83,7 +160,25 @@
                     <span>Job</span>
                     <span>Name</span>
                 </div>
-                <div id='crewListContent'></div>
+                <div id='crewListContent'>
+                    <?php
+                        $crewArray = json_decode($movie->crew);
+                        foreach($crewArray as $crew)
+                        {
+                            echo "<div class='contentRow'>
+                                <span>
+                                    " . $crew->department . "
+                                </span>
+                                <span>
+                                    " . $crew->job . "
+                                </span>
+                                <span>
+                                    " . $crew->name . "
+                                </span>
+                            </div>";
+                        }
+                    ?>
+                </div>
             </div>
         </section>
     </main>

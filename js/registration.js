@@ -129,6 +129,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 //This function was taken from w3resource "JavaScript: HTML Form - email validation" https://www.w3resource.com/javascript/form/email-validation.php
 validateEmail = (email) => {
+    //https://www.w3resource.com/javascript/form/email-validation.php Reference for regular expression
     let eformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (email.value.match(eformat)){
         return true;

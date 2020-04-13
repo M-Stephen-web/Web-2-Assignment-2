@@ -173,8 +173,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
   //Event delgation for when an image, title or button is clicked for a movie, that movie is shown in the detail view
   matchesRowsBlock.addEventListener("click", function (e) {
     if (e.target) {
-      if(e.target.parentNode.getAttribute("movieId") != null)
-      {
+      if (e.target.parentNode.getAttribute("movieId") != null) {
         document.location.href =
           "detail.php?movieId=" + e.target.parentNode.getAttribute("movieId");
       }
@@ -452,17 +451,19 @@ document.addEventListener("DOMContentLoaded", (e) => {
   //Functions to hold the filter block function of hiding and appearing
   const filterCloseButton = document.querySelector("#filterCloseButton");
   const asideFilterBlock = document.querySelector("#asideFilterBlock");
-  const h1asideFilterBlock = document.querySelector("#asideFilterBlock h1");
+  const asideFilterButton = document.querySelector(
+    "#asideFilterBlock #filterCloseButton"
+  );
 
   filterCloseButton.addEventListener("click", function () {
     if (asideFilterBlock.classList.contains("closeBox")) {
       asideFilterBlock.classList.remove("closeBox");
       defaultSection.classList.remove("asideClose");
-      h1asideFilterBlock.innerHTML = "<";
+      asideFilterButton.innerHTML = "<<";
     } else {
       asideFilterBlock.classList.add("closeBox");
       defaultSection.classList.add("asideClose");
-      h1asideFilterBlock.innerHTML = ">";
+      asideFilterButton.innerHTML = ">>";
     }
   });
 });

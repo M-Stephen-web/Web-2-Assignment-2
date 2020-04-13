@@ -1,5 +1,6 @@
 body{
     height: 94vh;
+    position: flex;
 }
 
 #homeGridLeft{
@@ -35,7 +36,7 @@ body{
 
 .transparentBox h2{
     text-align: center;
-    color:white;
+    color: rgb(222, 162, 145);
     font-size: 24px;
     font-weight: 700;
     text-transform: uppercase;
@@ -61,7 +62,7 @@ body{
 }
 
 .favoriteMovieBlock a{
-    color:white;
+    color: rgb(222, 162, 145);
     text-decoration: none;
 }
 
@@ -84,4 +85,17 @@ body{
 
 header{
   margin-bottom: 2em;
+}
+
+/* background image credit design */
+footer:after {
+    content: 'Photo by Johannes Plenio on Unsplash';
+    position: fixed;
+    bottom: 0;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    color: rgb(222, 162, 145);
+    letter-spacing: 2px;
+    font-style: italic;
+    font-size: 9.5pt;
 }
