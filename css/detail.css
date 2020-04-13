@@ -137,6 +137,10 @@ h1 {
     cursor: pointer;
 }
 
+#addFavButton.selected{
+    background-image: url(../images/unheart.jpg);
+}
+
 #addFavButton:hover {
     background-color: rgba(178, 86, 69, 0.5);
     border: 1px solid rgba(178, 86, 69, 0.3);
