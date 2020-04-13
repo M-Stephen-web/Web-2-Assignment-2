@@ -196,12 +196,6 @@ h1 {
     color: rgb(110, 45, 41);
 }
 
-/* #tabButtonBlock .tab.selected:hover {
-    cursor: pointer;
-    background-color: rgba(86, 70, 80, 0.75);
-    border: 1px solid rgba(86, 70, 80, 0.7);
-} */
-
 .tabContentBlock {
     height: 68vh;
     overflow-y: scroll;
