@@ -17,11 +17,11 @@
     //printHeader()
     ?>
     <main>
-        <header>TEMPORARY</header>
+        <!-- <header>TEMPORARY</header> -->
         <section id='leftBlock'>
-            <h1 id='movieDetailTitle'>Movie Title</h1>
             <div class='favorite'>
-                <button id='addFavButton'>:heart:</button>
+                <h1 id='movieDetailTitle'>Movie Title</h1>
+                <center><button id='addFavButton'></button></center>
             </div>
             <p id='movieDetailReleaseDate'>Release Date: </p>
             <p id='movieDetailRevenue'>Revenue: </p>
