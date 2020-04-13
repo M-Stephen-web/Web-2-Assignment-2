@@ -79,7 +79,7 @@ header,
 
 #defaultSection.asideClose #asideFilterBox {
     width: 9rem;
-    transition: width 200ms ease;
+    transition: width 1000ms ease-in-out;
 }
 
 #defaultSection aside.closeBox #filterBox {
@@ -173,18 +173,48 @@ aside .filterBlock {
   height: 100%;
 }
 
+/* animation motion */
+@keyframes blink {
+  0% {
+      transform: scale(0.85);
+      color: black;
+  }
+  50% {
+      transform: scale(1.15);
+      color: rgb(17, 23, 30);
+  }
+  
+  100% {
+    transform: scale(1);
+      color: rgb(30, 37, 44);
+  }
+}
+
 /* Side Panel Button */
 #filterCloseButton {
-    display: grid;
+    padding: 3.5px;
+    text-align: center;
     position: absolute;
     top: 88vh;
     width: 4em;
-    background-color: rgba(178, 86, 69, 0.55);
-    border: 1px solid rgba(178, 86, 69, 0.3);
+    box-shadow: 5px 5px 20px 5px rgba(111, 68, 70, 0.2);
+    background-color: rgba(111, 68, 70, 0.7);
+    border: 1px solid rgba(111, 68, 70, 0.3);
+    border-radius: 3px;
+    font-weight: bolder;
+    font-size: 15px;
+    animation-iteration-count: infinite;
+    animation-name: blink;
+    animation-play-state: running;
+    animation-duration: 5.5s;
+    animation-timing-function: ease-out;
+    animation-direction: alternate;
+    animation-delay: 1s;
 }
 
 #filterCloseButton:hover {
   cursor: pointer;
+  background-color: rgb(111, 68, 70);
 }
 
 #titleFilterInput {

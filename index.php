@@ -12,7 +12,7 @@
     
     $posterURL = "https://image.tmdb.org/t/p/w92";
 
-    $user = GetSessionUser();
+    <!-- $user = GetSessionUser();
 
     $recommendedMovies = getRecommendedMovies($connection);
 
@@ -24,7 +24,7 @@
     {
         $favoritedMovies = [];
     }
-?>
+?> -->
 	<!DOCTYPE html>
 	<html>
 
@@ -36,7 +36,7 @@
 
 		<body>
 		<?php  
-			printHeader(); 
+			//printHeader(); 
 		?>
 		<div id="homeGridBlock">
 			<div id="homeGridLeft">
@@ -112,8 +112,8 @@
 	<footer></footer>
 	</html>
 <?php
-}
-else{
+// }
+// else{
 	?>
 	<!DOCTYPE html>
 	<html>
@@ -144,5 +144,5 @@ else{
 	
 	</html>
 <?php
-}
+
 ?>
